@@ -1,0 +1,14 @@
+.leaflet-container .leaflet-control-attribution {
+  border-radius: 26px;
+}
+.leaflet-control-attribution .attributes-body {
+  height: 36px;
+  line-height: 36px;
+}
+.leaflet-control-attribution .attributes-emblem {
+  height: 36px;
+  width: 36px;
+}
+.emblem-wrap, .emblem-wrap img {
+  height: 20px;
+}
