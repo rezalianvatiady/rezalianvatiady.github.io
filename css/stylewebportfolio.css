@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600&display=swap');
 :root {
-    --yellow: #d8b56c;
+    --yellow: #20C997;
 }
 
 * {
@@ -40,7 +40,7 @@ html::-webkit-scrollbar-thumb {
 }
 
 body {
-    background: #111;
+    background: #dddddd;
     overflow-x: hidden;
     padding-left: 35rem;
 }
@@ -104,16 +104,16 @@ header .user img {
     object-fit: cover;
     margin-top: 10px;
     margin-bottom: 1rem;
-    border: .7rem solid var(--yellow);
+    border: .9rem solid #343A40;
 }
 
 header .user .name {
-    font-size: 3.5rem;
+    font-size: 3.1rem;
     color: #fff;
 }
 
 header .user .post {
-    font-size: 15px;
+    font-size: 13px;
     color: #eee;
 }
 
@@ -177,7 +177,7 @@ header .navbar ul li a:hover {
 
 .home p {
     font-size: 1.6rem;
-    color: #eee;
+    color: #4C4D4D;
     padding: 1rem o;
     text-transform: none;
     text-align: justify;
@@ -200,13 +200,14 @@ header .navbar ul li a:hover {
 
 .about .row .info h3 {
     font-size: 2rem;
-    color: var(--yellow);
+    /* color: var(--yellow); */
+    color: #4C4D4D;
     padding: 1rem 0;
     font-weight: normal;
 }
 
 .about .row .info h3 span {
-    color: #eee;
+    color: #20C997;
     padding: 0 .5rem;
 }
 
@@ -313,13 +314,13 @@ header .navbar ul li a:hover {
 
 .education .box-container .box h3 {
     font-size: 2rem;
-    color: #fff;
+    color: #4C4D4D;
     padding-top: 1.5rem;
 }
 
 .education .box-container .box p {
     font-size: 1.4rem;
-    color: #eee;
+    color: #4C4D4D;
     padding: 1rem 0;
 }
 
