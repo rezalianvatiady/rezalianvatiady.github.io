@@ -10,8 +10,10 @@
 .gallery {
     border-radius: 2rem;
     min-height: 100vh;
-    background: #111111;
+    background: #cccccc;
     padding-bottom: 100px;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
 .gallery .controls {
@@ -68,7 +70,7 @@
     height: 100%;
     width: 100%;
     object-fit: contain;
-    background-color: #fff;
+    background-color: #e9ecef;
 }
 
 .gallery .image-container .image:hover img {
