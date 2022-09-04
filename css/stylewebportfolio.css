@@ -42,7 +42,7 @@ html::-webkit-scrollbar-thumb {
 body {
     background: #dddddd;
     overflow-x: hidden;
-    padding-left: 35rem;
+    padding-left: 30rem;
 }
 
 section {
@@ -88,7 +88,7 @@ header {
     left: 0;
     z-index: 1000;
     height: 100%;
-    width: 35rem;
+    width: 30rem;
     background: #1a1a1a;
     display: flex;
     align-items: center;
@@ -98,17 +98,17 @@ header {
 }
 
 header .user img {
-    height: 17rem;
-    width: 17rem;
+    height: 19rem;
+    width: 19rem;
     border-radius: 50%;
     object-fit: cover;
-    margin-top: 10px;
+    margin-top: 25px;
     margin-bottom: 1rem;
     border: .9rem solid #343A40;
 }
 
 header .user .name {
-    font-size: 3.1rem;
+    font-size: 2.9rem;
     color: #fff;
 }
 
@@ -128,11 +128,11 @@ header .navbar ul {
 
 header .navbar ul li a {
     display: block;
-    padding: 1rem;
-    margin: 1.5rem 0;
+    padding: 0.6rem;
+    margin: 1.5rem 3rem;
     background: #333;
     color: #fff;
-    font-size: 2rem;
+    font-size: 1.8rem;
     border-radius: 5rem;
 }
 
