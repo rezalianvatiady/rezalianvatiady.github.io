@@ -241,14 +241,14 @@ header .navbar ul li a:hover {
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    padding: 1rem 0;
+    padding: 0;
     padding-left: 3rem;
 }
 
 .projects .box-container .box {
-    width: 45rem;
-    margin: 4rem 1rem;
-    padding-left: 4rem;
+    width: 30rem;
+    margin: 0rem 1rem;
+    padding-left: 2rem;
     border-left: .2rem solid #fff;
     position: relative;
 }
