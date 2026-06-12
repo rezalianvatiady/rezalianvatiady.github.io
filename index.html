@@ -230,6 +230,42 @@
       transition: border-color 0.2s, color 0.2s, transform 0.15s;
     }
     .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+    /* Hero Right — Profile Photo */
+    .hero-profile {
+      display: flex; flex-direction: column; align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .hero-photo-wrap {
+      position: relative; width: 160px; height: 160px;
+    }
+    .hero-photo-wrap::before {
+      content: '';
+      position: absolute; inset: -3px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      z-index: 0;
+    }
+    .hero-photo-wrap img {
+      position: relative; z-index: 1;
+      width: 160px; height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--bg);
+    }
+    .hero-photo-fallback {
+      position: relative; z-index: 1;
+      width: 160px; height: 160px;
+      border-radius: 50%;
+      background: var(--surface);
+      border: 3px solid var(--bg);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--display);
+      font-size: 2.8rem; font-weight: 700;
+      color: var(--accent);
+      letter-spacing: -0.05em;
+    }
+
     /* Hero Right — Stats */
     .hero-stats {
       display: grid; grid-template-columns: 1fr 1fr;
@@ -401,6 +437,51 @@
       border: 1px solid rgba(245,158,11,0.2);
       border-radius: 100px;
       padding: 0.2rem 0.7rem;
+    }
+
+    /* ─── PROJECT LINKS ─── */
+    .project-links-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+    }
+    .proj-link-card {
+      display: flex; align-items: center; gap: 1rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+      transition: border-color 0.25s, transform 0.2s, background 0.2s;
+      cursor: pointer;
+    }
+    .proj-link-card:hover {
+      border-color: var(--accent);
+      background: rgba(59,130,246,0.05);
+      transform: translateX(4px);
+    }
+    .proj-link-card > i:first-child {
+      font-size: 1.1rem;
+      color: var(--accent2);
+      width: 20px; flex-shrink: 0;
+    }
+    .proj-link-card > div { flex: 1; min-width: 0; }
+    .proj-link-card h4 {
+      font-size: 0.85rem; font-weight: 600;
+      color: var(--text);
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      margin-bottom: 0.15rem;
+    }
+    .proj-link-card span {
+      font-size: 0.72rem; color: var(--muted);
+      font-family: var(--mono);
+    }
+    .proj-link-arrow {
+      font-size: 0.7rem; color: var(--muted); flex-shrink: 0;
+      transition: color 0.2s;
+    }
+    .proj-link-card:hover .proj-link-arrow { color: var(--accent); }
+    @media (max-width: 700px) {
+      .project-links-grid { grid-template-columns: 1fr; }
     }
 
     /* ─── ZALINOS ─── */
@@ -707,6 +788,13 @@
       </div>
     </div>
     <div class="hero-right">
+      <div class="hero-profile reveal">
+        <div class="hero-photo-wrap">
+          <img src="img/job1.png" alt="Rezalian Vatiady"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="hero-photo-fallback" style="display:none;">RV</div>
+        </div>
+      </div>
       <div class="hero-stats">
         <div class="stat-card reveal">
           <div class="stat-number">4</div>
@@ -923,10 +1011,107 @@
       </div>
 
     </div>
+
+    <!-- Project Presentations from previous work -->
+    <div style="margin-top: 4rem;">
+      <div class="section-label reveal" style="margin-bottom:1.5rem;">RevoU × Tokopedia · Project Presentations</div>
+      <div class="project-links-grid">
+
+        <a href="https://docs.google.com/presentation/d/e/2PACX-1vTIeMuXEQcbAS7DO9ZsEFC9_ntguTnQtu6HBGqBxJXem5Gw-7w1GAwLQ_uWPrCdiK9YZE2KI6Y-iwGJ/embed?start=false&loop=false&delayms=3000" target="_blank" rel="noopener" class="proj-link-card reveal">
+          <i class="fas fa-chart-bar"></i>
+          <div>
+            <h4>KPI Dashboard for C-level, Middle-level &amp; Operational-level</h4>
+            <span>Rezalian Vatiady &amp; Team · RevoU × Tokopedia</span>
+          </div>
+          <i class="fas fa-external-link-alt proj-link-arrow"></i>
+        </a>
+
+        <a href="https://docs.google.com/presentation/d/e/2PACX-1vRWqsKKtpVV8sScfPmXYdKsQ58kZcmbjP4TXevOrQXnfeMS8vCMuv5-Mhm5oXfEbESVPf2YPonLo9Te/embed?start=false&loop=false&delayms=3000" target="_blank" rel="noopener" class="proj-link-card reveal reveal-delay-1">
+          <i class="fas fa-users"></i>
+          <div>
+            <h4>Customer Segmentation Analysis</h4>
+            <span>Rezalian Vatiady &amp; Team · RevoU × Tokopedia</span>
+          </div>
+          <i class="fas fa-external-link-alt proj-link-arrow"></i>
+        </a>
+
+        <a href="https://docs.google.com/presentation/d/e/2PACX-1vRtwOc1tRRvbVPFwkA5fgwAceunwkKEtHI5v4hfw3tzRSGqT-hcgo7W2-MEaZIt-rWq-Jn0GQj_eyMJ/embed?start=false&loop=false&delayms=3000" target="_blank" rel="noopener" class="proj-link-card reveal reveal-delay-2">
+          <i class="fas fa-filter"></i>
+          <div>
+            <h4>Funnel Analysis</h4>
+            <span>Rezalian Vatiady &amp; Team · RevoU × Tokopedia</span>
+          </div>
+          <i class="fas fa-external-link-alt proj-link-arrow"></i>
+        </a>
+
+        <a href="https://docs.google.com/presentation/d/e/2PACX-1vQdjPYhEXtJt-UiYQIEiN52lJHv9sKWw0_DUmL6adIqRJC874OgNhAxQ5R38__tT7pXB51buJ77uWf_/embed?start=false&loop=false&delayms=3000" target="_blank" rel="noopener" class="proj-link-card reveal">
+          <i class="fas fa-search"></i>
+          <div>
+            <h4>EDA – Exploratory Data Analysis</h4>
+            <span>Rezalian Vatiady &amp; Team · RevoU × Tokopedia</span>
+          </div>
+          <i class="fas fa-external-link-alt proj-link-arrow"></i>
+        </a>
+
+        <a href="https://docs.google.com/presentation/d/e/2PACX-1vRw7uYyOM1Wonrp6t7ammd9bUnzhHOS_I7Xe7b4RkauKxZd3vch0nyJ_mP3BjSEptjsBx_SlkAQUmtW/embed?start=false&loop=false&delayms=3000" target="_blank" rel="noopener" class="proj-link-card reveal reveal-delay-1">
+          <i class="fas fa-store"></i>
+          <div>
+            <h4>Dashboard Design for E-CommerceU</h4>
+            <span>Rezalian Vatiady &amp; Team · RevoU</span>
+          </div>
+          <i class="fas fa-external-link-alt proj-link-arrow"></i>
+        </a>
+
+        <a href="https://docs.google.com/presentation/d/e/2PACX-1vRB_6NHyWmx3EXP0AVO-LoKXywAlXdWygz8Nlb-t5Mz4TZnYIOLqKRxIP9Y2TqgxGatqBXDaN_BaH7r/embed?start=false&loop=false&delayms=3000" target="_blank" rel="noopener" class="proj-link-card reveal reveal-delay-2">
+          <i class="fas fa-users-cog"></i>
+          <div>
+            <h4>Customer Segmentation Analysis II</h4>
+            <span>Rezalian Vatiady &amp; Team · RevoU</span>
+          </div>
+          <i class="fas fa-external-link-alt proj-link-arrow"></i>
+        </a>
+
+        <a href="https://docs.google.com/presentation/d/e/2PACX-1vQtwzODZlaV0-KJUHUSX3aoN3ukb5CwnE2-C03k7jcBcXLmLwwiFzslTvrgW4vVOoxRAYfvTDWADZ3H/embed?start=false&loop=false&delayms=3000" target="_blank" rel="noopener" class="proj-link-card reveal">
+          <i class="fas fa-rocket"></i>
+          <div>
+            <h4>Feature Roll-out Adoption Analysis</h4>
+            <span>Rezalian Vatiady &amp; Team · RevoU</span>
+          </div>
+          <i class="fas fa-external-link-alt proj-link-arrow"></i>
+        </a>
+
+        <a href="https://docs.google.com/presentation/d/e/2PACX-1vS4P6xwavkXBkXPJv1e8WLNLgR_bGjaYHn8Effb9Lh8gbL96lKGCkoNHbU2hg4Sg0nzzCq40DIYbWiW/embed?start=false&loop=false&delayms=3000" target="_blank" rel="noopener" class="proj-link-card reveal reveal-delay-1">
+          <i class="fas fa-user-times"></i>
+          <div>
+            <h4>Churn Analysis of App User</h4>
+            <span>Rezalian Vatiady &amp; Team · RevoU</span>
+          </div>
+          <i class="fas fa-external-link-alt proj-link-arrow"></i>
+        </a>
+
+        <a href="https://www.canva.com/design/DAFI6hVLGg4/view?utm_content=DAFI6hVLGg4&utm_campaign=designshare&utm_medium=embeds&utm_source=link" target="_blank" rel="noopener" class="proj-link-card reveal reveal-delay-2">
+          <i class="fas fa-shopping-cart"></i>
+          <div>
+            <h4>The Jaya Online Retail – Product Analysis</h4>
+            <span>Rezalian Vatiady</span>
+          </div>
+          <i class="fas fa-external-link-alt proj-link-arrow"></i>
+        </a>
+
+        <a href="https://www.canva.com/design/DAE98hY_m7A/view?utm_content=DAE98hY_m7A&utm_campaign=designshare&utm_medium=embeds&utm_source=link" target="_blank" rel="noopener" class="proj-link-card reveal">
+          <i class="fas fa-graduation-cap"></i>
+          <div>
+            <h4>Group P Final Project</h4>
+            <span>Rezalian Vatiady · RevoU</span>
+          </div>
+          <i class="fas fa-external-link-alt proj-link-arrow"></i>
+        </a>
+
+      </div>
+    </div>
+
   </div>
 </section>
-
-<!-- ─── ZALINOS ─── -->
 <section id="zalinos">
   <div class="zalinos-inner container">
     <div class="zalinos-header reveal">
