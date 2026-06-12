@@ -1,1273 +1,1346 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="img/reza.png">
-    <title>Rezalian Vatiady</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Rezalian Vatiady — Business Intelligence Specialist, Python Automation Developer, AI Workflow Architect. Former IKEA Regional BI Specialist. Founder of ZalinOS." />
+  <meta property="og:title" content="Rezalian Vatiady — BI · Data · AI" />
+  <meta property="og:description" content="Business Intelligence, Python Automation, and AI Workflow Development across enterprise and startup environments." />
+  <title>Rezalian Vatiady</title>
 
-    <!-- Website Link Starts -->
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
-    <!-- custom css file link -->
-    <link rel="stylesheet" href="css/stylewebportfolio.css">
-    <!-- style portfolio -->
-    <link rel="stylesheet" href="css/stylepopfil.css">
-    <!-- font awesome cdn link -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-    <!-- Chart JS -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    /* ─── TOKENS ─── */
+    :root {
+      --bg:        #0a0c12;
+      --bg2:       #0f1219;
+      --bg3:       #151b26;
+      --surface:   #1a2235;
+      --border:    #1e2d45;
+      --accent:    #3b82f6;
+      --accent2:   #06b6d4;
+      --glow:      rgba(59,130,246,0.18);
+      --text:      #e2e8f0;
+      --muted:     #64748b;
+      --dim:       #94a3b8;
+      --white:     #ffffff;
+      --mono:      'JetBrains Mono', monospace;
+      --sans:      'Inter', sans-serif;
+      --display:   'Space Grotesk', sans-serif;
+      --radius:    12px;
+      --radius-lg: 20px;
+    }
 
+    /* ─── RESET ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
 
-    <!-- magnific popup css cdn link -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+    /* ─── SCROLLBAR ─── */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
 
-    <!-- Light Gallery Ajax CSS -->
-    <link type="text/css" rel="stylesheet" text="css/lightgallery.min.css" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.3.0/css/lightgallery.min.css" />
-    <!-- lightgallery plugins -->
-    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.3.0/css/lg-zoom.min.css" />
-    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.3.0/css/lg-thumbnail.min.css" />
-    <!-- OR -->
-    <link type="text/css" rel="stylesheet" href="css/lightgallery-bundle.min.css" text="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.3.0/css/lightgallery-bundle.min.css" />
+    /* ─── ANIMATED GRID BACKGROUND ─── */
+    .grid-bg {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background-image:
+        linear-gradient(rgba(59,130,246,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59,130,246,0.04) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
+    }
 
+    /* ─── NAVBAR ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5vw;
+      height: 64px;
+      background: rgba(10,12,18,0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s;
+    }
+    nav.scrolled { border-color: var(--border); }
+    .nav-logo {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: -0.02em;
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta {
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.45rem 1.1rem;
+      border: 1px solid var(--accent);
+      border-radius: 6px;
+      color: var(--accent);
+      transition: background 0.2s, color 0.2s;
+    }
+    .nav-cta:hover { background: var(--accent); color: var(--white); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: 0.3s; }
+    .mobile-menu {
+      display: none;
+      position: fixed; top: 64px; left: 0; right: 0; z-index: 99;
+      background: rgba(10,12,18,0.97);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 1.5rem 5vw;
+      flex-direction: column; gap: 1.2rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-size: 1rem; color: var(--dim); padding: 0.4rem 0; border-bottom: 1px solid var(--border); }
+    .mobile-menu a:last-child { border-bottom: none; }
 
-    <!-- Website Link Ends -->
+    /* ─── SECTIONS ─── */
+    section { position: relative; z-index: 1; padding: 6rem 5vw; }
+    .section-label {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--accent);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .section-label::before {
+      content: '';
+      display: block; width: 24px; height: 1px; background: var(--accent);
+    }
+    h2 {
+      font-family: var(--display);
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+    .section-sub {
+      color: var(--muted);
+      font-size: 0.95rem;
+      max-width: 560px;
+      margin-bottom: 3.5rem;
+    }
+    .container { max-width: 1200px; margin: 0 auto; }
 
-    <!-- WebGIS Link Starts-->
+    /* ─── HERO ─── */
+    #hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding-top: 64px;
+      background: radial-gradient(ellipse 70% 50% at 60% 30%, rgba(59,130,246,0.08) 0%, transparent 70%),
+                  radial-gradient(ellipse 40% 40% at 80% 70%, rgba(6,182,212,0.05) 0%, transparent 60%);
+    }
+    .hero-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: center;
+      max-width: 1200px; margin: 0 auto;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-family: var(--mono); font-size: 0.72rem;
+      color: var(--accent2);
+      background: rgba(6,182,212,0.08);
+      border: 1px solid rgba(6,182,212,0.2);
+      border-radius: 100px;
+      padding: 0.3rem 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+    .hero-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--accent2); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+    .hero-title {
+      font-family: var(--display);
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1.1;
+      margin-bottom: 1.2rem;
+    }
+    .hero-title .line2 { color: var(--accent); }
+    .hero-title .line3 { color: var(--accent2); }
+    .hero-sub {
+      font-size: 1rem;
+      color: var(--dim);
+      line-height: 1.7;
+      margin-bottom: 0.8rem;
+      max-width: 480px;
+    }
+    .hero-roles {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .hero-role {
+      font-family: var(--mono); font-size: 0.72rem;
+      color: var(--muted);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.25rem 0.6rem;
+    }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--accent);
+      color: var(--white);
+      font-weight: 600; font-size: 0.88rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      border: none; cursor: pointer;
+      transition: opacity 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: transparent;
+      color: var(--text);
+      font-weight: 600; font-size: 0.88rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s, transform 0.15s;
+    }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+    /* Hero Right — Stats */
+    .hero-stats {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      transition: border-color 0.3s, transform 0.2s;
+    }
+    .stat-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .stat-card:nth-child(2) { margin-top: 1.5rem; }
+    .stat-card:nth-child(4) { margin-top: -1.5rem; }
+    .stat-number {
+      font-family: var(--display);
+      font-size: 2.4rem;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .stat-label { font-size: 0.8rem; color: var(--muted); margin-top: 0.25rem; }
 
-    <!-- Load Esri Leaflet from CDN -->
-    <script src="https://unpkg.com/esri-leaflet@2.5.0/dist/esri-leaflet.js" integrity="sha512-ucw7Grpc+iEQZa711gcjgMBnmd9qju1CICsRaryvX7HJklK0pGl/prxKvtHwpgm5ZHdvAil7YPxI1oWPOWK3UQ==" crossorigin=""></script>
+    /* ─── ABOUT ─── */
+    #about { background: var(--bg2); }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 5rem; align-items: start;
+      max-width: 1200px; margin: 0 auto;
+    }
+    .about-text p {
+      color: var(--dim); line-height: 1.8; margin-bottom: 1.2rem;
+    }
+    .about-text p strong { color: var(--text); font-weight: 600; }
+    .about-facts { margin-top: 2rem; display: flex; flex-direction: column; gap: 0.75rem; }
+    .about-fact {
+      display: flex; align-items: center; gap: 0.75rem;
+      font-size: 0.88rem; color: var(--dim);
+    }
+    .about-fact i { color: var(--accent); width: 16px; }
+    .about-right { display: flex; flex-direction: column; gap: 1rem; }
+    .expertise-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      display: flex; align-items: flex-start; gap: 1rem;
+      transition: border-color 0.3s;
+    }
+    .expertise-card:hover { border-color: var(--accent); }
+    .expertise-icon {
+      width: 40px; height: 40px; flex-shrink: 0;
+      border-radius: 8px;
+      background: rgba(59,130,246,0.1);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; color: var(--accent);
+    }
+    .expertise-card h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.2rem; }
+    .expertise-card p { font-size: 0.8rem; color: var(--muted); }
 
-    <!-- Style Dashboard -->
-    <!-- <link rel="stylesheet" href="css/styledashboard.css"> -->
+    /* ─── CAREER ─── */
+    #career { background: var(--bg); }
+    .career-inner { max-width: 1200px; margin: 0 auto; }
+    .career-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .career-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.3s, transform 0.2s;
+    }
+    .career-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+    .career-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+    }
+    .career-logo {
+      font-family: var(--display);
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(59,130,246,0.1);
+      border-radius: 4px;
+      padding: 0.2rem 0.6rem;
+      display: inline-block; margin-bottom: 1rem;
+    }
+    .career-card h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.5rem; }
+    .career-period { font-family: var(--mono); font-size: 0.7rem; color: var(--muted); margin-bottom: 1.2rem; }
+    .career-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.2rem; }
+    .tag {
+      font-size: 0.7rem; font-weight: 500;
+      color: var(--dim);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.2rem 0.55rem;
+    }
+    .career-highlights { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .career-highlights li {
+      font-size: 0.82rem; color: var(--muted);
+      padding-left: 1rem;
+      position: relative;
+    }
+    .career-highlights li::before {
+      content: '→';
+      position: absolute; left: 0;
+      color: var(--accent2); font-size: 0.7rem;
+    }
 
-    <!-- <link rel="stylesheet" href="style.css"> -->
-    <link rel="stylesheet" href="assets/leaflet.css" text="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
-    <!-- <link rel="stylesheet" href="assets/leaflet23.css" text="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-                integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-                crossorigin="" /> -->
-    <!-- jquery -->
-    <link rel="stylesheet" href="assets/jquery/jquery-ui-1.10.3.custom.min.css" />
-    <!-- Geocoder -->
-    <link rel="stylesheet" href="assets/Control.Geocoder.css" text="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
-    <!-- fullscreen -->
-    <link href='assets/leaflet.fullscreen.css' text="https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css" rel='stylesheet' />
-    <!-- File layer css -->
-    <!-- <link rel="stylesheet" href="http://makinacorpus.github.io/Leaflet.FileLayer/Font-Awesome/css/font-awesome.min.css"/> -->
-    <link rel="stylesheet" href="assets/normalize.min.css" text="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
-    <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"> -->
-    <!-- Navbar -->
-    <link rel="stylesheet" href="assets/Leaflet.NavBar.css" text="http://davidchouse.github.io/Leaflet.NavBar/Leaflet.NavBar.css" />
-    <!-- MiniMap -->
-    <link rel="stylesheet" href="assets/Control.MiniMap.min.css" />
-    <!-- Geolocation -->
-    <!--<link rel="stylesheet" href="assets/font-awesome.min.css" text="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" /> -->
-    <link rel="stylesheet" href="assets/font-awesome.min23.css" text="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="assets/geolocation-leaflet.css" text="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css" />
-    <link rel="stylesheet" href="assets/L.Control.Locate.min.css" />
-    <!-- <link rel="stylesheet" href="assets/L.Control.Locate.min23.css" /> -->
-    <!-- Side-Bar -->
-    <link rel="stylesheet" href="sidebarbar.css">
-    <!-- Boxicons CDN Link -->
-    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-    <!-- Documents.css untuk foto -->
-    <link rel="stylesheet" href="documents.css">
-    <!-- Hash Map -->
-    <!-- <link rel="stylesheet" href="http://yohanboniface.github.io/Leaflet.EditInOSM/Leaflet.EditInOSM.css" />
-            <link rel="stylesheet" href="assets/TileLegend.css" /> -->
-    <!-- leaflet-control-condended-attribution source -->
-    <!-- <link rel="stylesheet" href="assets/leaflet-control-condended-attribution.css" /> -->
-    <!-- mengandung logo leaflet -->
-    <!-- Compass -->
-    <link rel="stylesheet" href="assets/leaflet-compass.css">
-    <!-- Opacity -->
-    <link href="assets/L.Control.Opacity.css" rel="stylesheet" />
-    <!-- Tile Layer Preview Icon -->
-    <link rel="stylesheet" href="assets/iconLayers.css">
-    <!-- Zoom Bar -->
-    <link rel="stylesheet" type="text/css" href="assets/L.Control.ZoomBar.css" />
-    <!-- Polyline Measurement -->
-    <link rel="stylesheet" href="assets/Leaflet.PolylineMeasure.css" />
-    <!-- Order Layer Control Panel Overlays -->
-    <link rel="stylesheet" href="assets/leaflet.control.orderlayers.css" />
-    <!-- Leaflet Opacity Vertical -->
-    <link rel="stylesheet" href="assets/jquery/Control.Opacity.css" />
-    <!-- Marker Cluster -->
-    <link rel="stylesheet" href="assets/MarkerCluster.css">
-    <link rel="stylesheet" href="assets/MarkerCluster.Default.css" />
+    /* ─── PROJECTS ─── */
+    #projects { background: var(--bg2); }
+    .projects-inner { max-width: 1200px; margin: 0 auto; }
+    .projects-masonry {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto;
+      gap: 1.25rem;
+    }
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      transition: border-color 0.3s, transform 0.2s, box-shadow 0.3s;
+      display: flex; flex-direction: column; gap: 1rem;
+    }
+    .project-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(59,130,246,0.12);
+    }
+    .project-card.featured {
+      grid-column: span 2;
+      background: linear-gradient(135deg, #0f1a2e 0%, #111827 100%);
+      border-color: rgba(59,130,246,0.3);
+    }
+    .project-card.featured:hover { border-color: var(--accent); }
+    .project-type {
+      font-family: var(--mono); font-size: 0.68rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent2);
+    }
+    .project-card h3 { font-family: var(--display); font-size: 1.1rem; font-weight: 600; line-height: 1.3; }
+    .project-card.featured h3 { font-size: 1.35rem; }
+    .project-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.7; flex: 1; }
+    .project-tech { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: auto; }
+    .tech-pill {
+      font-family: var(--mono); font-size: 0.68rem;
+      color: var(--accent);
+      background: rgba(59,130,246,0.08);
+      border: 1px solid rgba(59,130,246,0.2);
+      border-radius: 4px;
+      padding: 0.2rem 0.55rem;
+    }
+    .project-featured-badge {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-family: var(--mono); font-size: 0.68rem;
+      color: #f59e0b;
+      background: rgba(245,158,11,0.1);
+      border: 1px solid rgba(245,158,11,0.2);
+      border-radius: 100px;
+      padding: 0.2rem 0.7rem;
+    }
 
+    /* ─── ZALINOS ─── */
+    #zalinos {
+      background: var(--bg);
+      position: relative;
+      overflow: hidden;
+    }
+    #zalinos::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(59,130,246,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .zalinos-inner { max-width: 1200px; margin: 0 auto; }
+    .zalinos-header { text-align: center; max-width: 680px; margin: 0 auto 4rem; }
+    .zalinos-header h2 { margin-bottom: 1rem; }
+    .zalinos-header p { color: var(--muted); }
+    .zalinos-diagram {
+      display: flex; flex-direction: column; align-items: center; gap: 0;
+      margin: 0 auto; max-width: 740px;
+    }
+    .zal-core {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: var(--white);
+      font-family: var(--display); font-weight: 700; font-size: 1.2rem;
+      padding: 1rem 3rem;
+      border-radius: 12px;
+      letter-spacing: -0.02em;
+      box-shadow: 0 0 40px rgba(59,130,246,0.3);
+    }
+    .zal-connector { width: 2px; height: 32px; background: linear-gradient(to bottom, var(--accent), rgba(59,130,246,0.2)); }
+    .zal-agents {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 1rem; width: 100%;
+    }
+    .zal-agent {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem;
+      text-align: center;
+      transition: border-color 0.3s, transform 0.2s;
+    }
+    .zal-agent:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .zal-agent-icon { font-size: 1.4rem; margin-bottom: 0.5rem; }
+    .zal-agent-name { font-size: 0.82rem; font-weight: 600; color: var(--text); }
+    .zal-agent-desc { font-size: 0.72rem; color: var(--muted); margin-top: 0.2rem; }
+    .zal-divider { width: 2px; height: 32px; background: linear-gradient(to bottom, rgba(59,130,246,0.2), var(--accent)); }
+    .zal-infra {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1rem; width: 100%;
+    }
+    .zal-infra-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .zal-infra-card i { font-size: 1.2rem; color: var(--accent2); }
+    .zal-infra-card h4 { font-size: 0.88rem; font-weight: 600; }
+    .zal-infra-card p { font-size: 0.75rem; color: var(--muted); }
+    .zalinos-roadmap {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1rem; margin-top: 4rem;
+    }
+    .roadmap-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .roadmap-stage { font-family: var(--mono); font-size: 0.68rem; color: var(--accent); margin-bottom: 0.5rem; }
+    .roadmap-card h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.4rem; }
+    .roadmap-card p { font-size: 0.8rem; color: var(--muted); }
+    .roadmap-dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      margin: 0 auto 1rem;
+    }
+    .roadmap-dot.active { background: var(--accent); box-shadow: 0 0 12px var(--accent); }
+    .roadmap-dot.next { background: var(--border); }
 
-    <!-- WebGIS Link Ends-->
+    /* ─── SERVICES ─── */
+    #services { background: var(--bg2); }
+    .services-inner { max-width: 1200px; margin: 0 auto; }
+    .services-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+    .service-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      transition: border-color 0.3s, transform 0.2s;
+    }
+    .service-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+    .service-icon {
+      width: 48px; height: 48px;
+      border-radius: 10px;
+      background: rgba(59,130,246,0.1);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.25rem; color: var(--accent);
+      margin-bottom: 1.25rem;
+    }
+    .service-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.75rem; }
+    .service-list { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+    .service-list li { font-size: 0.82rem; color: var(--muted); padding-left: 1rem; position: relative; }
+    .service-list li::before { content: '·'; position: absolute; left: 0; color: var(--accent2); font-size: 1.2rem; line-height: 1; }
 
-    <style>
-        /* lightgallery.min.js */
-        
-        a,
-        a:hover,
-        a:focus,
-        a:active {
-            text-decoration: none;
-            color: inherit;
-        }
-        
-        .myChart #myChart {
-            width: 30vw;
-            height: 15vw;
-            position: relative;
-            top: 10px;
-            right: 33px;
-        }
-        
-        .lg-sub-html p {
-            width: 60%;
-            font-size: 23px;
-            margin: 0 20%;
-            background-color: hsla(41, 98%, 51%, 0.8);
-            border-radius: 4px;
-            color: black;
-        }
-        
-        .lg-sub-html a {
-            /* color: inherit; */
-            color: black;
-            font-size: 23px;
-        }
-        
-        .lg-sub-html h4 {
-            width: 60%;
-            margin: 0 20%;
-            align-items: center;
-            font-size: 23px;
-            /* font-weight: 700px; */
-            background-color: hsla(41, 98%, 51%, 0.8);
-            color: black;
-            border-radius: 4px;
-        }
-        
-        @media (max-width:1200px) {
-            .lg-sub-html p {
-                font-size: 23px;
-                margin: 5px 0 0;
-                background-color: hsla(41, 98%, 51%, 0.8);
-                border-radius: 4px;
-                color: black;
-            }
-            .lg-sub-html a {
-                /* color: inherit; */
-                color: black;
-                font-size: 23px;
-            }
-            .lg-sub-html h4 {
-                margin: 0;
-                font-size: 23px;
-                /* font-weight: 700px; */
-                background-color: hsla(41, 98%, 51%, 0.8);
-                color: black;
-                border-radius: 4px;
-            }
-        }
-        
-        @media (max-width:1000px) {}
-        
-        @media (max-width:800px) {
-            .lg-sub-html p {
-                font-size: 23px;
-                /* margin: 5px 0 0; */
-                background-color: hsla(41, 98%, 51%, 0.8);
-                border-radius: 4px;
-                color: black;
-            }
-            .lg-sub-html a {
-                /* color: inherit; */
-                color: black;
-                font-size: 23px;
-            }
-            .lg-sub-html h4 {
-                margin: 0;
-                font-size: 23px;
-                /* font-weight: 700px; */
-                background-color: hsla(41, 98%, 51%, 0.8);
-                color: black;
-                border-radius: 4px;
-            }
-        }
-        
-        @media (max-width:600px) {
-            .lg-sub-html p {
-                font-size: 18px;
-                /* margin: 5px 0 0; */
-                background-color: hsla(41, 98%, 51%, 0.8);
-                border-radius: 4px;
-                color: black;
-            }
-            .lg-sub-html a {
-                /* color: inherit; */
-                color: black;
-                font-size: 18px;
-            }
-            .lg-sub-html h4 {
-                margin: 0;
-                font-size: 18px;
-                /* font-weight: 700px; */
-                background-color: hsla(41, 98%, 51%, 0.8);
-                color: black;
-                border-radius: 4px;
-            }
-        }
-        
-        @media (max-width:350px) {
-            .lg-sub-html p {
-                font-size: 14px;
-                /* margin: 5px 0 0; */
-                background-color: hsla(41, 98%, 51%, 0.8);
-                border-radius: 4px;
-                color: black;
-            }
-            .lg-sub-html a {
-                /* color: inherit; */
-                color: black;
-                font-size: 14px;
-            }
-            .lg-sub-html h4 {
-                /* margin: 0; */
-                font-size: 14px;
-                /* font-weight: 700px; */
-                background-color: hsla(41, 98%, 51%, 0.8);
-                color: black;
-                border-radius: 4px;
-            }
-        }
-        
-        .map-section .home-section h1 {
-            margin-top: 2px;
-            margin-bottom: 10px;
-            text-align: center;
-            font-size: 25px;
-            position: relative;
-            top: 10px;
-            left: 25%;
-            height: 40px;
-            width: 50%;
-            color: white;
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
-            border-radius: 10px 10px 10px 10px;
-            padding-top: 5px;
-        }
-        
-        #map {
-            padding-top: 10px;
-            margin-top: 10px;
-            margin-bottom: 8px;
-            position: relative;
-            top: 10px;
-            left: 5px;
-            height: 85vh;
-            width: 100%;
-            border-radius: 10px 10px 10px 10px;
-            border: 0.5px solid;
-            border-top-color: #212529;
-            border-left: none;
-            border-right: none;
-            /* box-shadow: 5px 5px #212529; */
-            box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.7);
-        }
-        /* MAP SETTING */
-        
-        .leaflet-control-layers-toggle {
-            background-image: url(symbol/layer.png);
-            background-size: 100%;
-            width: 15px;
-            height: 15px;
-        }
-        
-        .icon {
-            max-width: 70%;
-            max-height: 70%;
-            margin: 4px;
-        }
-        /* Legenda */
-        
-        .roads .tilelegend-map {
-            width: 100%;
-        }
-        
-        .landuse .tilelegend-map {
-            width: 100%;
-            height: 60px;
-        }
-        
-        .poi li>p,
-        .poi li>div {
-            display: inline-block;
-            vertical-align: top;
-        }
-        
-        .poi li {
-            white-space: nowrap;
-            overflow: hidden;
-        }
-        
-        .poi li p {
-            padding: 10px;
-        }
-        
-        .leaflet-bar a,
-        .leaflet-bar a:hover {
-            height: 36px;
-            line-height: 36px;
-            width: 36px;
-        }
-        /* navbar */
-        
-        .leaflet-control-navbar-fwd {
-            background-image: url(symbol/right-arrow.png);
-            background-size: 70%;
-        }
-        
-        .leaflet-control-navbar-back {
-            background-image: url(symbol/right-arrow.png);
-            background-size: 70%;
-            transform: rotate(180deg);
-        }
-        
-        .leaflet-control-navbar-home {
-            background-image: url(symbol/home.png);
-            /* tidak menggunakan tanda petik jika bukan dari url */
-            background-size: 75%;
-        }
-        
-        .leaflet-control-navbar-fwd-disabled {
-            background-image: url(symbol/right-arrow.png);
-            background-size: 70%;
-        }
-        
-        .leaflet-control-navbar-back-disabled {
-            background-image: url(symbol/right-arrow.png);
-            background-size: 70%;
-            transform: rotate(180deg);
-        }
-        
-        .leaflet-control-navbar-home-disabled {
-            background-image: url(symbol/home.png);
-            background-size: 75%;
-        }
-        /* fullscreen */
-        
-        .leaflet-control-fullscreen a {
-            background: rgba(0, 0, 0, 0.6) url(symbol/fullscreen.png) no-repeat;
-            background-size: 75%;
-        }
-        /* geocoder */
-        
-        .leaflet-touch .leaflet-control-geocoder-icon {
-            width: 35px;
-            height: 35px;
-            background-image: url(symbol/search.png);
-            background-size: 70%;
-        }
-        /* compass */
-        
-        .leaflet-compass .compass-icon {
-            height: 32px;
-            width: 32px;
-            margin: 2px;
-            background: url('symbol/compass-icon.png') center center no-repeat;
-            background-size: 90%;
-        }
-        
-        .leaflet-compass .compass-digit {
-            margin-bottom: 6px;
-            margin-left: 8px;
-        }
-        /* gps */
-        
-        .fa-map-marker:before {
-            content: "__";
-            background: url('symbol/gps.png') center center no-repeat;
-            background-size: 100%;
-        }
-        /* Buffer Marker */
-        
-        #settings {
-            color: white;
-            font-family: Arial;
-            font-size: 8pt;
-            background-color: rgba(0, 0, 0, .3);
-            position: absolute;
-            padding: 2px;
-            text-align: center;
-            width: 240px;
-            height: 25px;
-            border-radius: 5px;
-            top: 608px;
-            left: 70px;
-            z-index: 9999999;
-        }
-        /* Order Layer Overlays */
-        
-        .leaflet-control-layers .leaflet-row .leaflet-up {
-            float: left;
-            background-image: url(symbol/up-arrow.png);
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: 100%;
-            /* position: relative; */
-            /* top: 10px; */
-            margin-right: 4px;
-            /* height: 20px;
-            width: 16px; */
-            height: 15px;
-            width: 10px;
-            opacity: 0.75;
-            cursor: pointer;
-        }
-        
-        .leaflet-control-layers .leaflet-row .leaflet-down {
-            float: left;
-            background-image: url(symbol/down-arrow.png);
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: 100%;
-            /* height: 20px;
-            width: 16px; */
-            height: 15px;
-            width: 10px;
-            opacity: 0.75;
-            cursor: pointer;
-        }
-        
-        .header .lead {
-            max-width: 620px;
-        }
-        /** Below CSS is completely optional **/
-        
-        .gallery-item {
-            width: 200px;
-            padding: 5px;
-        }
-        
-        .punch-viewer-navbar-fixed {
-            opacity: 1;
-            bottom: 0px;
-            left: 0;
-            right: 0;
-            border-radius: 0;
-            padding: 2px 0px;
-            background: rgba(241, 243, 244, 0.949);
-            display: flex;
-            justify-content: space-between;
-            box-shadow: none;
-        }
-    </style>
+    /* ─── SKILLS ─── */
+    #skills { background: var(--bg); }
+    .skills-inner { max-width: 1200px; margin: 0 auto; }
+    .skills-groups {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .skill-group h3 {
+      font-family: var(--mono); font-size: 0.72rem;
+      color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .skill-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .skill-pill {
+      font-size: 0.78rem; font-weight: 500;
+      color: var(--dim);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.35rem 0.75rem;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .skill-pill:hover { border-color: var(--accent); color: var(--text); }
 
+    /* ─── CERTIFICATIONS ─── */
+    #certs { background: var(--bg2); }
+    .certs-inner { max-width: 1200px; margin: 0 auto; }
+    .certs-timeline { display: flex; flex-direction: column; gap: 0; }
+    .cert-item {
+      display: grid; grid-template-columns: 80px 1px 1fr;
+      gap: 0 1.5rem;
+      position: relative;
+      padding-bottom: 2rem;
+    }
+    .cert-year {
+      font-family: var(--mono); font-size: 0.75rem;
+      color: var(--accent); font-weight: 500;
+      padding-top: 0.1rem; text-align: right;
+    }
+    .cert-line {
+      display: flex; flex-direction: column; align-items: center;
+    }
+    .cert-dot {
+      width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0;
+      background: var(--accent);
+      box-shadow: 0 0 8px rgba(59,130,246,0.5);
+      margin-top: 0.2rem;
+    }
+    .cert-track {
+      flex: 1; width: 1px; background: var(--border);
+    }
+    .cert-content h4 { font-size: 0.92rem; font-weight: 600; margin-bottom: 0.2rem; }
+    .cert-content p { font-size: 0.8rem; color: var(--muted); }
+    .cert-item:last-child .cert-track { display: none; }
+
+    /* ─── CONTACT ─── */
+    #contact { background: var(--bg); }
+    .contact-inner {
+      max-width: 900px; margin: 0 auto; text-align: center;
+    }
+    .contact-inner h2 { margin-bottom: 0.75rem; }
+    .contact-inner p { color: var(--muted); margin-bottom: 3rem; }
+    .contact-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1rem; margin-bottom: 3rem;
+    }
+    .contact-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      display: flex; flex-direction: column; align-items: center; gap: 0.75rem;
+      transition: border-color 0.3s, transform 0.2s;
+    }
+    .contact-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .contact-card i { font-size: 1.25rem; color: var(--accent); }
+    .contact-card span { font-size: 0.82rem; color: var(--muted); }
+    .contact-card strong { font-size: 0.88rem; color: var(--text); }
+    .contact-cta { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 2rem 5vw;
+      font-size: 0.78rem;
+      color: var(--muted);
+      position: relative; z-index: 1;
+    }
+    footer span { color: var(--accent); }
+
+    /* ─── ANIMATIONS ─── */
+    .reveal {
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-stats { display: none; }
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .career-grid { grid-template-columns: 1fr; }
+      .projects-masonry { grid-template-columns: 1fr; }
+      .project-card.featured { grid-column: span 1; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .skills-groups { grid-template-columns: 1fr 1fr; }
+      .zalinos-roadmap { grid-template-columns: 1fr; }
+      .zal-agents { grid-template-columns: repeat(2, 1fr); }
+      .zal-infra { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr 1fr; }
+      .nav-links { display: none; }
+      .nav-cta { display: none; }
+      .hamburger { display: flex; }
+    }
+    @media (max-width: 600px) {
+      section { padding: 4rem 5vw; }
+      .services-grid { grid-template-columns: 1fr; }
+      .skills-groups { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .zalinos-roadmap { grid-template-columns: 1fr; }
+      .cert-item { grid-template-columns: 60px 1px 1fr; gap: 0 1rem; }
+    }
+  </style>
 </head>
 
-<body onload="init()">
+<body>
 
-    <!-- header section starts -->
+<div class="grid-bg"></div>
 
-    <header>
-        <div class="user">
-            <img src="img/job1.png" alt="">
-            <h3 class="name">Rezalian Vatiady</h3>
-            <p class="post">Data Analytics | Business Intelligence | <br>| Spatial Data Scientist |</br>
-            </p>
+<!-- ─── NAV ─── -->
+<nav id="navbar">
+  <div class="nav-logo">RV<span>.</span></div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#career">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#zalinos">ZalinOS</a>
+    <a href="#services">Services</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <a href="mailto:rezalian@rocketmail.com" class="nav-cta">Hire Me</a>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMenu()">About</a>
+  <a href="#career" onclick="closeMenu()">Experience</a>
+  <a href="#projects" onclick="closeMenu()">Projects</a>
+  <a href="#zalinos" onclick="closeMenu()">ZalinOS</a>
+  <a href="#services" onclick="closeMenu()">Services</a>
+  <a href="#skills" onclick="closeMenu()">Skills</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+</div>
+
+<!-- ─── HERO ─── -->
+<section id="hero">
+  <div class="hero-inner container">
+    <div class="hero-left">
+      <div class="hero-badge">Available for freelance &amp; contract work</div>
+      <h1 class="hero-title">
+        Transforming Data<br/>
+        <span class="line2">Into Decisions,</span><br/>
+        <span class="line3">AI Into Solutions.</span>
+      </h1>
+      <p class="hero-sub">
+        Business Intelligence Specialist · Python Automation Developer · AI Workflow Architect.<br/>
+        Former IKEA Regional BI Specialist &amp; BRI Business Analyst.
+      </p>
+      <div class="hero-roles">
+        <span class="hero-role">SQL &amp; BigQuery</span>
+        <span class="hero-role">Tableau · Qlik Sense</span>
+        <span class="hero-role">Python Automation</span>
+        <span class="hero-role">Multi-Agent AI</span>
+        <span class="hero-role">GIS &amp; Spatial Analytics</span>
+        <span class="hero-role">Founder · ZalinOS</span>
+      </div>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary"><i class="fas fa-briefcase"></i> Hire Me on Upwork</a>
+        <a href="#projects" class="btn-outline"><i class="fas fa-folder-open"></i> View Projects</a>
+        <a href="Rezalian_Vatiady_Resume.docx" class="btn-outline" download><i class="fas fa-download"></i> Resume</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-stats">
+        <div class="stat-card reveal">
+          <div class="stat-number">4</div>
+          <div class="stat-label">Countries — Enterprise BI Operations</div>
         </div>
-
-        <nav class="navbar">
-            <ul>
-                <li><a href="#home">home</a></li>
-                <li><a href="#about">about</a></li>
-                <li><a href="#projects">Data Projects</a></li>
-                <li><a href="#portfolio">portfolio</a></li>
-                <li><a href="#contact">contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- header section ends -->
-
-    <div id="menu" class="fas fa-bars"></div>
-
-    <!-- home section starts -->
-
-    <section class="home" id="home">
-
-        <h3>HI THERE !</h3>
-        <h1>I'M <span>rezalian vatiady</span></h1>
-        <p>
-            I was educated as a Geomatics Engineer at Institut Teknologi Sumatera. I was involved a lot with data, both from field acquisition, use of drones, and analysis using satellite imagery which is also my thesis.
-        </p>
-        <br>
-        <p>
-            I am highly motivated with mapping, data, and organization. An excellent public speaker, critical thinking person, good analytical thinking, dynamic, and interested to learn something new. I've GIS skills in data Collection (spatial & non-spatial), data
-            management, visualization, analysis, and interpretation for decision making.
-        </p>
-        <br>
-        <p>
-            In early January 2022, I pursued the data field to deepen my data skills in the era of technology and big data by participating in a Bootcamp at RevoU. After 3 months of Bootcamp, I worked part-time as Data Analytics Team Lead at RevoU for 4 months until the end of August and continued as a freelancer with RevoU collaborating with Tokopedia until the end of September 2022.
-        </p>
-        <br>
-        <p>
-            I am currently exploring various business problems, business acumen, attention to detail, data-driven, and studying the use of location for business strategy improvement. 
-        </p>
-        <br>
-        <p>
-            I am also interested and open to work in Data Analytics/Analyst, Business Intelligence, Location Intelligence, and Data Science
-        </p>
-        <a href="#about"><button class="btn">about me <i class="fas fa-user"></i></button></a>
-
-    </section>
-
-    <!-- home section ends -->
-
-    <!-- about section starts -->
-
-    <section class="about" id="about">
-
-        <h1 class="heading"><span>about</span> me </h1>
-
-        <div class="row">
-
-            <div class="info">
-                <h3> <span> name           </span> <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>: rezalian vatiady, s.t. </h3>
-                <h3> <span> age            </span> <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>: 26 </h3>
-                <h3> <span> Bachelor Degree  </span>: Geomatics Engineer</h3>
-                <h3> <span> qualification           </span> <span></span><span></span><span></span><span></span>: Data Analystics | Business Intelligence | Spatial Data Scientist </h3>
-                <h3> <span> languages       </span> <span></span><span></span><span></span><span></span><span></span>: Indonesia & English </h3>
-                <a href="https://www.canva.com/design/DAFMbrtjKVg/nTcEHd3Mert6Oe9RfWEjPQ/view?utm_content=DAFMbrtjKVg&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank"><button class="btn"> download CV <i class="fas fa-download"></i> </button></a>
-                <br>
-            </div>
-
+        <div class="stat-card reveal reveal-delay-1">
+          <div class="stat-number">20+</div>
+          <div class="stat-label">Analytics &amp; Automation Projects</div>
         </div>
-
-    </section>
-
-    <!-- about section ends -->
-
-
-    <section class="projects" id="projects">
-
-        <h1 class="heading"> my <span>projects</span> </h1>
-
-        <div class="box-container">
-
-            <!-- Google Slide Tokopedia Projects -->
-            <!-- Dashboard Design for E-CommerceU -->
-
-            <!-- Project 1 -->
-            <div class="box">
-                <div style="position: relative; width: 100%; height: 0; padding-top: 140px;
-                padding-bottom: 60px; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 3.3em; margin-bottom: 0.5em; overflow: hidden;
-                border-radius: 8px; will-change: transform;">
-                    <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding-bottom: 10px; padding: 0;margin: 0;" src="https://docs.google.com/presentation/d/e/2PACX-1vTIeMuXEQcbAS7DO9ZsEFC9_ntguTnQtu6HBGqBxJXem5Gw-7w1GAwLQ_uWPrCdiK9YZE2KI6Y-iwGJ/embed?start=false&loop=false&delayms=3000"
-                        allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
-                </div>
-                <a href="https://docs.google.com/presentation/d/e/2PACX-1vTIeMuXEQcbAS7DO9ZsEFC9_ntguTnQtu6HBGqBxJXem5Gw-7w1GAwLQ_uWPrCdiK9YZE2KI6Y-iwGJ/embed?start=false&loop=false&delayms=3000" target="_blank" rel="noopener" style="font-size: 18px;"> KPI Dashboard
-                    for C-level, Middle-level,  & Operational-level
-                    </a> <br style="font-size: 14px; color: aliceblue;">By Rezalian Vatiady & Team | RevoU x Tokopedia x Tokopedia<br>
-            </div>
-
-            <!-- Project 2 -->
-            <div class="box">
-                <div style="position: relative; width: 100%; height: 0; padding-top: 50.2500%;
-                padding-bottom: 60px; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 3.3em; margin-bottom: 0.5em; overflow: hidden;
-                border-radius: 8px; will-change: transform;">
-                    <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding-bottom: 10px; padding: 0;margin: 0;" src="https://docs.google.com/presentation/d/e/2PACX-1vRWqsKKtpVV8sScfPmXYdKsQ58kZcmbjP4TXevOrQXnfeMS8vCMuv5-Mhm5oXfEbESVPf2YPonLo9Te/embed?start=false&loop=false&delayms=3000"
-                        allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
-                </div>
-                <a href="https://docs.google.com/presentation/d/e/2PACX-1vRWqsKKtpVV8sScfPmXYdKsQ58kZcmbjP4TXevOrQXnfeMS8vCMuv5-Mhm5oXfEbESVPf2YPonLo9Te/embed?start=false&loop=false&delayms=3000" target="_blank" rel="noopener" style="font-size: 18px;">Customer Segmentation Analysis
-
-                    </a> <br style="font-size: 14px; color: aliceblue;">By Rezalian Vatiady & Team | RevoU x Tokopedia<br>
-            </div>
-
-            <!-- Project 3 -->
-            <div class="box">
-                <div style="position: relative; width: 100%; height: 0; padding-top: 50.2500%;
-                padding-bottom: 60px; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 3.3em; margin-bottom: 0.5em; overflow: hidden;
-                border-radius: 8px; will-change: transform;">
-                    <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding-bottom: 10px; padding: 0;margin: 0;" src="https://docs.google.com/presentation/d/e/2PACX-1vRtwOc1tRRvbVPFwkA5fgwAceunwkKEtHI5v4hfw3tzRSGqT-hcgo7W2-MEaZIt-rWq-Jn0GQj_eyMJ/embed?start=false&loop=false&delayms=3000"
-                        allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
-                </div>
-                <a href="https://docs.google.com/presentation/d/e/2PACX-1vRtwOc1tRRvbVPFwkA5fgwAceunwkKEtHI5v4hfw3tzRSGqT-hcgo7W2-MEaZIt-rWq-Jn0GQj_eyMJ/embed?start=false&loop=false&delayms=3000" target="_blank" rel="noopener" style="font-size: 18px;">Funnel Analysis
-
-                    </a> <br style="font-size: 14px; color: aliceblue;">By Rezalian Vatiady & Team | RevoU x Tokopedia<br>
-            </div>
-
-            <!-- Project 4 -->
-            <div class="box">
-                <div style="position: relative; width: 100%; height: 0; padding-top: 50.2500%;
-                padding-bottom: 60px; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 3.3em; margin-bottom: 0.5em; overflow: hidden;
-                border-radius: 8px; will-change: transform;">
-                    <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding-bottom: 10px; padding: 0;margin: 0;" src="https://docs.google.com/presentation/d/e/2PACX-1vQdjPYhEXtJt-UiYQIEiN52lJHv9sKWw0_DUmL6adIqRJC874OgNhAxQ5R38__tT7pXB51buJ77uWf_/embed?start=false&loop=false&delayms=3000"
-                        allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
-                </div>
-                <a href="https://docs.google.com/presentation/d/e/2PACX-1vQdjPYhEXtJt-UiYQIEiN52lJHv9sKWw0_DUmL6adIqRJC874OgNhAxQ5R38__tT7pXB51buJ77uWf_/embed?start=false&loop=false&delayms=3000" target="_blank" rel="noopener" style="font-size: 18px;">EDA (Exploratory Data Analysis)
-
-                    </a> <br style="font-size: 14px; color: aliceblue;">By Rezalian Vatiady & Team | RevoU x Tokopedia<br>
-            </div>
-
-            <div class="box">
-                <div style="position: relative; width: 100%; height: 0; padding-top: 56.2500%;
-                padding-bottom: 48px; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
-                border-radius: 8px; will-change: transform;">
-                    <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;" src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAFI6hVLGg4&#x2F;view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
-                </iframe>
-                </div>
-                <a href="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAFI6hVLGg4&#x2F;view?utm_content=DAFI6hVLGg4&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener" style="font-size: 18px;">The Jaya Online Retail - Product Analysis</a>                <br style="font-size: 14px;">by Rezalian Vatiady<br>
-            </div>
-
-
-            <div class="box">
-                <div style="position: relative; width: 100%; height: 0; padding-top: 56.2500%;
-                padding-bottom: 48px; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
-                border-radius: 8px; will-change: transform;">
-                    <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;" src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAE98hY_m7A&#x2F;view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
-                </iframe>
-                </div>
-                <a href="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAE98hY_m7A&#x2F;view?utm_content=DAE98hY_m7A&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener" style="font-size: 18px;">Group P Final Project | RevoU</a>                <br style="font-size: 14px; color: aliceblue;">By Rezalian Vatiady | RevoU<br>
-            </div>
-
-            <!-- Google Slide -->
-            <!-- Dashboard Design for E-CommerceU -->
-            <div class="box">
-                <div style="position: relative; width: 100%; height: 0; padding-top: 140px;
-                padding-bottom: 60px; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 3.3em; margin-bottom: 0.5em; overflow: hidden;
-                border-radius: 8px; will-change: transform;">
-                    <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding-bottom: 10px; padding: 0;margin: 0;" src="https://docs.google.com/presentation/d/e/2PACX-1vRw7uYyOM1Wonrp6t7ammd9bUnzhHOS_I7Xe7b4RkauKxZd3vch0nyJ_mP3BjSEptjsBx_SlkAQUmtW/embed?start=false&loop=false&delayms=3000"
-                        allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
-                </div>
-                <a href="https://docs.google.com/presentation/d/e/2PACX-1vRw7uYyOM1Wonrp6t7ammd9bUnzhHOS_I7Xe7b4RkauKxZd3vch0nyJ_mP3BjSEptjsBx_SlkAQUmtW/embed?start=false&loop=false&delayms=3000" target="_blank" rel="noopener" style="font-size: 18px;">Dashboard Design for
-                            E-CommerceU
-                    </a> <br style="font-size: 14px; color: aliceblue;">By Rezalian Vatiady & Team | RevoU<br>
-            </div>
-
-            <div class="box">
-                <div style="position: relative; width: 100%; height: 0; padding-top: 50.2500%;
-                padding-bottom: 60px; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 3.3em; margin-bottom: 0.5em; overflow: hidden;
-                border-radius: 8px; will-change: transform;">
-                    <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding-bottom: 10px; padding: 0;margin: 0;" src="https://docs.google.com/presentation/d/e/2PACX-1vRB_6NHyWmx3EXP0AVO-LoKXywAlXdWygz8Nlb-t5Mz4TZnYIOLqKRxIP9Y2TqgxGatqBXDaN_BaH7r/embed?start=false&loop=false&delayms=3000"
-                        allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
-                </div>
-                <a href="https://docs.google.com/presentation/d/e/2PACX-1vRB_6NHyWmx3EXP0AVO-LoKXywAlXdWygz8Nlb-t5Mz4TZnYIOLqKRxIP9Y2TqgxGatqBXDaN_BaH7r/embed?start=false&loop=false&delayms=3000" target="_blank" rel="noopener" style="font-size: 18px;">Customer Segmentation Analysis
-
-                    </a> <br style="font-size: 14px; color: aliceblue;">By Rezalian Vatiady & Team | RevoU<br>
-            </div>
-
-            <div class="box">
-                <div style="position: relative; width: 100%; height: 0; padding-top: 50.2500%;
-                padding-bottom: 60px; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 3.3em; margin-bottom: 0.5em; overflow: hidden;
-                border-radius: 8px; will-change: transform;">
-                    <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding-bottom: 10px; padding: 0;margin: 0;" src="https://docs.google.com/presentation/d/e/2PACX-1vQtwzODZlaV0-KJUHUSX3aoN3ukb5CwnE2-C03k7jcBcXLmLwwiFzslTvrgW4vVOoxRAYfvTDWADZ3H/embed?start=false&loop=false&delayms=3000"
-                        allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
-                </div>
-                <a href="https://docs.google.com/presentation/d/e/2PACX-1vQtwzODZlaV0-KJUHUSX3aoN3ukb5CwnE2-C03k7jcBcXLmLwwiFzslTvrgW4vVOoxRAYfvTDWADZ3H/embed?start=false&loop=false&delayms=3000" target="_blank" rel="noopener" style="font-size: 18px;">Feature Roll-out Adoption Analysis
-
-
-                    </a> <br style="font-size: 14px; color: aliceblue;">By Rezalian Vatiady & Team | RevoU<br>
-            </div>
-
-            <div class="box">
-                <div style="position: relative; width: 100%; height: 0; padding-top: 50.2500%;
-                padding-bottom: 60px; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 3.3em; margin-bottom: 0.5em; overflow: hidden;
-                border-radius: 8px; will-change: transform;">
-                    <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding-bottom: 10px; padding: 0;margin: 0;" src="https://docs.google.com/presentation/d/e/2PACX-1vS4P6xwavkXBkXPJv1e8WLNLgR_bGjaYHn8Effb9Lh8gbL96lKGCkoNHbU2hg4Sg0nzzCq40DIYbWiW/embed?start=false&loop=false&delayms=3000"
-                        allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
-                </div>
-                <a href="https://docs.google.com/presentation/d/e/2PACX-1vS4P6xwavkXBkXPJv1e8WLNLgR_bGjaYHn8Effb9Lh8gbL96lKGCkoNHbU2hg4Sg0nzzCq40DIYbWiW/embed?start=false&loop=false&delayms=3000" target="_blank" rel="noopener" style="font-size: 18px;">Churn Analysis of App User
-
-
-                    </a> <br style="font-size: 14px; color: aliceblue;">By Rezalian Vatiady & Team | RevoU<br>
-            </div>
-
-
-    </section>
-    <!-- map section starts -->
-
-    <!-- <section class="map-section" id="map-section"> -->
-
-    <!-- Halaman Web GIS Section -->
-
-    <!-- minichart -->
-    <!-- <select id="year" onchange="updateMap()">
-                <option value="2015">2015</option>
-                <option value="2012">2012</option>
-                <option value="2009">2009</option>
-                <option value="2006">2006</option>
-            </select> -->
-
-    <!-- <div id="leaflet-control-tilelegend-container"></div> -->
-    <!-- Legenda -->
-
-
-    <!-- </section> -->
-
-
-    <!-- </section> -->
-
-    <!-- map section starts -->
-
-    <!-- portflio section starts -->
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-
-    <section class="portfolio" id="portfolio">
-
-        <h1 class="heading"> my <span>portfolio</span> </h1>
-
-        <!-- <div class="box-container"> -->
-
-        <div class="gallery">
-
-            <ul class="controls">
-                <li class="buttons active" data-filter="all">All</li>
-                <li class="buttons" data-filter="webgis">WebGIS</li>
-                <li class="buttons" data-filter="python">Python Map</li>
-                <li class="buttons" data-filter="data-science">Data Science</li>
-                <li class="buttons" data-filter="data-analytics">Data Analytics</li>
-                <li class="buttons" data-filter="remote-sensing">Remote Sensing</li>
-                <li class="buttons" data-filter="field-survey">Field Survey</li>
-                <li class="buttons" data-filter="gis">GIS Analyst</li>
-            </ul>
-
-            <div class="image-container">
-
-
-
-            </div>
-
-            <div class="image-container" id="static-thumbnails">
-                <!-- Data Analytics Tokopedia -->
-
-                <!-- C-level -->
-                <a href="datascience/clevelmetrics.png" class="image data-analytics" data-sub-html="<h4>Project by - <a href='#' >Rezalian Vatiady</a></h4>
-                    
-                <p>Dashboard : 
-                        <a href='#'>C-Level KPI Dashboard. </a> 
-
-                        <button class=" btn btn-success btn-lg mrb50 " data-iframe="true " id="open-website " data-src="https://public.tableau.com/views/C-LevelKPIDashboard/HighLevelMetrics?:language=en-US&:display_count=n&:origin=viz_share_link
-                    " data-iframe-title="All new time tracking. Greater insight. "></button>
-                    
-                    </p>
-
-                    <img src="datascience/clevelmetrics.png " style="object-fit: fill; " alt=" ">
-
-                </a>
-
-                <!-- M-Level -->
-                <a href="datascience/mlevelmetrics.png " class="image data-analytics " data-sub-html="<h4>Project by - <a href='#'>Rezalian Vatiady</a></h4>
-
-                <p>Dashboard :
-                    <a href='#'>M-Level KPI Dashboard. </a>
-
-                    <button class=" btn btn-success btn-lg mrb50 " data-iframe="true " id="open-website " data-src="https://public.tableau.com/views/M-LevelKPIDashboard/General?:language=en-US&:display_count=n&:origin=viz_share_link
-                    " data-iframe-title="All new time tracking. Greater insight. "></button>
-
-                </p>
-
-                <img src="datascience/mlevelmetrics.png " style="object-fit: fill; " alt=" ">
-
-                </a>
-
-                <!-- O-Level -->
-                <a href="datascience/olevelmetrics.png" class="image data-analytics" data-sub-html="<h4>Project by - <a href='#' >Rezalian Vatiady</a></h4>
-                    
-                <p>Dashboard : 
-                        <a href='#'>O-Level KPI Dashboard. </a> 
-
-                        <button class=" btn btn-success btn-lg mrb50 " data-iframe="true " id="open-website " data-src="https://public.tableau.com/views/O-LevelKPIDashboard/General?:language=en-US&:display_count=n&:origin=viz_share_link
-                    " data-iframe-title="All new time tracking. Greater insight. "></button>
-                    
-                    </p>
-
-                    <img src="datascience/olevelmetrics.png " style="object-fit: fill; " alt=" ">
-
-                </a>
-
-                <!-- Data Analytics -->
-
-                <!-- dastore1 -->
-                <a href="datascience/airbnb.png " class="image data-analytics " data-sub-html="<h4>Project by - <a href='#'>Rezalian Vatiady</a></h4>
-
-                <p>Dashboard :
-                    <a href='#'>Airbnb Analysis. </a>
-
-                    <button class=" btn btn-success btn-lg mrb50 " data-iframe="true " id="open-website " data-src="https://public.tableau.com/views/mlevelmetrics_lighten/Summary?:language=en-US&:display_count=n&:origin=viz_share_link
-                    " data-iframe-title="All new time tracking. Greater insight. "></button>
-
-                </p>
-
-                <img src="datascience/airbnb.png " style="object-fit: fill; " alt=" ">
-
-                </a>
-
-                <!-- dastore2 -->
-                <a href=" " class="image data-analytics " data-sub-html="<h4>Project by - <a href='#'>Rezalian Vatiady</a></h4>
-
-                <p>Dashboard :
-                    <a href='#'>Online Retail - Product Analysis. </a>
-
-                    <button class=" btn btn-success btn-lg mrb50 " data-iframe="true " id="open-website " data-src="https://public.tableau.com/views/OnlineRetailGrey/Dashboardblackgrey?:language=en-US&:display_count=n&:origin=viz_share_link
-                    " data-iframe-title="All new time tracking. Greater insight. "></button>
-
-                </p>
-
-                <img src="datascience/onlineretail.png " style="object-fit: fill; " alt=" ">
-
-                </a>
-
-                <!-- Data Science -->
-
-                <!-- dstore1 -->
-                <a href="datascience/dstore1.png " class="image data-science " data-sub-html="<h4>Project by - <a href='#'>Rezalian Vatiady</a></h4>
-
-                <p>Location -
-                    <a href='#'>Interactive Map Python, Bandar Lampung, Indonesia. </a>
-
-                    <button class=" btn btn-success btn-lg mrb50 " data-iframe="true " id="open-website " data-src="datascience/dstore1.html " data-iframe-title="All new time tracking. Greater insight. "></button>
-
-                </p>
-
-                <img src="datascience/dstore1.png " alt=" ">
-
-                </a>
-
-                <!-- dstore2 -->
-                <a href="datascience/dstore2.png " class="image data-science " data-sub-html="<h4>Project by - <a href='#'>Rezalian Vatiady</a></h4>
-
-                <p>Location -
-                    <a href='#'>Interactive Map Python, Bandar Lampung, Indonesia. </a>
-
-                    <button class=" btn btn-success btn-lg mrb50 " data-iframe="true " id="open-website " data-src="datascience/dstore2.html " data-iframe-title="All new time tracking. Greater insight. "></button>
-
-                </p>
-
-                <img src="datascience/dstore2.png " alt=" ">
-
-                </a>
-
-                <!-- Field Surveying -->
-                <a href="images/img1.jpg " class="image field-survey " data-sub-html="<h4>Photo by - <a href='#'>Rezalian Vatiady</a></h4>
-                <p>Location - <a href='#'>Karendan Gas Processing Facilities, Barito Utara, Kalimantan Tengah, Indonesia. </a>
-                    <p>Pipeline Gas Survey. <a href='#'>Link</a></p>
-                </p>">
-                <img src="images/img1.jpg" style="object-fit: cover;" alt="">
-                </a>
-
-                <a href="images/img2.jpg" class="image field-survey" data-sub-html="<h4>Photo by - <a href='#' >Rezalian Vatiady</a></h4>
-                <p>Location - <a href='#'>Karendan Gas Processing Facilities, Barito Utara, Kalimantan Tengah, Indonesia. </a> 
-                <p>Pipeline Gas Survey. <a href='#'>Link</a></p>
-                     </p>">
-                    <img src="images/img2.jpg" style="object-fit: cover;" alt="">
-                </a>
-
-                <a href="images/img3.jpg" class="image field-survey" data-sub-html="<h4>Photo by - <a href='#' >Rezalian Vatiady</a></h4>
-                <p>Location - <a href='#'>Karendan Gas Processing Facilities, Barito Utara, Kalimantan Tengah, Indonesia. </a> 
-                <p>Pipeline Gas Survey. <a href='#'>Link</a></p>
-                     </p>">
-                    <img src="images/img3.jpg" style="object-fit: cover;" alt="">
-                </a>
-
-                <a href="images/img4.jpg" class="image field-survey" data-sub-html="<h4>Photo by - <a href='#' >Rezalian Vatiady</a></h4>
-                <p>Location - <a href='#'>Karendan Gas Processing Facilities, Barito Utara, Kalimantan Tengah, Indonesia. </a> 
-                    <p>Pipeline Gas Survey. <a href='#'>Link</a></p>
-                     </p>">
-                    <img src="images/img4.jpg" style="object-fit: cover;" alt="">
-                </a>
-
-
-
-                <!-- Geographic Information System -->
-                <a href="images/img5.jpg " class="image gis " data-sub-html="<h4>Image by - <a href='# '>Rezalian Vatiady</a></h4>
-                <p>Land Use (Supervised Learning) -
-                    <a href='# '>Sample Point Map, South Lampung & Tahura Wan Abdul Rachman, Indonesia. </a>
-                </p>
-
-                </p>">
-                    <img src="images/img5.jpg" alt="">
-                </a>
-
-                <a href="images/img6.jpg" class="image gis" data-sub-html="<h4>Image by - <a href='# ' >Rezalian Vatiady</a></h4>
-                <p>Location - 
-                    <a href='# '>Carbon Stocks Distribution Map, Forest Mangrove, South Lampung, Indonesia. </a> 
-                </p>
-
-                </p>">
-                    <img src="images/img6.jpg" alt="">
-                </a>
-
-                <!-- WebGIS -->
-
-
-                <!-- Remote Sensing -->
-
-                <a href="data/lampung_warna.png" class="image remote-sensing" data-sub-html="<h4>Image by - <a href='# ' >Rezalian Vatiady</a></h4>
-                <p>Location - 
-                    <a href='# '>Composite Band Natural Color Landsat 8. </a> 
-                <p>Classification Indonesia National DEM. 
-                </p>
-
-                </p>">
-                    <img src="data/lampung_warna.png" alt="">
-                </a>
-
-                <a href="data/bandar_lampung_hillshade.png" class="image remote-sensing" data-sub-html="<h4>Image by - <a href='# ' >Rezalian Vatiady</a></h4>
-                <p>Location - 
-                    <a href='# '>Bandar Lampung, Lampung, Indonesia. </a> 
-                <p>Hillshade from DEM (Digital Elevation Model). 
-                </p>
-
-                </p>">
-                    <img src="data/bandar_lampung_hillshade.png" alt="">
-                </a>
-
-                <a href="data/bandar_lampung_natural_color.png" class="image remote-sensing" data-sub-html="<h4>Image by - <a href='# ' >Rezalian Vatiady</a></h4>
-                <p>Location - 
-                    <a href='# '>Bandar Lampung, Lampung, Indonesia. </a> 
-                <p>Composite Band Natural Color Landsat 8. 
-                </p>
-
-                </p>">
-                    <img src="data/bandar_lampung_natural_color.png" alt="">
-                </a>
-
-                <a href="data/bandar_lampung_infrared.png" class="image remote-sensing" data-sub-html="<h4>Image by - <a href='# ' >Rezalian Vatiady</a></h4>
-                <p>Location - 
-                    <a href='# '>Bandar Lampung, Lampung, Indonesia. </a> 
-                <p>Composite Band Infrared Using Landsat 8. 
-                </p>
-
-                </p>">
-                    <img src="data/bandar_lampung_infrared.png" alt="">
-                </a>
-
-                <a href="data/bandar_lampung_agriculture.png" class="image remote-sensing" data-sub-html="<h4>Image by - <a href='# ' >Rezalian Vatiady</a></h4>
-                <p>Location - 
-                    <a href='# '>Bandar Lampung, Lampung, Indonesia. </a> 
-                <p>Composite Band for Agriculture Using Landsat 8. 
-                </p>
-
-                </p>">
-                    <img src="data/bandar_lampung_agriculture.png" alt="">
-                </a>
-
-                <a href="data/bandar_lampung_geology.png" class="image remote-sensing" data-sub-html="<h4>Image by - <a href='# ' >Rezalian Vatiady</a></h4>
-                <p>Location - 
-                    <a href='# '>Bandar Lampung, Lampung, Indonesia. </a> 
-                <p>Geology Map Bandar Lampung. 
-                </p>
-
-                </p>">
-                    <img src="data/bandar_lampung_geology.png" alt="">
-                </a>
-
-
-                <!-- <button class="btn btn-success btn-lg mrb50" data-iframe="true" id="open-website" data-src="datascience/dstore1.html" data-iframe-title="All new time tracking. Greater insight.">
-                    Keterangan
-                </button> -->
-
-
-            </div>
-
+        <div class="stat-card reveal reveal-delay-2">
+          <div class="stat-number">5+</div>
+          <div class="stat-label">Years in Technology &amp; Data</div>
         </div>
-
-        <!-- </div> -->
-
-    </section>
-
-    <!-- portflio section Ends -->
-
-    <!-- contact section starts -->
-
-    <section class="contact" id="contact">
-
-        <h1 class="heading"><span>contact</span> me </h1>
-
-        <div class="row">
-
-            <div class="content">
-
-                <h3 class="title">contact info</h3>
-
-                <div class="info">
-                    <h3><i class="fas fa-envelope"></i> rezalian@rocketmail.com</h3>
-                    <h3><i class="fas fa-phone"></i> <a href="https://wa.me/62895620390676" target="_blank">Whatsapp Me</a></h3>
-                    <h3><i class="fas fa-map-marker-alt"></i> Lampung, Indonesia</h3>
-                </div>
-
-            </div>
-
-            <!-- <form action="">
-
-                <input type="text" placeholder="name" class="box">
-                <input type="email" placeholder="email" class="box">
-                <input type="text" placeholder="project" class="box">
-                <textarea name="" id="" cols="30" rows="10" class="box message" placeholder="message"></textarea>
-                <button type="submit" class="btn"> send <i class="fas fa-paper-plane"></i> </button>
-
-            </form> -->
-
+        <div class="stat-card reveal reveal-delay-3">
+          <div class="stat-number">1</div>
+          <div class="stat-label">Open-Source AI Platform · ZalinOS</div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    </section>
+<!-- ─── ABOUT ─── -->
+<section id="about">
+  <div class="about-grid container">
+    <div class="about-text reveal">
+      <div class="section-label">About</div>
+      <h2>Built for enterprise.<br/>Wired for automation.</h2>
+      <br/>
+      <p>I help organizations <strong>transform raw data into actionable business insights</strong>, streamline repetitive workflows through automation, and design intelligent systems that scale operational efficiency.</p>
+      <p>My background spans Business Intelligence, Data Analytics, Python Automation, Enterprise Reporting, Geospatial Analytics, and AI Agent Development — applied across multinational retail (IKEA), banking (BRI), and e-commerce (Tokopedia) environments.</p>
+      <p>Alongside client work, I'm building <strong>ZalinOS</strong> — a modular AI operating system for analytics, GIS, automation, and OSINT agent orchestration.</p>
+      <div class="about-facts">
+        <div class="about-fact"><i class="fas fa-map-marker-alt"></i> West Jakarta, Indonesia</div>
+        <div class="about-fact"><i class="fas fa-graduation-cap"></i> B.Eng Geomatics Engineering — Institut Teknologi Sumatera</div>
+        <div class="about-fact"><i class="fas fa-certificate"></i> Google Data Analytics Certified</div>
+        <div class="about-fact"><i class="fas fa-globe"></i> Open to remote worldwide · Contract &amp; Freelance</div>
+      </div>
+    </div>
+    <div class="about-right reveal reveal-delay-2">
+      <div class="expertise-card">
+        <div class="expertise-icon"><i class="fas fa-chart-line"></i></div>
+        <div>
+          <h4>Business Intelligence</h4>
+          <p>Dashboard development, KPI monitoring, and multi-region BI operations with Qlik Sense, Tableau, Alteryx, and BigQuery.</p>
+        </div>
+      </div>
+      <div class="expertise-card">
+        <div class="expertise-icon"><i class="fas fa-robot"></i></div>
+        <div>
+          <h4>Python Automation &amp; AI</h4>
+          <p>End-to-end workflow automation, batch processing, and multi-agent AI orchestration with contextual memory and task routing.</p>
+        </div>
+      </div>
+      <div class="expertise-card">
+        <div class="expertise-icon"><i class="fas fa-database"></i></div>
+        <div>
+          <h4>Data Analytics</h4>
+          <p>Customer segmentation, churn analysis, RFM, A/B testing, and predictive ML using Python and Scikit-Learn.</p>
+        </div>
+      </div>
+      <div class="expertise-card">
+        <div class="expertise-icon"><i class="fas fa-map"></i></div>
+        <div>
+          <h4>GIS &amp; Spatial Analytics</h4>
+          <p>Geospatial analysis, remote sensing, location intelligence, and WebGIS from an engineering background.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- contact section ends -->
+<!-- ─── CAREER ─── -->
+<section id="career">
+  <div class="career-inner container">
+    <div class="section-label reveal">Experience</div>
+    <h2 class="reveal">Career Highlights</h2>
+    <p class="section-sub reveal">Enterprise environments across retail, banking, and education — plus independent R&D.</p>
+    <div class="career-grid">
 
+      <div class="career-card reveal">
+        <span class="career-logo">IKEA Indonesia</span>
+        <h3>Regional Business Intelligence Specialist</h3>
+        <div class="career-period">Oct 2023 – Mar 2024 · PT Rumah Mebel Nusantara</div>
+        <div class="career-tags">
+          <span class="tag">Qlik Sense</span><span class="tag">Alteryx</span><span class="tag">SQL</span>
+          <span class="tag">MS SQL Server</span><span class="tag">Datalake</span><span class="tag">ETL</span>
+        </div>
+        <ul class="career-highlights">
+          <li>Managed BI operations across Indonesia, Taiwan, Hong Kong, and Macau</li>
+          <li>Administered Alteryx scheduling pipelines and Qlik Management Console</li>
+          <li>Data quality assurance between datalake and regional store systems</li>
+          <li>Collaborated with BI, Regional IT, and cross-functional business teams</li>
+        </ul>
+      </div>
 
-    <!-- MAP SCRIPT -->
-    <!-- Make sure you put this AFTER Leaflet's CSS -->
-    <script src="assets/leaflet.js" text="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    <!-- <script src="assets/leaflet23.js" text="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script> -->
-    <!-- geocoder -->
-    <script src="assets/Control.Geocoder.js" text="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js">
-    </script>
-    <!-- fullscreen -->
-    <script src='assets/Leaflet.fullscreen.min.js' text="https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js"></script>
-    <!-- File layer -->
-    <!-- <script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js"></script>
-        <script src="http://makinacorpus.github.io/Leaflet.FileLayer/leaflet.filelayer.js"></script>
-        <script src="http://makinacorpus.github.io/Leaflet.FileLayer/togeojson/togeojson.js"></script> -->
-    <script src="https://unpkg.com/togeojson@0.16.0"></script>
-    <script src="https://unpkg.com/leaflet-filelayer@1.2.0"></script>
-    <!-- Navbar -->
-    <script src="assets/Leaflet.NavBar.js" text="http://davidchouse.github.io/Leaflet.NavBar/Leaflet.NavBar.js">
-    </script>
-    <!-- MiniMap -->
-    <script src="assets/Control.MiniMap.min.js" type="text/javascript"></script>
-    <!-- Geolocation -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7"></script> -->
-    <!-- ini yang membuat tidak tampil -->
-    <script src="assets/L.Control.Locate.js"></script>
-    <!-- <script src="js/jquery-3.6.0.min.js"></script> -->
-    <!-- <script src="js/script.js"></script> -->
-    <!-- Hash Map -->
-    <!-- <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script> -->
-    <!-- <script src="http://mlevans.github.io/leaflet-hash/javascripts/leaflet-hash.js"></script>
-        <script src="http://yohanboniface.github.io/Leaflet.EditInOSM/Leaflet.EditInOSM.js"></script>
-        <script src="assets/Leaflet.TileLegend.js"></script>
-        <script src="assets/legend.js"></script> -->
-    <!-- leaflet-control-condended-attribution source -->
-    <!-- <script type="text/javascript" src="assets/leaflet-control-condended-attribution.js"></script> -->
-    <!-- Compass -->
-    <script src="assets/leaflet-compass.js"></script>
-    <!-- GEOSERVER GEOJSON -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <!-- <script src='https://code.jquery.com/jquery-1.11.0.min.js'></script> -->
-    <!-- leaflet request geoserver -->
-    <script src="assets/L.Geoserver.js"></script>
-    <!-- 2. Opacity -->
-    <script src="assets/L.Control.Opacity.js"></script>
-    <!-- Graticule -->
-    <script src="assets/leaflet.latlng-graticule.js"></script>
-    <!-- Tile Layer Preview Icon -->
-    <script type="text/javascript" src="assets/map-providers.js"></script>
-    <!-- tempat menyimpan Kumpulan Provider Tile Layer -->
-    <script type="text/javascript" src="assets/iconLayers.js"></script>
-    <!-- Zoom Bar -->
-    <script type="text/javascript" src="assets/L.Control.ZoomBar.js"></script>
-    <!-- Polyline Measurement -->
-    <script src="assets/Leaflet.PolylineMeasure.js"></script>
-    <!-- geojson vt  -->
-    <script src="assets/geojson-vt.js"></script>
-    <script src="assets/leaflet-geojson-vt.js"></script>
-    <!-- Add File GeoJson to Javascript variable & const -->
-    <script src="overlays/administrasi-outline-style-bdl.js" type="text/javascript"></script>
-    <script src="overlays/administrasikecamatan_ar_50k.js" type="text/javascript"></script>
-    <script src="overlays/nama_kecamatan_tanpa_shp.js" type="text/javascript"></script>
-    <script src="overlays/symbol_toponimi_pt_50k.js" type="text/javascript"></script>
-    <script src="js/nama.js"></script>
-    <script src="js/Files/bicycle.js"></script>
-    <!-- Add Style Overlay -->
-    <script src="map_style/administrasi_outline_bdl_style.js"></script>
-    <script src="map_style/administrasikecamatan_ar_50k_style.js"></script>
-    <script src="map_style/overlays/nama_kecamatan_tanpa_shp.js"></script>
-    <script src="map_style/symbol_toponimi_pt_50k.js"></script>
-    <!-- Leaflet Ajax to call GeoJSON -->
-    <script type="text/javascript" src="assets/leaflet.ajax.js"></script>
-    <!-- GeoJSON overlay + Style QGIS -->
-    <script src="assets/geojson-overlay.js"></script>
-    <!-- Map Cluster -->
-    <script src="assets/leaflet.markercluster.js"></script>
-    <!-- Buffer Marker radius -->
-    <script src="assets/Leaflet.greatCircle.js"></script>
-    <!-- 3. Order Layer Control Panel Overlays -->
-    <script src="assets/leaflet.control.orderlayers.min.js"></script>
-    <!-- Country Select -->
-    <script src="assets/Leaflet.CountrySelect.js"></script>
-    <!-- Mask Dusk -->
-    <script src="assets/leaflet-tilelayer-mask.js"></script>
-    <!-- Leaflet Opacity Slider Vertical -->
-    <script src="assets/Control.Opacity.js"></script>
-    <!-- jquery -->
-    <script src="assets/jquery/jquery-1.9.1.js"></script>
-    <script src="assets/jquery/jquery-ui-1.10.3.custom.min.js"></script>
-    <!-- MarkerCluster -->
-    <script src="assets"></script>
-    <!-- Marker Stack  Diagram -->
-    <script src="assets/Leaflet.Marker.Stack.js"></script>
-    <script src="assets/Leaflet.Icon.Chip.js"></script>
-    <!-- Diagram 3 Baris -->
-    <script src="https://unpkg.com/leaflet.minichart/dist/leaflet.minichart.min.js" charset="utf-8"></script>
-    <!-- Minichart -->
-    <script src="assets/leaflet.minichart.min.js" charset="utf-8"></script>
-    <!-- Minichart data -->
-    <script src="overlays/minichartdata.js"></script>
-    <!-- GeoJSON Tile Layer -->
-    <script src="assets/TileLayer.GeoJSON.js"></script>
-    <!-- GeoJSON Ajax -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.min.js"></script>
+      <div class="career-card reveal reveal-delay-1">
+        <span class="career-logo">BRI · AML Project</span>
+        <h3>IT Business Analyst</h3>
+        <div class="career-period">Feb 2023 – Sep 2023 · PT Prima Integrasi Network</div>
+        <div class="career-tags">
+          <span class="tag">Graph Database</span><span class="tag">AML Analytics</span>
+          <span class="tag">Business Analysis</span><span class="tag">Process Optimization</span>
+        </div>
+        <ul class="career-highlights">
+          <li>Led analysis for BRI anti-money laundering using Graph Database Toolkit</li>
+          <li>Requirements gathering, documentation, and stakeholder reporting</li>
+          <li>Identified operational optimization opportunities across business processes</li>
+        </ul>
+      </div>
 
+      <div class="career-card reveal reveal-delay-2">
+        <span class="career-logo">RevoU × Tokopedia</span>
+        <h3>Data Analytics · Freelance</h3>
+        <div class="career-period">Aug 2022 – Sep 2022</div>
+        <div class="career-tags">
+          <span class="tag">Python</span><span class="tag">Tableau</span><span class="tag">SQL</span>
+          <span class="tag">Segmentation</span><span class="tag">Churn Analysis</span>
+        </div>
+        <ul class="career-highlights">
+          <li>Customer segmentation, churn analysis, and feature adoption analysis</li>
+          <li>KPI dashboard monitoring for executive, middle, and operational levels</li>
+          <li>Positive evaluation received from Tokopedia Analytics Team reviewers</li>
+        </ul>
+      </div>
 
-    <!-- Ini Halaman Map -->
+    </div>
+  </div>
+</section>
 
-    <!-- WEB SCRIPT STARTS -->
+<!-- ─── PROJECTS ─── -->
+<section id="projects">
+  <div class="projects-inner container">
+    <div class="section-label reveal">Work</div>
+    <h2 class="reveal">Featured Projects</h2>
+    <p class="section-sub reveal">A selection of analytical, automation, and AI projects across enterprise and personal R&D.</p>
+    <div class="projects-masonry">
 
-    <!-- jquery cdn link -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
-    <!-- custom js file link -->
-    <script src="js/scriptwebportfolio.js"></script>
-    <!-- magnific popup js cdn link -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+      <div class="project-card featured reveal">
+        <div>
+          <span class="project-featured-badge"><i class="fas fa-star"></i> Flagship Project</span>
+        </div>
+        <div class="project-type">AI ORCHESTRATION PLATFORM</div>
+        <h3>ZalinOS — Modular AI Agent Operating System</h3>
+        <p>Open-source modular AI operating system built in Python. Designed for analytics, GIS, OSINT, workflow orchestration, and intelligent agent collaboration. Features multi-agent architecture, dynamic task routing, contextual memory systems, and modular environment isolation — built for practical enterprise deployment.</p>
+        <div class="project-tech">
+          <span class="tech-pill">Python</span>
+          <span class="tech-pill">Multi-Agent</span>
+          <span class="tech-pill">Task Routing</span>
+          <span class="tech-pill">Context Memory</span>
+          <span class="tech-pill">Workflow Engine</span>
+          <span class="tech-pill">GIS Agent</span>
+          <span class="tech-pill">OSINT Agent</span>
+        </div>
+      </div>
 
-    <!-- Light Gallery Ajax JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.3.0/lightgallery.umd.min.js"></script>
-    <!-- Or use the minified version -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.3.0/lightgallery.min.js"></script>
+      <div class="project-card reveal reveal-delay-1">
+        <div class="project-type">ENTERPRISE BI</div>
+        <h3>Enterprise BI Operations · Multi-Region</h3>
+        <p>Managed enterprise-scale BI operations across four countries — ensuring dashboard reliability, datalake consistency, and reporting automation for multi-region retail.</p>
+        <div class="project-tech">
+          <span class="tech-pill">Qlik Sense</span>
+          <span class="tech-pill">Alteryx</span>
+          <span class="tech-pill">SQL</span>
+          <span class="tech-pill">ETL</span>
+        </div>
+      </div>
 
-    <!-- lightgallery plugins -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.3.0/plugins/thumbnail/lg-thumbnail.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.3.0/plugins/zoom/lg-zoom.umd.min.js"></script>
+      <div class="project-card reveal reveal-delay-2">
+        <div class="project-type">CUSTOMER ANALYTICS</div>
+        <h3>Customer Segmentation &amp; RFM Analysis</h3>
+        <p>Applied K-Means clustering and RFM analysis to segment customers by purchasing behavior — enabling targeted retention strategies and actionable business recommendations.</p>
+        <div class="project-tech">
+          <span class="tech-pill">Python</span>
+          <span class="tech-pill">Scikit-Learn</span>
+          <span class="tech-pill">Pandas</span>
+          <span class="tech-pill">Tableau</span>
+        </div>
+      </div>
 
+      <div class="project-card reveal">
+        <div class="project-type">PREDICTIVE ML</div>
+        <h3>Churn Prediction &amp; Analysis</h3>
+        <p>End-to-end churn analysis identifying at-risk customer segments, key churn drivers, and retention opportunities through predictive modeling and business insights.</p>
+        <div class="project-tech">
+          <span class="tech-pill">Python</span>
+          <span class="tech-pill">ML</span>
+          <span class="tech-pill">Pandas</span>
+          <span class="tech-pill">Tableau</span>
+        </div>
+      </div>
 
-    <!-- WEB SCRIPT ENDS -->
+      <div class="project-card reveal reveal-delay-1">
+        <div class="project-type">AUTOMATION</div>
+        <h3>Affiliate Workflow Automation System</h3>
+        <p>Python-based automation integrating spreadsheets, media processing with OpenCV, and operational pipelines — significantly reducing repetitive manual work.</p>
+        <div class="project-tech">
+          <span class="tech-pill">Python</span>
+          <span class="tech-pill">Google Sheets API</span>
+          <span class="tech-pill">OpenCV</span>
+        </div>
+      </div>
 
-    <!-- Script Portfoio -->
-    <script>
-        /* JQuery Gallery */
-        $(document).ready(function() {
+      <div class="project-card reveal reveal-delay-2">
+        <div class="project-type">GEOSPATIAL</div>
+        <h3>GIS &amp; Spatial Intelligence Analytics</h3>
+        <p>Spatial analysis, remote sensing, and location intelligence applications — including published research on mangrove carbon stock estimation using satellite imagery.</p>
+        <div class="project-tech">
+          <span class="tech-pill">ArcGIS</span>
+          <span class="tech-pill">Remote Sensing</span>
+          <span class="tech-pill">Python</span>
+          <span class="tech-pill">SPOT-7</span>
+        </div>
+      </div>
 
-            $('.buttons').click(function() {
+    </div>
+  </div>
+</section>
 
-                $(this).addClass('active').siblings().removeClass('active');
+<!-- ─── ZALINOS ─── -->
+<section id="zalinos">
+  <div class="zalinos-inner container">
+    <div class="zalinos-header reveal">
+      <div class="section-label" style="justify-content:center;">ZalinOS</div>
+      <h2>Building the Future of<br/>Modular AI Systems</h2>
+      <p>An open-source AI operating system designed for enterprise orchestration — connecting specialized agents through a unified workflow engine and persistent context memory.</p>
+    </div>
 
-                var filter = $(this).attr('data-filter')
+    <div class="zalinos-diagram reveal">
+      <div class="zal-core">⬡ ZalinOS</div>
+      <div class="zal-connector"></div>
+      <div class="zal-agents">
+        <div class="zal-agent">
+          <div class="zal-agent-icon">🗺️</div>
+          <div class="zal-agent-name">GIS Agent</div>
+          <div class="zal-agent-desc">Spatial analysis &amp; location intelligence</div>
+        </div>
+        <div class="zal-agent">
+          <div class="zal-agent-icon">📊</div>
+          <div class="zal-agent-name">Data Agent</div>
+          <div class="zal-agent-desc">Analytics, EDA &amp; reporting</div>
+        </div>
+        <div class="zal-agent">
+          <div class="zal-agent-icon">💻</div>
+          <div class="zal-agent-name">Coding Agent</div>
+          <div class="zal-agent-desc">Automation &amp; workflow scripts</div>
+        </div>
+        <div class="zal-agent">
+          <div class="zal-agent-icon">🔍</div>
+          <div class="zal-agent-name">OSINT Agent</div>
+          <div class="zal-agent-desc">Open-source intelligence gathering</div>
+        </div>
+      </div>
+      <div class="zal-divider"></div>
+      <div class="zal-infra">
+        <div class="zal-infra-card">
+          <i class="fas fa-sitemap"></i>
+          <div>
+            <h4>Workflow Engine</h4>
+            <p>Dynamic task routing &amp; pipeline orchestration</p>
+          </div>
+        </div>
+        <div class="zal-infra-card">
+          <i class="fas fa-brain"></i>
+          <div>
+            <h4>Context Memory</h4>
+            <p>Persistent session state &amp; conversational context</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-                if (filter == 'all') {
-                    $('.image').show(400);
-                } else {
-                    $('.image').not('.' + filter).hide(200);
-                    $('.image').filter('.' + filter).show(400);
-                }
+    <div class="zalinos-roadmap">
+      <div class="roadmap-card reveal">
+        <div class="roadmap-dot active"></div>
+        <div class="roadmap-stage">CURRENT</div>
+        <h4>Research &amp; Development</h4>
+        <p>Core multi-agent architecture, memory systems, and analytics agent active.</p>
+      </div>
+      <div class="roadmap-card reveal reveal-delay-1">
+        <div class="roadmap-dot next"></div>
+        <div class="roadmap-stage">NEXT</div>
+        <h4>Expanded Agent Network</h4>
+        <p>Full GIS, OSINT, and automation agent integration with modular plugin system.</p>
+      </div>
+      <div class="roadmap-card reveal reveal-delay-2">
+        <div class="roadmap-dot next"></div>
+        <div class="roadmap-stage">GOAL</div>
+        <h4>Enterprise AI Orchestration</h4>
+        <p>Production-ready platform for enterprise analytics and intelligent automation at scale.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-            });
+<!-- ─── SERVICES ─── -->
+<section id="services">
+  <div class="services-inner container">
+    <div class="section-label reveal">Services</div>
+    <h2 class="reveal">What I Deliver</h2>
+    <p class="section-sub reveal">Available for freelance, contract, and part-time engagements — worldwide remote.</p>
+    <div class="services-grid">
 
-            /* $('.gallery').magnificPopup({
-    
-                delegate:'a',
-                type:'image',
-                gallery:{
-                    enabled:true
-                }
-    
-    
-            }); */
+      <div class="service-card reveal">
+        <div class="service-icon"><i class="fas fa-chart-bar"></i></div>
+        <h3>Business Intelligence</h3>
+        <ul class="service-list">
+          <li>Executive KPI Dashboard Development</li>
+          <li>Qlik Sense &amp; Tableau Reports</li>
+          <li>Multi-Region BI Operations</li>
+          <li>Datalake Validation &amp; ETL</li>
+          <li>Automated Reporting Pipelines</li>
+        </ul>
+      </div>
 
-        });
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-icon"><i class="fas fa-magnifying-glass-chart"></i></div>
+        <h3>Data Analytics</h3>
+        <ul class="service-list">
+          <li>Customer Segmentation &amp; RFM</li>
+          <li>Churn Prediction &amp; Analysis</li>
+          <li>A/B Testing &amp; Statistical Analysis</li>
+          <li>Cohort &amp; Feature Adoption Analysis</li>
+          <li>Predictive ML Modeling</li>
+        </ul>
+      </div>
 
-        /* JQuery Portfolio */
-        /* .badan dibawah merupakan html code posisi meloading halaman */
-        $(document).ready(function() {
-            $('.keterangan').click(function() { /* jika keterangan diklik maka akan mencari variabel id */
-                var menu = $(this).attr('id');
-                if (menu == "dstore1") { /* maka cari atribut dengan id="dstore1" */
-                    $('.image-container').load('dstore1.html'); /* kemudian load class="image-container" pada halaman combinetest.html  /halaman masing2 artikel portfolio data science */
-                } else if (menu == "dstore2") {
-                    $('.image-container').load('tentang.php'); /* halaman masing2 artikel portfolio data science */
-                } else if (menu == "dstore3") {
-                    $('.image-container').load('tutorial.php'); /* halaman masing2 artikel portfolio data science */
-                } else if (menu == "dstore4") {
-                    $('.image-container').load('sosmed.php'); /* halaman masing2 artikel portfolio data science */
-                }
-            });
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-icon"><i class="fas fa-gears"></i></div>
+        <h3>Python Automation</h3>
+        <ul class="service-list">
+          <li>Workflow &amp; Process Automation</li>
+          <li>Batch Processing Systems</li>
+          <li>Google Sheets API Integration</li>
+          <li>Media Processing with OpenCV</li>
+          <li>Operational Pipeline Engineering</li>
+        </ul>
+      </div>
 
-            // halaman yang di load default pertama kali
-            /* $('.image-container').load('home.php');	 */
+      <div class="service-card reveal">
+        <div class="service-icon"><i class="fas fa-database"></i></div>
+        <h3>ETL &amp; Data Engineering</h3>
+        <ul class="service-list">
+          <li>SQL · BigQuery · PostgreSQL</li>
+          <li>Data Cleaning &amp; Validation</li>
+          <li>Data Pipeline Design</li>
+          <li>MS SQL Server Administration</li>
+          <li>Alteryx Pipeline Scheduling</li>
+        </ul>
+      </div>
 
-        });
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-icon"><i class="fas fa-robot"></i></div>
+        <h3>AI Workflow Development</h3>
+        <ul class="service-list">
+          <li>Multi-Agent System Design</li>
+          <li>Context Memory &amp; Task Routing</li>
+          <li>AI-Assisted Analytics Workflows</li>
+          <li>Modular AI Pipeline Engineering</li>
+          <li>Prompt Engineering &amp; Orchestration</li>
+        </ul>
+      </div>
 
-        /*JQuery gallery  */
-        /* jQuery("#animated-thumbnails-gallery")
-            .justifiedGallery({
-                captions: false,
-                lastRow: "hide",
-                rowHeight: 180,
-                margins: 5
-            })
-            .on("jg.complete", function() {
-                window.lightGallery(
-                    document.getElementById("animated-thumbnails-gallery"), {
-                        autoplayFirstVideo: false,
-                        pager: false,
-                        galleryId: "nature",
-                        plugins: [lgZoom, lgThumbnail],
-                        mobileSettings: {
-                            controls: false,
-                            showCloseIcon: false,
-                            download: false,
-                            rotate: false
-                        }
-                    }
-                );
-            }); */
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-icon"><i class="fas fa-map-location-dot"></i></div>
+        <h3>GIS &amp; Spatial Analytics</h3>
+        <ul class="service-list">
+          <li>Geospatial Data Analysis</li>
+          <li>Remote Sensing &amp; Satellite Data</li>
+          <li>Location Intelligence Reporting</li>
+          <li>WebGIS Application Support</li>
+          <li>ArcGIS &amp; Spatial Modeling</li>
+        </ul>
+      </div>
 
-        /* Animated Thumbnails */
-        /* lightGallery(document.getElementById('animated-thumbnails-gallery'), {
-            thumbnail: true,
-        }); */
+    </div>
+  </div>
+</section>
 
-        /* Statics Thumbnails */
-        lightGallery(document.getElementById('static-thumbnails'), {
-            animateThumb: false,
-            zoomFromOrigin: false,
-            allowMediaOverlap: true,
-            toggleThumb: true,
-        });
+<!-- ─── SKILLS ─── -->
+<section id="skills">
+  <div class="skills-inner container">
+    <div class="section-label reveal">Stack</div>
+    <h2 class="reveal">Skills &amp; Technologies</h2>
+    <p class="section-sub reveal">Tools I use in production — not just listed, but applied across real projects.</p>
+    <div class="skills-groups">
 
+      <div class="skill-group reveal">
+        <h3>Analytics &amp; BI</h3>
+        <div class="skill-pills">
+          <span class="skill-pill">SQL</span>
+          <span class="skill-pill">Tableau</span>
+          <span class="skill-pill">Qlik Sense</span>
+          <span class="skill-pill">BigQuery</span>
+          <span class="skill-pill">Alteryx</span>
+          <span class="skill-pill">Power BI</span>
+          <span class="skill-pill">MS SQL Server</span>
+          <span class="skill-pill">KPI Dashboard</span>
+          <span class="skill-pill">ETL</span>
+          <span class="skill-pill">Datalake</span>
+        </div>
+      </div>
 
+      <div class="skill-group reveal reveal-delay-1">
+        <h3>Programming</h3>
+        <div class="skill-pills">
+          <span class="skill-pill">Python</span>
+          <span class="skill-pill">Pandas</span>
+          <span class="skill-pill">NumPy</span>
+          <span class="skill-pill">Scikit-Learn</span>
+          <span class="skill-pill">OpenCV</span>
+          <span class="skill-pill">Google Sheets API</span>
+          <span class="skill-pill">Jupyter Notebook</span>
+          <span class="skill-pill">Batch Processing</span>
+        </div>
+      </div>
 
-        /* JQuery button*/
-        lightGallery(document.getElementById('open-website'), {
-            selector: 'this',
-        });
+      <div class="skill-group reveal reveal-delay-2">
+        <h3>AI &amp; Orchestration</h3>
+        <div class="skill-pills">
+          <span class="skill-pill">Multi-Agent Systems</span>
+          <span class="skill-pill">Context Memory</span>
+          <span class="skill-pill">Task Routing</span>
+          <span class="skill-pill">Workflow Orchestration</span>
+          <span class="skill-pill">Prompt Engineering</span>
+          <span class="skill-pill">AI Workflow Dev</span>
+        </div>
+      </div>
 
+      <div class="skill-group reveal">
+        <h3>Data Science &amp; ML</h3>
+        <div class="skill-pills">
+          <span class="skill-pill">EDA</span>
+          <span class="skill-pill">RFM Analysis</span>
+          <span class="skill-pill">Cohort Analysis</span>
+          <span class="skill-pill">Churn Analysis</span>
+          <span class="skill-pill">K-Means Clustering</span>
+          <span class="skill-pill">A/B Testing</span>
+          <span class="skill-pill">Customer Segmentation</span>
+          <span class="skill-pill">Predictive ML</span>
+        </div>
+      </div>
 
-        /* Smooth Scrolling */
-        $('a[href*="#"]').on('click', function(e) {
+      <div class="skill-group reveal reveal-delay-1">
+        <h3>GIS &amp; Geospatial</h3>
+        <div class="skill-pills">
+          <span class="skill-pill">ArcGIS</span>
+          <span class="skill-pill">Remote Sensing</span>
+          <span class="skill-pill">Spatial Analysis</span>
+          <span class="skill-pill">Location Intelligence</span>
+          <span class="skill-pill">WebGIS</span>
+          <span class="skill-pill">QGIS</span>
+          <span class="skill-pill">Satellite Imagery</span>
+        </div>
+      </div>
 
-            e.preventDefault();
+      <div class="skill-group reveal reveal-delay-2">
+        <h3>Data Engineering</h3>
+        <div class="skill-pills">
+          <span class="skill-pill">PostgreSQL</span>
+          <span class="skill-pill">DuckDB</span>
+          <span class="skill-pill">Data Validation</span>
+          <span class="skill-pill">Pipeline Design</span>
+          <span class="skill-pill">Reporting Automation</span>
+          <span class="skill-pill">Data Cleaning</span>
+        </div>
+      </div>
 
-            $('html, body').animate({
+    </div>
+  </div>
+</section>
 
-                    scrollTop: $($(this).attr('href')).offset().top,
+<!-- ─── CERTIFICATIONS ─── -->
+<section id="certs">
+  <div class="certs-inner container">
+    <div class="section-label reveal">Credentials</div>
+    <h2 class="reveal">Certifications</h2>
+    <p class="section-sub reveal">Formal credentials alongside 200+ hours of bootcamp training and hands-on enterprise practice.</p>
+    <div class="certs-timeline">
 
-                },
+      <div class="cert-item reveal">
+        <div class="cert-year">2023</div>
+        <div class="cert-line"><div class="cert-dot"></div><div class="cert-track"></div></div>
+        <div class="cert-content">
+          <h4>Google Data Analytics</h4>
+          <p>Coursera + Kominfo</p>
+        </div>
+      </div>
 
-                500,
-                'linear'
-            );
+      <div class="cert-item reveal reveal-delay-1">
+        <div class="cert-year">2022</div>
+        <div class="cert-line"><div class="cert-dot"></div><div class="cert-track"></div></div>
+        <div class="cert-content">
+          <h4>Full Stack Data Analytics Team Lead</h4>
+          <p>RevoU · Led cohort of 12 students · Overall Grade 92.31%</p>
+        </div>
+      </div>
 
-        });
-    </script>
+      <div class="cert-item reveal reveal-delay-2">
+        <div class="cert-year">2022</div>
+        <div class="cert-line"><div class="cert-dot"></div><div class="cert-track"></div></div>
+        <div class="cert-content">
+          <h4>Data Analyst Python Track</h4>
+          <p>DQLab</p>
+        </div>
+      </div>
 
+      <div class="cert-item reveal">
+        <div class="cert-year">2022</div>
+        <div class="cert-line"><div class="cert-dot"></div><div class="cert-track"></div></div>
+        <div class="cert-content">
+          <h4>Database Design &amp; Basic SQL in PostgreSQL</h4>
+          <p>University of Michigan / Coursera</p>
+        </div>
+      </div>
+
+      <div class="cert-item reveal reveal-delay-1">
+        <div class="cert-year">2022</div>
+        <div class="cert-line"><div class="cert-dot"></div><div class="cert-track"></div></div>
+        <div class="cert-content">
+          <h4>Exploratory Data Analysis with Seaborn</h4>
+          <p>Coursera Project</p>
+        </div>
+      </div>
+
+      <div class="cert-item reveal reveal-delay-2">
+        <div class="cert-year">2022</div>
+        <div class="cert-line"><div class="cert-dot"></div><div class="cert-track"></div></div>
+        <div class="cert-content">
+          <h4>Business Decision Research &amp; Data Cleansing</h4>
+          <p>DQLab</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── CONTACT ─── -->
+<section id="contact">
+  <div class="contact-inner container">
+    <div class="section-label" style="justify-content:center;" >Get In Touch</div>
+    <h2>Ready to work together?</h2>
+    <p style="margin-bottom:3rem;">Available for remote freelance, contract, and part-time engagements — worldwide. Especially interested in BI, data analytics, automation, and AI workflow projects.</p>
+    <div class="contact-grid">
+      <a href="mailto:rezalian@rocketmail.com" class="contact-card reveal">
+        <i class="fas fa-envelope"></i>
+        <span>Email</span>
+        <strong>rezalian@rocketmail.com</strong>
+      </a>
+      <a href="https://linkedin.com/in/rezalianvatiady" target="_blank" class="contact-card reveal reveal-delay-1">
+        <i class="fab fa-linkedin"></i>
+        <span>LinkedIn</span>
+        <strong>rezalianvatiady</strong>
+      </a>
+      <a href="https://rezalianvatiady.github.io" target="_blank" class="contact-card reveal reveal-delay-2">
+        <i class="fab fa-github"></i>
+        <span>GitHub</span>
+        <strong>rezalianvatiady</strong>
+      </a>
+      <a href="https://public.tableau.com/profile/rezalianvatiady" target="_blank" class="contact-card reveal">
+        <i class="fas fa-chart-pie"></i>
+        <span>Tableau Public</span>
+        <strong>View Dashboards</strong>
+      </a>
+      <a href="tel:+6289562039067" class="contact-card reveal reveal-delay-1">
+        <i class="fas fa-phone"></i>
+        <span>Phone / WhatsApp</span>
+        <strong>+62 895-6203-90676</strong>
+      </a>
+      <a href="Rezalian_Vatiady_Resume.docx" download class="contact-card reveal reveal-delay-2">
+        <i class="fas fa-file-alt"></i>
+        <span>Resume</span>
+        <strong>Download CV</strong>
+      </a>
+    </div>
+    <div class="contact-cta">
+      <a href="mailto:rezalian@rocketmail.com" class="btn-primary"><i class="fas fa-paper-plane"></i> Send a Message</a>
+      <a href="https://linkedin.com/in/rezalianvatiady" target="_blank" class="btn-outline"><i class="fab fa-linkedin"></i> Connect on LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <p>© 2026 <span>Rezalian Vatiady</span> · Business Intelligence · Python Automation · AI Workflow · West Jakarta, Indonesia</p>
+</footer>
+
+<script>
+  // Navbar scroll state
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // Mobile menu
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+  function closeMenu() {
+    document.getElementById('mobileMenu').classList.remove('open');
+  }
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Animated counters for hero stats
+  function animateCount(el, target, suffix = '') {
+    let start = 0;
+    const step = target / 50;
+    const timer = setInterval(() => {
+      start += step;
+      if (start >= target) { start = target; clearInterval(timer); }
+      el.textContent = Math.floor(start) + suffix;
+    }, 30);
+  }
+  const counterObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const nums = e.target.querySelectorAll('.stat-number');
+        const targets = [4, 20, 5, 1];
+        const suffixes = ['', '+', '+', ''];
+        nums.forEach((n, i) => animateCount(n, targets[i], suffixes[i]));
+        counterObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  const statsEl = document.querySelector('.hero-stats');
+  if (statsEl) counterObs.observe(statsEl);
+</script>
 
 </body>
-
 </html>
