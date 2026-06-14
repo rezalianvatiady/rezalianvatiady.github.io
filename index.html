@@ -439,114 +439,50 @@
       padding: 0.2rem 0.7rem;
     }
 
-    /* ─── PROJECT VISUAL CARDS ─── */
-    .pvc-grid {
+    /* ─── PROJECT LINKS ─── */
+    .project-links-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
     }
-    .pvc-card {
-      background: #13181f;
+    .proj-link-card {
+      display: flex; align-items: center; gap: 1rem;
+      background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 16px;
-      overflow: hidden;
-      display: flex; flex-direction: column;
-      transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
-      text-decoration: none; color: inherit;
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+      transition: border-color 0.25s, transform 0.2s, background 0.2s;
       cursor: pointer;
     }
-    .pvc-card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(59,130,246,0.5);
-      box-shadow: 0 16px 48px rgba(59,130,246,0.13);
+    .proj-link-card:hover {
+      border-color: var(--accent);
+      background: rgba(59,130,246,0.05);
+      transform: translateX(4px);
     }
-    /* Thumbnail wrapper — iframe preview */
-    .pvc-thumb {
-      position: relative;
-      width: 100%; height: 200px;
-      background: #0d111a;
-      overflow: hidden;
-      flex-shrink: 0;
+    .proj-link-card > i:first-child {
+      font-size: 1.1rem;
+      color: var(--accent2);
+      width: 20px; flex-shrink: 0;
     }
-    .pvc-thumb iframe {
-      position: absolute;
-      top: 0; left: 0;
-      width: 250%; height: 250%;
-      transform: scale(0.4);
-      transform-origin: top left;
-      border: none;
-      pointer-events: none;
-    }
-    /* Decorative gradient overlay so the iframe fade matches the card */
-    .pvc-thumb::after {
-      content: '';
-      position: absolute; inset: 0;
-      background: linear-gradient(
-        to bottom,
-        transparent 55%,
-        #13181f 100%
-      );
-      z-index: 1;
-    }
-    /* Accent color bar top */
-    .pvc-thumb::before {
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0; height: 3px;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-      z-index: 2;
-    }
-    /* Body */
-    .pvc-body {
-      padding: 1.1rem 1.25rem 1.4rem;
-      display: flex; flex-direction: column; gap: 0.55rem;
-      flex: 1;
-    }
-    .pvc-meta {
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .pvc-badge {
-      font-family: var(--mono);
-      font-size: 0.62rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 0.2rem 0.65rem;
-      border-radius: 100px;
-      border: 1px solid;
-    }
-    .pvc-badge.tokopedia { color: #22c55e; border-color: rgba(34,197,94,0.35); background: rgba(34,197,94,0.07); }
-    .pvc-badge.revou    { color: var(--accent2); border-color: rgba(6,182,212,0.35); background: rgba(6,182,212,0.07); }
-    .pvc-badge.canva    { color: #a78bfa; border-color: rgba(167,139,250,0.35); background: rgba(167,139,250,0.07); }
-    .pvc-date {
-      font-family: var(--mono);
-      font-size: 0.68rem;
-      color: var(--muted);
-    }
-    .pvc-title {
-      font-family: var(--display);
-      font-size: 0.97rem;
-      font-weight: 700;
-      line-height: 1.3;
+    .proj-link-card > div { flex: 1; min-width: 0; }
+    .proj-link-card h4 {
+      font-size: 0.85rem; font-weight: 600;
       color: var(--text);
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      margin-bottom: 0.15rem;
     }
-    .pvc-desc {
-      font-size: 0.8rem;
-      color: var(--muted);
-      line-height: 1.65;
-      flex: 1;
-    }
-    .pvc-footer {
-      display: flex; align-items: center; gap: 0.4rem;
-      font-size: 0.72rem; color: var(--accent);
+    .proj-link-card span {
+      font-size: 0.72rem; color: var(--muted);
       font-family: var(--mono);
-      margin-top: 0.5rem;
-      opacity: 0;
-      transition: opacity 0.2s;
     }
-    .pvc-card:hover .pvc-footer { opacity: 1; }
-
-    @media (max-width: 900px) { .pvc-grid { grid-template-columns: repeat(2,1fr); } }
-    @media (max-width: 580px) { .pvc-grid { grid-template-columns: 1fr; } }
+    .proj-link-arrow {
+      font-size: 0.7rem; color: var(--muted); flex-shrink: 0;
+      transition: color 0.2s;
+    }
+    .proj-link-card:hover .proj-link-arrow { color: var(--accent); }
+    @media (max-width: 700px) {
+      .project-links-grid { grid-template-columns: 1fr; }
+    }
 
     /* ─── ZALINOS ─── */
     #zalinos {
@@ -1076,172 +1012,99 @@
 
     </div>
 
-    <!-- Project Visual Cards -->
+    <!-- Project Presentations from previous work -->
     <div style="margin-top: 4rem;">
-      <div class="section-label reveal" style="margin-bottom: 0.5rem;">Data Analytics · Presentasi Proyek</div>
-      <h2 class="reveal" style="margin-bottom:0.4rem;">Project Presentations</h2>
-      <p class="section-sub reveal">Koleksi analisis dan dashboard yang dikerjakan bersama RevoU × Tokopedia.</p>
+      <div class="section-label reveal" style="margin-bottom:1.5rem;">RevoU × Tokopedia · Project Presentations</div>
+      <div class="project-links-grid">
 
-      <div class="pvc-grid">
-
-        <!-- 1 -->
-        <a href="https://docs.google.com/presentation/d/e/2PACX-1vTIeMuXEQcbAS7DO9ZsEFC9_ntguTnQtu6HBGqBxJXem5Gw-7w1GAwLQ_uWPrCdiK9YZE2KI6Y-iwGJ/pub?start=false&loop=false&delayms=3000" target="_blank" rel="noopener" class="pvc-card reveal">
-          <div class="pvc-thumb">
-            <iframe loading="lazy" src="https://docs.google.com/presentation/d/e/2PACX-1vTIeMuXEQcbAS7DO9ZsEFC9_ntguTnQtu6HBGqBxJXem5Gw-7w1GAwLQ_uWPrCdiK9YZE2KI6Y-iwGJ/embed?start=false&loop=false&delayms=60000" allowfullscreen></iframe>
+        <a href="https://docs.google.com/presentation/d/e/2PACX-1vTIeMuXEQcbAS7DO9ZsEFC9_ntguTnQtu6HBGqBxJXem5Gw-7w1GAwLQ_uWPrCdiK9YZE2KI6Y-iwGJ/embed?start=false&loop=false&delayms=3000" target="_blank" rel="noopener" class="proj-link-card reveal">
+          <i class="fas fa-chart-bar"></i>
+          <div>
+            <h4>KPI Dashboard for C-level, Middle-level &amp; Operational-level</h4>
+            <span>Rezalian Vatiady &amp; Team · RevoU × Tokopedia</span>
           </div>
-          <div class="pvc-body">
-            <div class="pvc-meta">
-              <span class="pvc-badge tokopedia">RevoU × Tokopedia</span>
-              <span class="pvc-date">2022</span>
-            </div>
-            <div class="pvc-title">KPI Dashboard — C-level, Middle &amp; Operational</div>
-            <div class="pvc-desc">Dashboard monitoring KPI lintas level organisasi untuk mendukung pengambilan keputusan berbasis data.</div>
-            <div class="pvc-footer"><i class="fas fa-external-link-alt"></i> Buka Presentasi</div>
-          </div>
+          <i class="fas fa-external-link-alt proj-link-arrow"></i>
         </a>
 
-        <!-- 2 -->
-        <a href="https://docs.google.com/presentation/d/e/2PACX-1vRWqsKKtpVV8sScfPmXYdKsQ58kZcmbjP4TXevOrQXnfeMS8vCMuv5-Mhm5oXfEbESVPf2YPonLo9Te/pub?start=false&loop=false&delayms=3000" target="_blank" rel="noopener" class="pvc-card reveal reveal-delay-1">
-          <div class="pvc-thumb">
-            <iframe loading="lazy" src="https://docs.google.com/presentation/d/e/2PACX-1vRWqsKKtpVV8sScfPmXYdKsQ58kZcmbjP4TXevOrQXnfeMS8vCMuv5-Mhm5oXfEbESVPf2YPonLo9Te/embed?start=false&loop=false&delayms=60000" allowfullscreen></iframe>
+        <a href="https://docs.google.com/presentation/d/e/2PACX-1vRWqsKKtpVV8sScfPmXYdKsQ58kZcmbjP4TXevOrQXnfeMS8vCMuv5-Mhm5oXfEbESVPf2YPonLo9Te/embed?start=false&loop=false&delayms=3000" target="_blank" rel="noopener" class="proj-link-card reveal reveal-delay-1">
+          <i class="fas fa-users"></i>
+          <div>
+            <h4>Customer Segmentation Analysis</h4>
+            <span>Rezalian Vatiady &amp; Team · RevoU × Tokopedia</span>
           </div>
-          <div class="pvc-body">
-            <div class="pvc-meta">
-              <span class="pvc-badge tokopedia">RevoU × Tokopedia</span>
-              <span class="pvc-date">2022</span>
-            </div>
-            <div class="pvc-title">Customer Segmentation Analysis</div>
-            <div class="pvc-desc">Segmentasi pelanggan menggunakan K-Means dan RFM untuk strategi retensi yang lebih terarah.</div>
-            <div class="pvc-footer"><i class="fas fa-external-link-alt"></i> Buka Presentasi</div>
-          </div>
+          <i class="fas fa-external-link-alt proj-link-arrow"></i>
         </a>
 
-        <!-- 3 -->
-        <a href="https://docs.google.com/presentation/d/e/2PACX-1vRtwOc1tRRvbVPFwkA5fgwAceunwkKEtHI5v4hfw3tzRSGqT-hcgo7W2-MEaZIt-rWq-Jn0GQj_eyMJ/pub?start=false&loop=false&delayms=3000" target="_blank" rel="noopener" class="pvc-card reveal reveal-delay-2">
-          <div class="pvc-thumb">
-            <iframe loading="lazy" src="https://docs.google.com/presentation/d/e/2PACX-1vRtwOc1tRRvbVPFwkA5fgwAceunwkKEtHI5v4hfw3tzRSGqT-hcgo7W2-MEaZIt-rWq-Jn0GQj_eyMJ/embed?start=false&loop=false&delayms=60000" allowfullscreen></iframe>
+        <a href="https://docs.google.com/presentation/d/e/2PACX-1vRtwOc1tRRvbVPFwkA5fgwAceunwkKEtHI5v4hfw3tzRSGqT-hcgo7W2-MEaZIt-rWq-Jn0GQj_eyMJ/embed?start=false&loop=false&delayms=3000" target="_blank" rel="noopener" class="proj-link-card reveal reveal-delay-2">
+          <i class="fas fa-filter"></i>
+          <div>
+            <h4>Funnel Analysis</h4>
+            <span>Rezalian Vatiady &amp; Team · RevoU × Tokopedia</span>
           </div>
-          <div class="pvc-body">
-            <div class="pvc-meta">
-              <span class="pvc-badge tokopedia">RevoU × Tokopedia</span>
-              <span class="pvc-date">2022</span>
-            </div>
-            <div class="pvc-title">Funnel Analysis</div>
-            <div class="pvc-desc">Analisis corong konversi dari awareness hingga purchase untuk mengidentifikasi titik drop-off pengguna.</div>
-            <div class="pvc-footer"><i class="fas fa-external-link-alt"></i> Buka Presentasi</div>
-          </div>
+          <i class="fas fa-external-link-alt proj-link-arrow"></i>
         </a>
 
-        <!-- 4 -->
-        <a href="https://docs.google.com/presentation/d/e/2PACX-1vQdjPYhEXtJt-UiYQIEiN52lJHv9sKWw0_DUmL6adIqRJC874OgNhAxQ5R38__tT7pXB51buJ77uWf_/pub?start=false&loop=false&delayms=3000" target="_blank" rel="noopener" class="pvc-card reveal">
-          <div class="pvc-thumb">
-            <iframe loading="lazy" src="https://docs.google.com/presentation/d/e/2PACX-1vQdjPYhEXtJt-UiYQIEiN52lJHv9sKWw0_DUmL6adIqRJC874OgNhAxQ5R38__tT7pXB51buJ77uWf_/embed?start=false&loop=false&delayms=60000" allowfullscreen></iframe>
+        <a href="https://docs.google.com/presentation/d/e/2PACX-1vQdjPYhEXtJt-UiYQIEiN52lJHv9sKWw0_DUmL6adIqRJC874OgNhAxQ5R38__tT7pXB51buJ77uWf_/embed?start=false&loop=false&delayms=3000" target="_blank" rel="noopener" class="proj-link-card reveal">
+          <i class="fas fa-search"></i>
+          <div>
+            <h4>EDA – Exploratory Data Analysis</h4>
+            <span>Rezalian Vatiady &amp; Team · RevoU × Tokopedia</span>
           </div>
-          <div class="pvc-body">
-            <div class="pvc-meta">
-              <span class="pvc-badge tokopedia">RevoU × Tokopedia</span>
-              <span class="pvc-date">2022</span>
-            </div>
-            <div class="pvc-title">EDA — Exploratory Data Analysis</div>
-            <div class="pvc-desc">Eksplorasi data mendalam untuk memahami distribusi, pola, dan anomali sebelum modeling lanjutan.</div>
-            <div class="pvc-footer"><i class="fas fa-external-link-alt"></i> Buka Presentasi</div>
-          </div>
+          <i class="fas fa-external-link-alt proj-link-arrow"></i>
         </a>
 
-        <!-- 5 -->
-        <a href="https://docs.google.com/presentation/d/e/2PACX-1vRw7uYyOM1Wonrp6t7ammd9bUnzhHOS_I7Xe7b4RkauKxZd3vch0nyJ_mP3BjSEptjsBx_SlkAQUmtW/pub?start=false&loop=false&delayms=3000" target="_blank" rel="noopener" class="pvc-card reveal reveal-delay-1">
-          <div class="pvc-thumb">
-            <iframe loading="lazy" src="https://docs.google.com/presentation/d/e/2PACX-1vRw7uYyOM1Wonrp6t7ammd9bUnzhHOS_I7Xe7b4RkauKxZd3vch0nyJ_mP3BjSEptjsBx_SlkAQUmtW/embed?start=false&loop=false&delayms=60000" allowfullscreen></iframe>
+        <a href="https://docs.google.com/presentation/d/e/2PACX-1vRw7uYyOM1Wonrp6t7ammd9bUnzhHOS_I7Xe7b4RkauKxZd3vch0nyJ_mP3BjSEptjsBx_SlkAQUmtW/embed?start=false&loop=false&delayms=3000" target="_blank" rel="noopener" class="proj-link-card reveal reveal-delay-1">
+          <i class="fas fa-store"></i>
+          <div>
+            <h4>Dashboard Design for E-CommerceU</h4>
+            <span>Rezalian Vatiady &amp; Team · RevoU</span>
           </div>
-          <div class="pvc-body">
-            <div class="pvc-meta">
-              <span class="pvc-badge revou">RevoU</span>
-              <span class="pvc-date">2022</span>
-            </div>
-            <div class="pvc-title">Dashboard Design for E-CommerceU</div>
-            <div class="pvc-desc">Perancangan dashboard e-commerce dari nol — dari struktur metrik hingga visualisasi eksekutif.</div>
-            <div class="pvc-footer"><i class="fas fa-external-link-alt"></i> Buka Presentasi</div>
-          </div>
+          <i class="fas fa-external-link-alt proj-link-arrow"></i>
         </a>
 
-        <!-- 6 -->
-        <a href="https://docs.google.com/presentation/d/e/2PACX-1vRB_6NHyWmx3EXP0AVO-LoKXywAlXdWygz8Nlb-t5Mz4TZnYIOLqKRxIP9Y2TqgxGatqBXDaN_BaH7r/pub?start=false&loop=false&delayms=3000" target="_blank" rel="noopener" class="pvc-card reveal reveal-delay-2">
-          <div class="pvc-thumb">
-            <iframe loading="lazy" src="https://docs.google.com/presentation/d/e/2PACX-1vRB_6NHyWmx3EXP0AVO-LoKXywAlXdWygz8Nlb-t5Mz4TZnYIOLqKRxIP9Y2TqgxGatqBXDaN_BaH7r/embed?start=false&loop=false&delayms=60000" allowfullscreen></iframe>
+        <a href="https://docs.google.com/presentation/d/e/2PACX-1vRB_6NHyWmx3EXP0AVO-LoKXywAlXdWygz8Nlb-t5Mz4TZnYIOLqKRxIP9Y2TqgxGatqBXDaN_BaH7r/embed?start=false&loop=false&delayms=3000" target="_blank" rel="noopener" class="proj-link-card reveal reveal-delay-2">
+          <i class="fas fa-users-cog"></i>
+          <div>
+            <h4>Customer Segmentation Analysis II</h4>
+            <span>Rezalian Vatiady &amp; Team · RevoU</span>
           </div>
-          <div class="pvc-body">
-            <div class="pvc-meta">
-              <span class="pvc-badge revou">RevoU</span>
-              <span class="pvc-date">2022</span>
-            </div>
-            <div class="pvc-title">Customer Segmentation Analysis II</div>
-            <div class="pvc-desc">Iterasi lanjutan segmentasi pelanggan dengan pendekatan berbeda untuk validasi dan perbandingan hasil.</div>
-            <div class="pvc-footer"><i class="fas fa-external-link-alt"></i> Buka Presentasi</div>
-          </div>
+          <i class="fas fa-external-link-alt proj-link-arrow"></i>
         </a>
 
-        <!-- 7 -->
-        <a href="https://docs.google.com/presentation/d/e/2PACX-1vQtwzODZlaV0-KJUHUSX3aoN3ukb5CwnE2-C03k7jcBcXLmLwwiFzslTvrgW4vVOoxRAYfvTDWADZ3H/pub?start=false&loop=false&delayms=3000" target="_blank" rel="noopener" class="pvc-card reveal">
-          <div class="pvc-thumb">
-            <iframe loading="lazy" src="https://docs.google.com/presentation/d/e/2PACX-1vQtwzODZlaV0-KJUHUSX3aoN3ukb5CwnE2-C03k7jcBcXLmLwwiFzslTvrgW4vVOoxRAYfvTDWADZ3H/embed?start=false&loop=false&delayms=60000" allowfullscreen></iframe>
+        <a href="https://docs.google.com/presentation/d/e/2PACX-1vQtwzODZlaV0-KJUHUSX3aoN3ukb5CwnE2-C03k7jcBcXLmLwwiFzslTvrgW4vVOoxRAYfvTDWADZ3H/embed?start=false&loop=false&delayms=3000" target="_blank" rel="noopener" class="proj-link-card reveal">
+          <i class="fas fa-rocket"></i>
+          <div>
+            <h4>Feature Roll-out Adoption Analysis</h4>
+            <span>Rezalian Vatiady &amp; Team · RevoU</span>
           </div>
-          <div class="pvc-body">
-            <div class="pvc-meta">
-              <span class="pvc-badge revou">RevoU</span>
-              <span class="pvc-date">2022</span>
-            </div>
-            <div class="pvc-title">Feature Roll-out Adoption Analysis</div>
-            <div class="pvc-desc">Menganalisis tingkat adopsi fitur baru di kalangan pengguna pasca peluncuran untuk evaluasi product-market fit.</div>
-            <div class="pvc-footer"><i class="fas fa-external-link-alt"></i> Buka Presentasi</div>
-          </div>
+          <i class="fas fa-external-link-alt proj-link-arrow"></i>
         </a>
 
-        <!-- 8 -->
-        <a href="https://docs.google.com/presentation/d/e/2PACX-1vS4P6xwavkXBkXPJv1e8WLNLgR_bGjaYHn8Effb9Lh8gbL96lKGCkoNHbU2hg4Sg0nzzCq40DIYbWiW/pub?start=false&loop=false&delayms=3000" target="_blank" rel="noopener" class="pvc-card reveal reveal-delay-1">
-          <div class="pvc-thumb">
-            <iframe loading="lazy" src="https://docs.google.com/presentation/d/e/2PACX-1vS4P6xwavkXBkXPJv1e8WLNLgR_bGjaYHn8Effb9Lh8gbL96lKGCkoNHbU2hg4Sg0nzzCq40DIYbWiW/embed?start=false&loop=false&delayms=60000" allowfullscreen></iframe>
+        <a href="https://docs.google.com/presentation/d/e/2PACX-1vS4P6xwavkXBkXPJv1e8WLNLgR_bGjaYHn8Effb9Lh8gbL96lKGCkoNHbU2hg4Sg0nzzCq40DIYbWiW/embed?start=false&loop=false&delayms=3000" target="_blank" rel="noopener" class="proj-link-card reveal reveal-delay-1">
+          <i class="fas fa-user-times"></i>
+          <div>
+            <h4>Churn Analysis of App User</h4>
+            <span>Rezalian Vatiady &amp; Team · RevoU</span>
           </div>
-          <div class="pvc-body">
-            <div class="pvc-meta">
-              <span class="pvc-badge revou">RevoU</span>
-              <span class="pvc-date">2022</span>
-            </div>
-            <div class="pvc-title">Churn Analysis of App User</div>
-            <div class="pvc-desc">Identifikasi pengguna berisiko churn, faktor pemicunya, dan rekomendasi retensi berbasis data.</div>
-            <div class="pvc-footer"><i class="fas fa-external-link-alt"></i> Buka Presentasi</div>
-          </div>
+          <i class="fas fa-external-link-alt proj-link-arrow"></i>
         </a>
 
-        <!-- 9 -->
-        <a href="https://www.canva.com/design/DAFI6hVLGg4/view?utm_content=DAFI6hVLGg4&utm_campaign=designshare&utm_medium=embeds&utm_source=link" target="_blank" rel="noopener" class="pvc-card reveal reveal-delay-2">
-          <div class="pvc-thumb">
-            <iframe loading="lazy" src="https://www.canva.com/design/DAFI6hVLGg4/view?embed" allowfullscreen></iframe>
+        <a href="https://www.canva.com/design/DAFI6hVLGg4/view?utm_content=DAFI6hVLGg4&utm_campaign=designshare&utm_medium=embeds&utm_source=link" target="_blank" rel="noopener" class="proj-link-card reveal reveal-delay-2">
+          <i class="fas fa-shopping-cart"></i>
+          <div>
+            <h4>The Jaya Online Retail – Product Analysis</h4>
+            <span>Rezalian Vatiady</span>
           </div>
-          <div class="pvc-body">
-            <div class="pvc-meta">
-              <span class="pvc-badge canva">Canva</span>
-              <span class="pvc-date">2022</span>
-            </div>
-            <div class="pvc-title">The Jaya Online Retail — Product Analysis</div>
-            <div class="pvc-desc">Analisis produk ritel online: performa penjualan, tren kategori, dan rekomendasi strategi stok.</div>
-            <div class="pvc-footer"><i class="fas fa-external-link-alt"></i> Buka Presentasi</div>
-          </div>
+          <i class="fas fa-external-link-alt proj-link-arrow"></i>
         </a>
 
-        <!-- 10 -->
-        <a href="https://www.canva.com/design/DAE98hY_m7A/view?utm_content=DAE98hY_m7A&utm_campaign=designshare&utm_medium=embeds&utm_source=link" target="_blank" rel="noopener" class="pvc-card reveal">
-          <div class="pvc-thumb">
-            <iframe loading="lazy" src="https://www.canva.com/design/DAE98hY_m7A/view?embed" allowfullscreen></iframe>
+        <a href="https://www.canva.com/design/DAE98hY_m7A/view?utm_content=DAE98hY_m7A&utm_campaign=designshare&utm_medium=embeds&utm_source=link" target="_blank" rel="noopener" class="proj-link-card reveal">
+          <i class="fas fa-graduation-cap"></i>
+          <div>
+            <h4>Group P Final Project</h4>
+            <span>Rezalian Vatiady · RevoU</span>
           </div>
-          <div class="pvc-body">
-            <div class="pvc-meta">
-              <span class="pvc-badge canva">Canva · RevoU</span>
-              <span class="pvc-date">2022</span>
-            </div>
-            <div class="pvc-title">Group P Final Project</div>
-            <div class="pvc-desc">Proyek akhir bootcamp RevoU — analisis menyeluruh dari data bisnis nyata dengan rekomendasi actionable.</div>
-            <div class="pvc-footer"><i class="fas fa-external-link-alt"></i> Buka Presentasi</div>
-          </div>
+          <i class="fas fa-external-link-alt proj-link-arrow"></i>
         </a>
 
       </div>
