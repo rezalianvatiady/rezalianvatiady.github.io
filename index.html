@@ -517,6 +517,61 @@
     .pvc-badge.tokopedia { color: #22c55e; border-color: rgba(34,197,94,0.35); background: rgba(34,197,94,0.07); }
     .pvc-badge.revou    { color: var(--accent2); border-color: rgba(6,182,212,0.35); background: rgba(6,182,212,0.07); }
     .pvc-badge.canva    { color: #a78bfa; border-color: rgba(167,139,250,0.35); background: rgba(167,139,250,0.07); }
+    .pvc-badge.zalinos  { color: #5b6be8; border-color: rgba(91,107,232,0.35); background: rgba(91,107,232,0.1); }
+    .pvc-card.zalinos-card {
+      border-color: rgba(91,107,232,0.3);
+      background: linear-gradient(135deg, #0c1020 0%, #111827 100%);
+    }
+    .pvc-card.zalinos-card:hover {
+      border-color: rgba(91,107,232,0.7);
+      box-shadow: 0 16px 48px rgba(91,107,232,0.18);
+    }
+    .pvc-card.zalinos-card .pvc-thumb::before {
+      background: linear-gradient(90deg, #5b6be8, #22d3ee);
+    }
+    .pvc-zalinos-placeholder {
+      width: 100%; height: 100%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 0.75rem;
+      background: linear-gradient(135deg, #0b1120 0%, #131e2e 100%);
+    }
+    .pvc-zalinos-placeholder .zal-logo-text {
+      font-family: var(--display);
+      font-size: 2rem; font-weight: 700;
+      letter-spacing: -0.04em;
+      background: linear-gradient(135deg, #5b6be8, #22d3ee);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .pvc-zalinos-placeholder .zal-tagline {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: #94a3b8;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .pvc-zalinos-placeholder .zal-pills {
+      display: flex; flex-wrap: wrap; gap: 0.35rem;
+      justify-content: center; padding: 0 1rem;
+    }
+    .pvc-zalinos-placeholder .zal-pill {
+      font-family: var(--mono); font-size: 0.6rem;
+      color: #5b6be8;
+      border: 1px solid rgba(91,107,232,0.3);
+      border-radius: 4px; padding: 0.15rem 0.5rem;
+    }
+    .pvc-zalinos-placeholder .zal-badge-row {
+      display: flex; gap: 0.5rem;
+    }
+    .pvc-zalinos-placeholder .zal-stat {
+      font-size: 0.65rem;
+      color: #10b981;
+      border: 1px solid rgba(16,185,129,0.3);
+      background: rgba(16,185,129,0.07);
+      border-radius: 100px; padding: 0.2rem 0.65rem;
+      font-family: var(--mono);
+    }
     .pvc-date {
       font-family: var(--mono);
       font-size: 0.68rem;
@@ -998,20 +1053,28 @@
     <div class="projects-masonry">
 
       <div class="project-card featured reveal">
-        <div>
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;">
           <span class="project-featured-badge"><i class="fas fa-star"></i> Flagship Project</span>
+          <a href="https://canva.link/hg0hpibujb7pyba" target="_blank" rel="noopener"
+             style="display:inline-flex;align-items:center;gap:0.4rem;font-family:var(--mono);font-size:0.7rem;color:#5b6be8;border:1px solid rgba(91,107,232,0.4);border-radius:6px;padding:0.25rem 0.7rem;transition:background 0.2s;"
+             onmouseover="this.style.background='rgba(91,107,232,0.12)'" onmouseout="this.style.background='transparent'">
+            <i class="fas fa-external-link-alt"></i> View Portfolio Deck
+          </a>
         </div>
-        <div class="project-type">AI ORCHESTRATION PLATFORM</div>
-        <h3>ZalinOS — Modular AI Agent Operating System</h3>
-        <p>Open-source modular AI operating system built in Python. Designed for analytics, GIS, OSINT, workflow orchestration, and intelligent agent collaboration. Features multi-agent architecture, dynamic task routing, contextual memory systems, and modular environment isolation — built for practical enterprise deployment.</p>
+        <div class="project-type">AI ORCHESTRATION PLATFORM · v9.9 STABLE</div>
+        <h3>ZalinOS — Local AI Agent Operating System</h3>
+        <p>Solo-built, modular AI operating system running 100% locally via Ollama (Qwen 2.5:7b). No API keys. No cloud dependency. No per-token cost. Features an AI-driven intent router (100% accuracy on 30-query test corpus), 6 active specialized agents — GIS, OSINT, Data, CodingCopilot, Builder, and ZalinPM — persistent memory across sessions, and a deliberation engine for complex multi-agent reasoning. 51/52 smoke tests passing in production.</p>
         <div class="project-tech">
           <span class="tech-pill">Python</span>
+          <span class="tech-pill">Ollama · Qwen 2.5</span>
+          <span class="tech-pill">FastAPI</span>
           <span class="tech-pill">Multi-Agent</span>
-          <span class="tech-pill">Task Routing</span>
-          <span class="tech-pill">Context Memory</span>
-          <span class="tech-pill">Workflow Engine</span>
+          <span class="tech-pill">AI Intent Router</span>
+          <span class="tech-pill">Persistent Memory</span>
           <span class="tech-pill">GIS Agent</span>
           <span class="tech-pill">OSINT Agent</span>
+          <span class="tech-pill">DuckDB</span>
+          <span class="tech-pill">100% Offline</span>
         </div>
       </div>
 
@@ -1078,14 +1141,44 @@
 
     <!-- Project Visual Cards -->
     <div style="margin-top: 4rem;">
-      <div class="section-label reveal" style="margin-bottom: 0.5rem;">Data Analytics · Project Presentations</div>
+      <div class="section-label reveal" style="margin-bottom: 0.5rem;">AI · Data Engineering · Data Analytics · Project Presentations</div>
       <h2 class="reveal" style="margin-bottom:0.4rem;">Project Presentations</h2>
-      <p class="section-sub reveal">A collection of analytics, dashboards, and data studies completed during RevoU × Tokopedia bootcamp.</p>
+      <p class="section-sub reveal">A collection of AI system portfolios, data engineering pipelines, and analytics projects — from enterprise tools to bootcamp studies.</p>
 
       <div class="pvc-grid">
 
-        <!-- NEW: ETL Data Engineering -->
-        <a href="https://docs.google.com/presentation/d/1kIAd4cn9lBtypVbDY3wXETeGLaHL4vY4/edit?usp=sharing" target="_blank" rel="noopener" class="pvc-card reveal">
+        <!-- ZalinOS -->
+        <a href="https://canva.link/hg0hpibujb7pyba" target="_blank" rel="noopener" class="pvc-card zalinos-card reveal">
+          <div class="pvc-thumb">
+            <div class="pvc-zalinos-placeholder">
+              <div class="zal-logo-text">ZalinOS</div>
+              <div class="zal-tagline">Local AI Agent Operating System</div>
+              <div class="zal-pills">
+                <span class="zal-pill">Python</span>
+                <span class="zal-pill">Ollama</span>
+                <span class="zal-pill">FastAPI</span>
+                <span class="zal-pill">Multi-Agent</span>
+                <span class="zal-pill">100% Offline</span>
+              </div>
+              <div class="zal-badge-row">
+                <span class="zal-stat">51/52 Tests ✓</span>
+                <span class="zal-stat">v9.9 Stable</span>
+              </div>
+            </div>
+          </div>
+          <div class="pvc-body">
+            <div class="pvc-meta">
+              <span class="pvc-badge zalinos">AI Platform</span>
+              <span class="pvc-date">2026</span>
+            </div>
+            <div class="pvc-title">ZalinOS — Local AI Agent Operating System</div>
+            <div class="pvc-desc">Modular, memory-aware AI agent orchestration platform running 100% locally via Ollama. Zero API cost, zero cloud dependency. Features AI-driven intent routing, 6 specialized agents (GIS, OSINT, Data, Coding, Builder, PM), persistent context memory, and 51/52 smoke tests passing.</div>
+            <div class="pvc-footer"><i class="fas fa-external-link-alt"></i> View Portfolio Deck</div>
+          </div>
+        </a>
+
+        <!-- ETL Data Engineering -->
+        <a href="https://docs.google.com/presentation/d/1kIAd4cn9lBtypVbDY3wXETeGLaHL4vY4/edit?usp=sharing" target="_blank" rel="noopener" class="pvc-card reveal reveal-delay-1">
           <div class="pvc-thumb">
             <iframe loading="lazy" src="https://docs.google.com/presentation/d/1kIAd4cn9lBtypVbDY3wXETeGLaHL4vY4/embed?start=false&loop=false&delayms=60000" allowfullscreen></iframe>
           </div>
