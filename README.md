@@ -1,62 +1,30 @@
-# Rezalian Vatiady — Portfolio Website
+# Rezalian Vatiady — Portfolio Website v2.1
 
-> Production-ready portfolio website for GitHub Pages deployment.
+## 🔧 GitHub Pages Fix (v2.1)
 
-## 📦 What's Inside
+This version fixes the CSS/JS 404 issue by renaming `_next/` to `assets/`.
+No underscore prefix = no Jekyll conflict = guaranteed to work on GitHub Pages.
 
-This package contains the static build of the portfolio website, ready to deploy to GitHub Pages.
+## 📦 Contents
 
-```
-rezalianvatiady.github.io-main/
-├── .nojekyll                    ← IMPORTANT: Prevents Jekyll processing
-├── index.html                   ← Main portfolio page
-├── scraping-portfolio-deck.html ← 28-slide presentation deck
-├── 404.html                     ← Custom 404 page
-├── _next/                       ← Compiled CSS/JS bundles
-├── reza-photo.png               ← Profile photo
-├── reza-photo2.png              ← (backup photo)
-├── reza-photo3.jpg              ← (backup photo)
-├── reza-photo4.png              ← (backup photo)
-├── logo.svg                     ← Favicon
-├── robots.txt                   ← SEO robots file
-├── README.md                    ← This file
-└── DEPLOYMENT_GUIDE.md          ← Step-by-step deployment instructions
-```
+- `index.html` — Main portfolio
+- `scraping-portfolio-deck.html` — 28-slide presentation
+- `assets/` — Compiled CSS/JS/fonts (renamed from `_next/`)
+- `reza-photo.png` — Profile photo
+- `.nojekyll` — Disables Jekyll (backup safety measure)
 
-## 🚀 Quick Deploy
+## 🚀 Deploy
 
-1. **Backup your existing repo** (see DEPLOYMENT_GUIDE.md)
-2. **Replace all files** in your `rezalianvatiady.github.io` repo with these files
-3. **Commit and push** to `main` branch
-4. **Wait 2-5 minutes** — GitHub Pages auto-deploys
-5. Visit `https://rezalianvatiady.github.io` to see your new portfolio
+1. Delete all files in your repo (keep `.git`)
+2. Copy these files
+3. Commit: `git add -A && git commit -m "v2.1 — fix assets path"`
+4. Push: `git push origin main`
+5. Wait 2-3 minutes
+6. Visit https://rezalianvatiady.github.io
 
-## 🎨 Features
+## ✅ What Changed from v2.0
 
-- Dark-themed professional design (blue/cyan accents)
-- 11 sections: Hero, About, Career, Projects, ZalinOS, Scraping Frameworks, Services, Skills, Certifications, Contact, Footer
-- Profile photo from original portfolio
-- 28-slide web scraping presentation deck (keyboard-navigable, PDF-exportable)
-- 13 project presentation cards (Google Slides + Canva embeds)
-- Fully responsive (mobile 390px → desktop 1920px)
-- Framer Motion animations
-- SEO optimized (OpenGraph, Twitter Cards, semantic HTML)
-
-## 🔧 Tech Stack
-
-- Next.js 16 (static export)
-- React 19
-- TypeScript 5
-- Tailwind CSS 4
-- Framer Motion 12
-- Lucide Icons
-
-## 📄 License
-
-MIT — free to use and modify.
-
----
-
-**Author:** Rezalian Vatiady  
-**Updated:** 2026  
-**Version:** 2.0.0
+- `_next/` folder → renamed to `assets/` (no underscore = no Jekyll issue)
+- All HTML/CSS/JS references updated: `/_next/` → `/assets/`
+- `.nojekyll` still included as backup
+- No `assetPrefix` config (cleaner build)
