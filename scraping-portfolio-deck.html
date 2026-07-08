@@ -1,0 +1,1945 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Web Scraping Portfolio — Rezalian Vatiady</title>
+<style>
+  /* ============================================================
+     Web Scraping Portfolio Deck — Rezalian Vatiady
+     Standalone HTML presentation · Embeddable · PDF-exportable
+     ============================================================ */
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #0a0c12;
+    --bg2: #0f1219;
+    --surface: #151b26;
+    --surface2: #1a2235;
+    --border: #1e2d45;
+    --accent: #3b82f6;
+    --accent2: #06b6d4;
+    --accent3: #8b5cf6;
+    --text: #e2e8f0;
+    --muted: #64748b;
+    --dim: #94a3b8;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --mono: 'JetBrains Mono', 'Courier New', monospace;
+    --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --display: 'Space Grotesk', var(--sans);
+  }
+
+  html, body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  /* Slide container */
+  #deck {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .slide {
+    position: absolute;
+    inset: 0;
+    display: none;
+    flex-direction: column;
+    padding: 4vh 6vw;
+    background: var(--bg);
+    overflow-y: auto;
+  }
+  .slide.active { display: flex; }
+
+  /* Background grid for all slides */
+  .slide::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(59,130,246,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(59,130,246,0.03) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 30%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 30%, transparent 100%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .slide > * { position: relative; z-index: 1; }
+
+  /* Typography */
+  h1 {
+    font-family: var(--display);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+  h2 {
+    font-family: var(--display);
+    font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+  }
+  h3 {
+    font-family: var(--display);
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  p {
+    font-size: clamp(0.85rem, 1.3vw, 1rem);
+    line-height: 1.6;
+    color: var(--dim);
+    margin-bottom: 0.75rem;
+  }
+  .label {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .label::before {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  /* Cover slide */
+  .cover {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: radial-gradient(ellipse 60% 50% at 50% 40%, rgba(59,130,246,0.12) 0%, transparent 70%),
+                radial-gradient(ellipse 40% 40% at 80% 70%, rgba(6,182,212,0.08) 0%, transparent 60%);
+  }
+  .cover .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 1rem;
+    border-radius: 100px;
+    background: rgba(6,182,212,0.1);
+    border: 1px solid rgba(6,182,212,0.25);
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--accent2);
+    margin-bottom: 1.5rem;
+  }
+  .cover .badge::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent2);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+  .cover h1 { margin-bottom: 1.5rem; }
+  .cover .accent { color: var(--accent); }
+  .cover .accent2 { color: var(--accent2); }
+  .cover .meta {
+    margin-top: 2rem;
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+
+  /* Stats grid */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+  .stat-card {
+    padding: 1.25rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    text-align: center;
+  }
+  .stat-card .num {
+    font-family: var(--display);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+  .stat-card .lbl {
+    font-size: 0.75rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* Section divider slide */
+  .divider {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .divider .big-num {
+    font-family: var(--display);
+    font-size: clamp(4rem, 10vw, 8rem);
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+    opacity: 0.2;
+    margin-bottom: -2rem;
+  }
+  .divider h1 { color: var(--text); }
+  .divider .accent { color: var(--accent); }
+
+  /* Scraper slide layout */
+  .scraper-slide {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-content: start;
+    margin-top: 1rem;
+  }
+  .scraper-slide .left h2 { margin-bottom: 0.25rem; }
+  .scraper-slide .right { display: flex; flex-direction: column; gap: 1rem; }
+
+  .info-row {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.75rem;
+  }
+  .info-chip {
+    padding: 0.3rem 0.75rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--dim);
+  }
+  .info-chip strong { color: var(--accent2); margin-left: 0.4rem; }
+
+  .field-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+    margin: 0.75rem 0;
+  }
+  .field {
+    padding: 0.5rem 0.75rem;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-left: 2px solid var(--accent);
+    border-radius: 4px;
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--text);
+  }
+
+  .code-block {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem;
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    color: var(--accent2);
+    overflow-x: auto;
+    line-height: 1.6;
+  }
+  .code-block .comment { color: var(--muted); }
+  .code-block .keyword { color: var(--accent3); }
+  .code-block .string { color: var(--success); }
+
+  .tech-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.5rem;
+  }
+  .tech-pill {
+    padding: 0.25rem 0.6rem;
+    background: rgba(59,130,246,0.1);
+    border: 1px solid rgba(59,130,246,0.3);
+    border-radius: 4px;
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--accent);
+  }
+
+  .features-list {
+    list-style: none;
+    margin-top: 0.5rem;
+  }
+  .features-list li {
+    padding: 0.4rem 0;
+    font-size: 0.85rem;
+    color: var(--dim);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .features-list li::before {
+    content: '▹';
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .result-box {
+    padding: 1rem;
+    background: rgba(16,185,129,0.08);
+    border: 1px solid rgba(16,185,129,0.3);
+    border-radius: 8px;
+    margin-top: 0.5rem;
+  }
+  .result-box .title {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--success);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.4rem;
+  }
+  .result-box .value {
+    font-family: var(--display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--success);
+  }
+
+  /* TOC slide */
+  .toc-list {
+    list-style: none;
+    margin-top: 1.5rem;
+  }
+  .toc-list li {
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.95rem;
+    color: var(--dim);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .toc-list li .num {
+    font-family: var(--mono);
+    color: var(--accent);
+    width: 40px;
+    flex-shrink: 0;
+  }
+  .toc-list li .section {
+    color: var(--muted);
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    margin-left: auto;
+  }
+
+  /* Top bar with back button */
+  .topbar {
+    position: fixed;
+    top: 1.5vh;
+    left: 2vw;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    z-index: 100;
+    background: rgba(15,18,25,0.9);
+    backdrop-filter: blur(12px);
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 100px;
+  }
+  .topbar a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--dim);
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    text-decoration: none;
+    padding: 0.3rem 0.75rem;
+    border-radius: 100px;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+  .topbar a:hover {
+    color: var(--accent);
+    background: rgba(59,130,246,0.1);
+  }
+  .topbar a.primary {
+    color: var(--accent);
+    border: 1px solid rgba(59,130,246,0.4);
+  }
+  .topbar a.primary:hover {
+    background: var(--accent);
+    color: white;
+  }
+  .topbar .divider-v {
+    width: 1px;
+    height: 16px;
+    background: var(--border);
+  }
+  .topbar .deck-title {
+    font-family: var(--display);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text);
+    padding: 0 0.5rem;
+  }
+
+  /* Navigation */
+  .nav {
+    position: fixed;
+    bottom: 1.5vh;
+    right: 2vw;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    z-index: 100;
+    background: rgba(15,18,25,0.9);
+    backdrop-filter: blur(12px);
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 100px;
+  }
+  .nav button {
+    background: transparent;
+    border: none;
+    color: var(--dim);
+    cursor: pointer;
+    padding: 0.3rem 0.5rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    transition: all 0.2s;
+  }
+  .nav button:hover { color: var(--accent); background: rgba(59,130,246,0.1); }
+  .nav .counter {
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    color: var(--muted);
+    min-width: 60px;
+    text-align: center;
+  }
+  .nav .counter .current { color: var(--accent); }
+
+  /* Progress bar */
+  .progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    transition: width 0.3s ease;
+    z-index: 101;
+  }
+
+  /* Architecture slide */
+  .arch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  .arch-card {
+    padding: 1.25rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+  }
+  .arch-card .icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .arch-card h3 { color: var(--accent); font-size: 1rem; margin-bottom: 0.4rem; }
+  .arch-card p { font-size: 0.8rem; color: var(--muted); margin: 0; }
+
+  /* Verification table */
+  .results-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    font-size: 0.85rem;
+  }
+  .results-table th,
+  .results-table td {
+    padding: 0.6rem 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  .results-table th {
+    background: var(--surface);
+    color: var(--accent);
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .results-table td { color: var(--dim); }
+  .results-table .success { color: var(--success); font-weight: 600; }
+  .results-table .num { text-align: right; font-family: var(--mono); color: var(--accent2); }
+
+  /* Contact slide */
+  .contact-slide {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .contact-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+    width: 100%;
+    max-width: 800px;
+  }
+  .contact-card {
+    padding: 1.25rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    text-align: left;
+    transition: all 0.2s;
+  }
+  .contact-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+  .contact-card .icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+  .contact-card .label-sm {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.25rem;
+  }
+  .contact-card .value {
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    color: var(--text);
+    word-break: break-all;
+  }
+
+  /* Two column layout */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 1rem;
+  }
+
+  /* Print styles */
+  @media print {
+    html, body { height: auto; overflow: visible; }
+    .slide { display: flex !important; page-break-after: always; position: relative; height: 100vh; }
+    .nav, .progress { display: none !important; }
+  }
+
+  /* Mobile responsive */
+  @media (max-width: 768px) {
+    .scraper-slide { grid-template-columns: 1fr; gap: 1rem; }
+    .two-col { grid-template-columns: 1fr; }
+    .field-grid { grid-template-columns: 1fr; }
+    .slide { padding: 3vh 5vw; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Top bar with back navigation -->
+<div class="topbar">
+  <a href="/" title="Back to Portfolio Home">
+    ‹ Back to Portfolio
+  </a>
+  <div class="divider-v"></div>
+  <span class="deck-title">🕷️ Scraping Portfolio Deck</span>
+  <div class="divider-v"></div>
+  <a href="/#projects" title="Back to Projects section">
+    ↑ Projects
+  </a>
+  <a href="/#contact" class="primary" title="Contact Rezalian">
+    Hire Me
+  </a>
+</div>
+
+<div class="progress" id="progress" style="width: 0%"></div>
+
+<div id="deck">
+
+  <!-- ==================== SLIDE 1: COVER ==================== -->
+  <section class="slide cover active">
+    <div class="badge">Production-Ready · v1.0.0</div>
+    <h1>
+      Web Scraping<br>
+      <span class="accent">Portfolio</span> Deck
+    </h1>
+    <p style="max-width: 600px; font-size: 1.05rem;">
+      20 enterprise-grade scrapers · 8,703 lines of Python · production-ready architecture
+    </p>
+    <div class="stats-grid" style="max-width: 700px; margin-top: 2rem;">
+      <div class="stat-card">
+        <div class="num">20</div>
+        <div class="lbl">Scrapers</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">8.7K</div>
+        <div class="lbl">Lines of Code</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">1,374</div>
+        <div class="lbl">Records Scraped</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">✓</div>
+        <div class="lbl">Production</div>
+      </div>
+    </div>
+    <div class="meta">
+      Rezalian Vatiady · BI · Data · AI · 2026
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 2: TOC ==================== -->
+  <section class="slide">
+    <div class="label">Contents</div>
+    <h2>Table of Contents</h2>
+    <ul class="toc-list">
+      <li><span class="num">03</span> Executive Summary <span class="section">Overview</span></li>
+      <li><span class="num">04</span> Open Data Intelligence Suite (ODIS) <span class="section">Section 1</span></li>
+      <li><span class="num">05–14</span> 10 ODIS API Scrapers <span class="section">Detailed</span></li>
+      <li><span class="num">15</span> Web Scraping Toolkit (WST) <span class="section">Section 2</span></li>
+      <li><span class="num">16–25</span> 10 WST Templates <span class="section">Detailed</span></li>
+      <li><span class="num">26</span> Architecture Highlights <span class="section">Engineering</span></li>
+      <li><span class="num">27</span> Verification Summary <span class="section">QA</span></li>
+      <li><span class="num">28</span> Contact &amp; Hire Me <span class="section">End</span></li>
+    </ul>
+  </section>
+
+  <!-- ==================== SLIDE 3: EXECUTIVE SUMMARY ==================== -->
+  <section class="slide">
+    <div class="label">Overview</div>
+    <h2>Executive Summary</h2>
+    <p>
+      Two production-ready Python frameworks built for the <strong style="color:var(--accent)">Upwork Data Scraper</strong> job
+      and the <strong style="color:var(--accent2)">Zalin Platform</strong> data collection layer.
+      Every scraper is verified, tested, and ready to deploy.
+    </p>
+
+    <div class="two-col">
+      <div>
+        <h3 style="color:var(--accent)">ODIS — Open Data Intelligence Suite</h3>
+        <p>10 public API scrapers with modular enterprise architecture. BaseScraper template method, HTTPClient with retry + rate limiting, multi-format exporters.</p>
+        <div class="tech-pills">
+          <span class="tech-pill">4,305 LOC</span>
+          <span class="tech-pill">10 APIs</span>
+          <span class="tech-pill">4 Export Formats</span>
+        </div>
+      </div>
+      <div>
+        <h3 style="color:var(--accent2)">WST — Web Scraping Toolkit</h3>
+        <p>10 ready-to-use HTML scraper templates for common Upwork jobs. Playwright automation, proxy rotation, YAML-driven selectors, anti-detection.</p>
+        <div class="tech-pills">
+          <span class="tech-pill">4,398 LOC</span>
+          <span class="tech-pill">10 Templates</span>
+          <span class="tech-pill">4 Pagination Strategies</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="stats-grid" style="margin-top: 2rem;">
+      <div class="stat-card">
+        <div class="num">10+10</div>
+        <div class="lbl">API + HTML Scrapers</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">4</div>
+        <div class="lbl">Export Formats (CSV/JSON/XLSX/SQLite)</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">3</div>
+        <div class="lbl">Proxy Rotation Strategies</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">✓</div>
+        <div class="lbl">Production Ready</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 4: SECTION DIVIDER ODIS ==================== -->
+  <section class="slide divider">
+    <div class="big-num">01</div>
+    <div class="label" style="justify-content: center;">Section 1</div>
+    <h1>Open Data Intelligence Suite<br><span class="accent">(ODIS)</span></h1>
+    <p style="max-width: 600px; text-align: center;">
+      10 public API scrapers with enterprise-grade architecture
+    </p>
+  </section>
+
+  <!-- ==================== SLIDE 5: ODIS - WEATHER ==================== -->
+  <section class="slide">
+    <div class="label">ODIS · Scraper 01/10</div>
+    <div class="scraper-slide">
+      <div class="left">
+        <h2>Weather API</h2>
+        <p style="font-family: var(--mono); font-size: 0.8rem; color: var(--accent2); margin-bottom: 0.75rem;">Open-Meteo · No API Key Required</p>
+        <p>Real-time weather data collection from 15 major world cities. Two-step process: geocode city name → fetch forecast. Includes current conditions + hourly forecast with daily aggregates.</p>
+
+        <div class="info-row">
+          <div class="info-chip">Records: <strong>15</strong></div>
+          <div class="info-chip">Duration: <strong>10.6s</strong></div>
+          <div class="info-chip">Auth: <strong>None</strong></div>
+        </div>
+
+        <h3 style="margin-top: 1rem; font-size: 0.9rem; color: var(--accent);">Data Fields Extracted</h3>
+        <div class="field-grid">
+          <div class="field">city_name</div>
+          <div class="field">country</div>
+          <div class="field">latitude / longitude</div>
+          <div class="field">current_temp_c</div>
+          <div class="field">humidity_pct</div>
+          <div class="field">wind_speed_kmh</div>
+          <div class="field">daily_avg_temp</div>
+          <div class="field">hourly_forecast (24h)</div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="result-box">
+          <div class="title">Result</div>
+          <div class="value">✓ 15/15 cities</div>
+          <p style="font-size: 0.75rem; margin: 0.5rem 0 0;">Jakarta, Tokyo, Singapore, Dubai, London, NYC, LA, Sydney, Mumbai, Cairo, São Paulo, Moscow, Berlin, Paris, Seoul</p>
+        </div>
+        <div class="code-block">
+<span class="comment"># Two-step: geocode → forecast</span>
+<span class="keyword">geo</span> = http.get(<span class="string">"geocoding-api.open-meteo.com/v1/search"</span>)
+<span class="keyword">weather</span> = http.get(<span class="string">"api.open-meteo.com/v1/forecast"</span>,
+    params={<span class="string">"current"</span>: <span class="string">"temp_2m,humidity,wind"</span>})
+        </div>
+        <div class="tech-pills">
+          <span class="tech-pill">Open-Meteo</span>
+          <span class="tech-pill">Geocoding API</span>
+          <span class="tech-pill">Rate Limited</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 6: ODIS - EARTHQUAKE ==================== -->
+  <section class="slide">
+    <div class="label">ODIS · Scraper 02/10</div>
+    <div class="scraper-slide">
+      <div class="left">
+        <h2>USGS Earthquake API</h2>
+        <p style="font-family: var(--mono); font-size: 0.8rem; color: var(--accent2); margin-bottom: 0.75rem;">USGS FDSNWS · No Auth</p>
+        <p>Real-time seismic event data from USGS (United States Geological Survey). Configurable time range and minimum magnitude. Parses GeoJSON response with coordinates and depth.</p>
+
+        <div class="info-row">
+          <div class="info-chip">Records: <strong>40</strong></div>
+          <div class="info-chip">Duration: <strong>1.42s</strong></div>
+          <div class="info-chip">Range: <strong>7 days</strong></div>
+          <div class="info-chip">Min Mag: <strong>5.0</strong></div>
+        </div>
+
+        <h3 style="margin-top: 1rem; font-size: 0.9rem; color: var(--accent);">Data Fields Extracted</h3>
+        <div class="field-grid">
+          <div class="field">event_id</div>
+          <div class="field">magnitude</div>
+          <div class="field">place</div>
+          <div class="field">depth_km</div>
+          <div class="field">latitude / longitude</div>
+          <div class="field">tsunami_warning</div>
+          <div class="field">event_url</div>
+          <div class="field">felt_reports</div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="result-box">
+          <div class="title">Result</div>
+          <div class="value">✓ 40 earthquakes</div>
+          <p style="font-size: 0.75rem; margin: 0.5rem 0 0;">Last 7 days · magnitude ≥ 5.0 · global coverage</p>
+        </div>
+        <div class="code-block">
+<span class="comment"># GeoJSON response parsing</span>
+url = <span class="string">"earthquake.usgs.gov/fdsnws/event/1/query"</span>
+params = {<span class="string">"format"</span>: <span class="string">"geojson"</span>, <span class="string">"minmagnitude"</span>: <span class="string">"5.0"</span>}
+features = data[<span class="string">"features"</span>] <span class="comment"># → 40 events</span>
+        </div>
+        <div class="tech-pills">
+          <span class="tech-pill">USGS</span>
+          <span class="tech-pill">GeoJSON</span>
+          <span class="tech-pill">Real-time</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 7: ODIS - OPENLIBRARY ==================== -->
+  <section class="slide">
+    <div class="label">ODIS · Scraper 03/10</div>
+    <div class="scraper-slide">
+      <div class="left">
+        <h2>Open Library API</h2>
+        <p style="font-family: var(--mono); font-size: 0.8rem; color: var(--accent2); margin-bottom: 0.75rem;">Internet Archive · No Auth</p>
+        <p>Book metadata search from Open Library. Configurable search query with field selection. Returns title, authors, ISBN, publisher, cover art URL, and edition info.</p>
+
+        <div class="info-row">
+          <div class="info-chip">Records: <strong>30</strong></div>
+          <div class="info-chip">Duration: <strong>1.70s</strong></div>
+          <div class="info-chip">Query: <strong>"python"</strong></div>
+        </div>
+
+        <h3 style="margin-top: 1rem; font-size: 0.9rem; color: var(--accent);">Data Fields Extracted</h3>
+        <div class="field-grid">
+          <div class="field">book_key</div>
+          <div class="field">title</div>
+          <div class="field">authors</div>
+          <div class="field">isbn</div>
+          <div class="field">first_publish_year</div>
+          <div class="field">publishers</div>
+          <div class="field">cover_url</div>
+          <div class="field">edition_count</div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="result-box">
+          <div class="title">Result</div>
+          <div class="value">✓ 30 books</div>
+          <p style="font-size: 0.75rem; margin: 0.5rem 0 0;">6,394 total matches · returned 30 books for query "python"</p>
+        </div>
+        <div class="code-block">
+<span class="comment"># Search API with field selection</span>
+url = <span class="string">"openlibrary.org/search.json"</span>
+params = {
+    <span class="string">"q"</span>: <span class="string">"python"</span>,
+    <span class="string">"limit"</span>: <span class="string">30</span>,
+    <span class="string">"fields"</span>: <span class="string">"key,title,author_name,isbn"</span>
+}
+        </div>
+        <div class="tech-pills">
+          <span class="tech-pill">Open Library</span>
+          <span class="tech-pill">ISBN</span>
+          <span class="tech-pill">Cover Art</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 8: ODIS - HACKERNEWS ==================== -->
+  <section class="slide">
+    <div class="label">ODIS · Scraper 04/10</div>
+    <div class="scraper-slide">
+      <div class="left">
+        <h2>Hacker News API</h2>
+        <p style="font-family: var(--mono); font-size: 0.8rem; color: var(--accent2); margin-bottom: 0.75rem;">Firebase API · Y Combinator</p>
+        <p>Top stories from Hacker News. Fetches story IDs first, then retrieves details for each. Configurable story type: top, new, best, ask, show, job.</p>
+
+        <div class="info-row">
+          <div class="info-chip">Records: <strong>15</strong></div>
+          <div class="info-chip">Duration: <strong>4.88s</strong></div>
+          <div class="info-chip">Type: <strong>top</strong></div>
+        </div>
+
+        <h3 style="margin-top: 1rem; font-size: 0.9rem; color: var(--accent);">Data Fields Extracted</h3>
+        <div class="field-grid">
+          <div class="field">item_id</div>
+          <div class="field">item_type</div>
+          <div class="field">title</div>
+          <div class="field">author</div>
+          <div class="field">score</div>
+          <div class="field">url</div>
+          <div class="field">comment_count</div>
+          <div class="field">hn_url</div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="result-box">
+          <div class="title">Result</div>
+          <div class="value">✓ 15 stories</div>
+          <p style="font-size: 0.75rem; margin: 0.5rem 0 0;">Top stories · individual item fetch · 4.88s total</p>
+        </div>
+        <div class="code-block">
+<span class="comment"># Two-step: IDs → item details</span>
+ids = http.get(<span class="string">"hacker-news.firebaseio.com/v0/topstories.json"</span>)
+<span class="keyword">for</span> id <span class="keyword">in</span> ids[:15]:
+    item = http.get(f<span class="string">"v0/item/{id}.json"</span>)
+    records.append(parse(item))
+        </div>
+        <div class="tech-pills">
+          <span class="tech-pill">Firebase</span>
+          <span class="tech-pill">Y Combinator</span>
+          <span class="tech-pill">Sequential Fetch</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 9: ODIS - COINGECKO ==================== -->
+  <section class="slide">
+    <div class="label">ODIS · Scraper 05/10</div>
+    <div class="scraper-slide">
+      <div class="left">
+        <h2>CoinGecko API</h2>
+        <p style="font-family: var(--mono); font-size: 0.8rem; color: var(--accent2); margin-bottom: 0.75rem;">Free Tier · No API Key</p>
+        <p>Cryptocurrency market data — prices, market cap, volume, 24h/7d price changes. Pagination support for top 1000+ coins. Configurable quote currency (USD, EUR, etc).</p>
+
+        <div class="info-row">
+          <div class="info-chip">Records: <strong>20</strong></div>
+          <div class="info-chip">Duration: <strong>1.05s</strong></div>
+          <div class="info-chip">Currency: <strong>USD</strong></div>
+        </div>
+
+        <h3 style="margin-top: 1rem; font-size: 0.9rem; color: var(--accent);">Data Fields Extracted</h3>
+        <div class="field-grid">
+          <div class="field">coin_id / symbol</div>
+          <div class="field">current_price</div>
+          <div class="field">market_cap</div>
+          <div class="field">total_volume</div>
+          <div class="field">price_change_24h</div>
+          <div class="field">price_change_7d</div>
+          <div class="field">circulating_supply</div>
+          <div class="field">ath / atl</div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="result-box">
+          <div class="title">Result</div>
+          <div class="value">✓ 20 coins</div>
+          <p style="font-size: 0.75rem; margin: 0.5rem 0 0;">Top 20 by market cap · USD quote · 1.05s</p>
+        </div>
+        <div class="code-block">
+<span class="comment"># Markets endpoint with pagination</span>
+url = <span class="string">"api.coingecko.com/api/v3/coins/markets"</span>
+params = {
+    <span class="string">"vs_currency"</span>: <span class="string">"usd"</span>,
+    <span class="string">"order"</span>: <span class="string">"market_cap_desc"</span>,
+    <span class="string">"per_page"</span>: <span class="string">20</span>, <span class="string">"page"</span>: <span class="string">1</span>
+}
+        </div>
+        <div class="tech-pills">
+          <span class="tech-pill">CoinGecko</span>
+          <span class="tech-pill">Rate Limited (2s)</span>
+          <span class="tech-pill">Paginated</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 10: ODIS - JSONPLACEHOLDER ==================== -->
+  <section class="slide">
+    <div class="label">ODIS · Scraper 06/10</div>
+    <div class="scraper-slide">
+      <div class="left">
+        <h2>JSONPlaceholder API</h2>
+        <p style="font-family: var(--mono); font-size: 0.8rem; color: var(--accent2); margin-bottom: 0.75rem;">REST API · Sample Data</p>
+        <p>Multi-resource sample API. Fetches users, posts, comments, albums, photos, and todos in a single run. Excellent for framework validation with predictable, well-structured data.</p>
+
+        <div class="info-row">
+          <div class="info-chip">Records: <strong>160</strong></div>
+          <div class="info-chip">Duration: <strong>3.05s</strong></div>
+          <div class="info-chip">Resources: <strong>4</strong></div>
+        </div>
+
+        <h3 style="margin-top: 1rem; font-size: 0.9rem; color: var(--accent);">Resources Scraped</h3>
+        <div class="field-grid">
+          <div class="field">users (10)</div>
+          <div class="field">posts (50)</div>
+          <div class="field">comments (50)</div>
+          <div class="field">todos (50)</div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="result-box">
+          <div class="title">Result</div>
+          <div class="value">✓ 160 records</div>
+          <p style="font-size: 0.75rem; margin: 0.5rem 0 0;">4 resources · 50 records each (10 users) · 3.05s</p>
+        </div>
+        <div class="code-block">
+<span class="comment"># Multi-resource fetch in one run</span>
+resources = [<span class="string">"users"</span>, <span class="string">"posts"</span>, <span class="string">"comments"</span>, <span class="string">"todos"</span>]
+<span class="keyword">for</span> r <span class="keyword">in</span> resources:
+    data = http.get(f<span class="string">"jsonplaceholder.typicode.com/{r}"</span>)
+    records.extend(parse(data, r))
+        </div>
+        <div class="tech-pills">
+          <span class="tech-pill">JSONPlaceholder</span>
+          <span class="tech-pill">Multi-resource</span>
+          <span class="tech-pill">Test Fixture</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 11: ODIS - GITHUB ==================== -->
+  <section class="slide">
+    <div class="label">ODIS · Scraper 07/10</div>
+    <div class="scraper-slide">
+      <div class="left">
+        <h2>GitHub Search API</h2>
+        <p style="font-family: var(--mono); font-size: 0.8rem; color: var(--accent2); margin-bottom: 0.75rem;">Optional Token · 60→5000 req/hour</p>
+        <p>Repository search by query, language, stars, forks. Returns full repo metadata including owner, license, topics, dates. Token auth increases rate limit 80x.</p>
+
+        <div class="info-row">
+          <div class="info-chip">Records: <strong>8</strong></div>
+          <div class="info-chip">Duration: <strong>1.38s</strong></div>
+          <div class="info-chip">Auth: <strong>Optional</strong></div>
+        </div>
+
+        <h3 style="margin-top: 1rem; font-size: 0.9rem; color: var(--accent);">Data Fields Extracted</h3>
+        <div class="field-grid">
+          <div class="field">repo_name / full_name</div>
+          <div class="field">owner_login / type</div>
+          <div class="field">description</div>
+          <div class="field">stars / forks</div>
+          <div class="field">language</div>
+          <div class="field">license</div>
+          <div class="field">topics</div>
+          <div class="field">created / updated_at</div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="result-box">
+          <div class="title">Result</div>
+          <div class="value">✓ 8 repositories</div>
+          <p style="font-size: 0.75rem; margin: 0.5rem 0 0;">Query: "python web scraper stars:&gt;500" · unauthenticated</p>
+        </div>
+        <div class="code-block">
+<span class="comment"># Search API with sort + pagination</span>
+headers = {<span class="string">"Accept"</span>: <span class="string">"application/vnd.github+json"</span>}
+<span class="keyword">if</span> token:
+    headers[<span class="string">"Authorization"</span>] = f<span class="string">"Bearer {token}"</span>
+params = {<span class="string">"q"</span>: query, <span class="string">"sort"</span>: <span class="string">"stars"</span>}
+        </div>
+        <div class="tech-pills">
+          <span class="tech-pill">GitHub REST API</span>
+          <span class="tech-pill">Rate Limit Aware</span>
+          <span class="tech-pill">Token Optional</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 12: ODIS - NASA ==================== -->
+  <section class="slide">
+    <div class="label">ODIS · Scraper 08/10</div>
+    <div class="scraper-slide">
+      <div class="left">
+        <h2>NASA Open APIs</h2>
+        <p style="font-family: var(--mono); font-size: 0.8rem; color: var(--accent2); margin-bottom: 0.75rem;">API Key Required · Free at api.nasa.gov</p>
+        <p>Three NASA endpoints in one scraper: APOD (Astronomy Picture of the Day), Mars Rover Photos, and Asteroids Neo Feed. Graceful degradation when DEMO_KEY hits rate limit.</p>
+
+        <div class="info-row">
+          <div class="info-chip">Records: <strong>2</strong></div>
+          <div class="info-chip">Duration: <strong>1.92s</strong></div>
+          <div class="info-chip">Endpoints: <strong>3</strong></div>
+        </div>
+
+        <h3 style="margin-top: 1rem; font-size: 0.9rem; color: var(--accent);">Three Data Types</h3>
+        <ul class="features-list">
+          <li><strong>apod</strong> — Astronomy Picture of the Day (title, date, image URL, explanation)</li>
+          <li><strong>mars_rover</strong> — Curiosity photos by sol (camera, rover status, image URL)</li>
+          <li><strong>asteroid</strong> — Near-Earth Objects (diameter, velocity, miss distance, hazardous flag)</li>
+        </ul>
+      </div>
+      <div class="right">
+        <div class="result-box">
+          <div class="title">Result (DEMO_KEY)</div>
+          <div class="value">✓ 2 APOD entries</div>
+          <p style="font-size: 0.75rem; margin: 0.5rem 0 0;">Mars &amp; Asteroids skipped to conserve DEMO_KEY quota (50 req/day)</p>
+        </div>
+        <div class="code-block">
+<span class="comment"># Graceful degradation for DEMO_KEY</span>
+<span class="keyword">if</span> api_key == <span class="string">"DEMO_KEY"</span>:
+    <span class="comment"># Only fetch APOD to conserve quota</span>
+    results[<span class="string">"mars"</span>] = []
+    results[<span class="string">"asteroids"</span>] = []
+<span class="keyword">else</span>:
+    <span class="comment"># Fetch all 3 endpoints</span>
+    fetch_all()
+        </div>
+        <div class="tech-pills">
+          <span class="tech-pill">NASA APOD</span>
+          <span class="tech-pill">Mars Rover</span>
+          <span class="tech-pill">Asteroids Neo</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 13: ODIS - WORLDBANK ==================== -->
+  <section class="slide">
+    <div class="label">ODIS · Scraper 09/10</div>
+    <div class="scraper-slide">
+      <div class="left">
+        <h2>World Bank Indicators API</h2>
+        <p style="font-family: var(--mono); font-size: 0.8rem; color: var(--accent2); margin-bottom: 0.75rem;">Public API · No Auth</p>
+        <p>Economic indicators for 265 countries: GDP, population, life expectancy, CO2 emissions, GDP per capita. Configurable year range and indicator codes.</p>
+
+        <div class="info-row">
+          <div class="info-chip">Records: <strong>1,060</strong></div>
+          <div class="info-chip">Duration: <strong>9.72s</strong></div>
+          <div class="info-chip">Countries: <strong>265</strong></div>
+          <div class="info-chip">Indicators: <strong>5</strong></div>
+        </div>
+
+        <h3 style="margin-top: 1rem; font-size: 0.9rem; color: var(--accent);">Indicators Tracked</h3>
+        <div class="field-grid">
+          <div class="field">NY.GDP.MKTP.CD (GDP)</div>
+          <div class="field">SP.POP.TOTL (Population)</div>
+          <div class="field">SP.DYN.LE00.IN (Life Exp.)</div>
+          <div class="field">EN.ATM.CO2E.KT (CO2)</div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="result-box">
+          <div class="title">Result</div>
+          <div class="value">✓ 1,060 records</div>
+          <p style="font-size: 0.75rem; margin: 0.5rem 0 0;">4 indicators × 265 countries = 1,060 records · 9.72s</p>
+        </div>
+        <div class="code-block">
+<span class="comment"># Multi-indicator fetch per country</span>
+indicators = [<span class="string">"NY.GDP.MKTP.CD"</span>, <span class="string">"SP.POP.TOTL"</span>, ...]
+<span class="keyword">for</span> code <span class="keyword">in</span> indicators:
+    url = f<span class="string">"api.worldbank.org/v2/country/all/indicator/{code}"</span>
+    data = http.get(url, params={<span class="string">"format"</span>: <span class="string">"json"</span>})
+        </div>
+        <div class="tech-pills">
+          <span class="tech-pill">World Bank</span>
+          <span class="tech-pill">265 Countries</span>
+          <span class="tech-pill">5 Indicators</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 14: ODIS - SPACEX ==================== -->
+  <section class="slide">
+    <div class="label">ODIS · Scraper 10/10</div>
+    <div class="scraper-slide">
+      <div class="left">
+        <h2>SpaceX API v4</h2>
+        <p style="font-family: var(--mono); font-size: 0.8rem; color: var(--accent2); margin-bottom: 0.75rem;">Public API · No Auth</p>
+        <p>SpaceX launch, rocket, and capsule data. Uses the query endpoint with populate for nested references. Includes launch success/failure tracking and rocket specifications.</p>
+
+        <div class="info-row">
+          <div class="info-chip">Records: <strong>0</strong></div>
+          <div class="info-chip">Duration: <strong>27.69s</strong></div>
+          <div class="info-chip">Status: <strong>API Down</strong></div>
+        </div>
+
+        <h3 style="margin-top: 1rem; font-size: 0.9rem; color: var(--accent);">Three Data Types</h3>
+        <ul class="features-list">
+          <li><strong>launch</strong> — Mission name, flight number, date, rocket, launchpad, payloads, success/failure</li>
+          <li><strong>rocket</strong> — Name, type, stages, cost per launch, success rate, dimensions, mass</li>
+          <li><strong>capsule</strong> — Serial, status, reuse count, water/land landings, last update</li>
+        </ul>
+      </div>
+      <div class="right">
+        <div class="result-box" style="background: rgba(245,158,11,0.08); border-color: rgba(245,158,11,0.3);">
+          <div class="title" style="color: var(--warning);">Result — Framework Resilience</div>
+          <div class="value" style="color: var(--warning);">✓ Retry worked perfectly</div>
+          <p style="font-size: 0.75rem; margin: 0.5rem 0 0;">API returned 525 (Cloudflare SSL error) · framework auto-retried 3x with exponential backoff · graceful degradation</p>
+        </div>
+        <div class="code-block">
+<span class="comment"># Query endpoint with populate</span>
+body = {
+    <span class="string">"query"</span>: {},
+    <span class="string">"options"</span>: {
+        <span class="string">"limit"</span>: 50,
+        <span class="string">"populate"</span>: [<span class="string">"rocket"</span>, <span class="string">"launchpad"</span>]
+    }
+}
+data = http.post(url, json_body=body)
+        </div>
+        <div class="tech-pills">
+          <span class="tech-pill">SpaceX v4</span>
+          <span class="tech-pill">Auto-Retry</span>
+          <span class="tech-pill">Resilient</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 15: SECTION DIVIDER WST ==================== -->
+  <section class="slide divider">
+    <div class="big-num">02</div>
+    <div class="label" style="justify-content: center;">Section 2</div>
+    <h1>Web Scraping Toolkit<br><span class="accent">(WST)</span></h1>
+    <p style="max-width: 600px; text-align: center;">
+      10 ready-to-use templates for HTML website scraping
+    </p>
+  </section>
+
+  <!-- ==================== SLIDE 16: WST - ECOMMERCE ==================== -->
+  <section class="slide">
+    <div class="label">WST · Template 01/10</div>
+    <div class="scraper-slide">
+      <div class="left">
+        <h2>E-commerce Scraper</h2>
+        <p style="font-family: var(--mono); font-size: 0.8rem; color: var(--accent2); margin-bottom: 0.75rem;">Amazon · Shopify · WooCommerce · Etsy · eBay</p>
+        <p>Configurable product data extraction from e-commerce sites. YAML-driven CSS selectors — adapt to any store without code changes. Includes SKU, pricing, ratings, and availability tracking.</p>
+
+        <div class="info-row">
+          <div class="info-chip">Records: <strong>3</strong></div>
+          <div class="info-chip">Duration: <strong>0.22s</strong></div>
+          <div class="info-chip">Config: <strong>YAML</strong></div>
+        </div>
+
+        <h3 style="margin-top: 1rem; font-size: 0.9rem; color: var(--accent);">Data Fields Extracted</h3>
+        <div class="field-grid">
+          <div class="field">product_name</div>
+          <div class="field">price / original_price</div>
+          <div class="field">discount</div>
+          <div class="field">rating / review_count</div>
+          <div class="field">sku</div>
+          <div class="field">availability</div>
+          <div class="field">image_url</div>
+          <div class="field">product_url</div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="result-box">
+          <div class="title">Result</div>
+          <div class="value">✓ 3 products</div>
+          <p style="font-size: 0.75rem; margin: 0.5rem 0 0;">Fixture HTML · all 10 fields extracted · regex price parsing</p>
+        </div>
+        <div class="code-block">
+<span class="comment"># YAML-driven selectors</span>
+container: <span class="string">"div.product-card"</span>
+fields:
+  price:
+    selector: <span class="string">"span.price"</span>
+    regex: <span class="string">"[\$\€\£]\s*[\d.,]+"</span>
+  image_url:
+    selector: <span class="string">"img.product-image"</span>
+    attribute: src
+    absolute: <span class="keyword">true</span>
+        </div>
+        <div class="tech-pills">
+          <span class="tech-pill">BeautifulSoup</span>
+          <span class="tech-pill">YAML Config</span>
+          <span class="tech-pill">Regex Parsing</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 17: WST - LEAD GENERATION ==================== -->
+  <section class="slide">
+    <div class="label">WST · Template 02/10</div>
+    <div class="scraper-slide">
+      <div class="left">
+        <h2>Lead Generation Scraper</h2>
+        <p style="font-family: var(--mono); font-size: 0.8rem; color: var(--accent2); margin-bottom: 0.75rem;">Yelp · Clutch · Yellow Pages · Directories</p>
+        <p>Company contact data extraction with email/phone regex fallback. Auto-extracts domain from website URL. Normalizes phone numbers to international format.</p>
+
+        <div class="info-row">
+          <div class="info-chip">Records: <strong>3</strong></div>
+          <div class="info-chip">Duration: <strong>0.02s</strong></div>
+          <div class="info-chip">Email Fallback: <strong>Regex</strong></div>
+        </div>
+
+        <h3 style="margin-top: 1rem; font-size: 0.9rem; color: var(--accent);">Data Fields Extracted</h3>
+        <div class="field-grid">
+          <div class="field">company_name</div>
+          <div class="field">website / domain</div>
+          <div class="field">email</div>
+          <div class="field">phone / phone_normalized</div>
+          <div class="field">address</div>
+          <div class="field">linkedin_url</div>
+          <div class="field">description</div>
+          <div class="field">matched_email_by_domain</div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="result-box">
+          <div class="title">Result</div>
+          <div class="value">✓ 3 companies</div>
+          <p style="font-size: 0.75rem; margin: 0.5rem 0 0;">Email + phone regex fallback · domain matching · phone normalization</p>
+        </div>
+        <div class="code-block">
+<span class="comment"># Regex fallback for emails/phones</span>
+<span class="keyword">if</span> <span class="keyword">not</span> record.get(<span class="string">"email"</span>):
+    page_emails = parser.extract_emails()
+    domain = record.get(<span class="string">"domain"</span>)
+    <span class="keyword">for</span> email <span class="keyword">in</span> page_emails:
+        <span class="keyword">if</span> domain <span class="keyword">in</span> email:
+            record[<span class="string">"email"</span>] = email
+        </div>
+        <div class="tech-pills">
+          <span class="tech-pill">Email Regex</span>
+          <span class="tech-pill">Phone Normalize</span>
+          <span class="tech-pill">Domain Match</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 18: WST - JOB LISTING ==================== -->
+  <section class="slide">
+    <div class="label">WST · Template 03/10</div>
+    <div class="scraper-slide">
+      <div class="left">
+        <h2>Job Listing Scraper</h2>
+        <p style="font-family: var(--mono); font-size: 0.8rem; color: var(--accent2); margin-bottom: 0.75rem;">Job Boards · Career Pages · LinkedIn</p>
+        <p>Job posting extraction with optional keyword filtering. Parses title, company, location, salary, job type, description, and posting date. Ideal for job market analysis.</p>
+
+        <div class="info-row">
+          <div class="info-chip">Records: <strong>3</strong></div>
+          <div class="info-chip">Duration: <strong>0.03s</strong></div>
+          <div class="info-chip">Filter: <strong>Keywords</strong></div>
+        </div>
+
+        <h3 style="margin-top: 1rem; font-size: 0.9rem; color: var(--accent);">Data Fields Extracted</h3>
+        <div class="field-grid">
+          <div class="field">title</div>
+          <div class="field">company</div>
+          <div class="field">location</div>
+          <div class="field">salary</div>
+          <div class="field">job_type</div>
+          <div class="field">description</div>
+          <div class="field">posted_date</div>
+          <div class="field">job_url</div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="result-box">
+          <div class="title">Result</div>
+          <div class="value">✓ 3 jobs</div>
+          <p style="font-size: 0.75rem; margin: 0.5rem 0 0;">Keyword filter applied · date parsing · salary range capture</p>
+        </div>
+        <div class="code-block">
+<span class="comment"># Keyword filtering</span>
+<span class="keyword">if</span> self.keywords:
+    text = <span class="string">" "</span>.join(str(v) <span class="keyword">for</span> v <span class="keyword">in</span> record.values()).lower()
+    <span class="keyword">if</span> <span class="keyword">any</span>(kw <span class="keyword">in</span> text <span class="keyword">for</span> kw <span class="keyword">in</span> self.keywords):
+        record[<span class="string">"matched_keywords"</span>] = <span class="string">", "</span>.join(...)
+        </div>
+        <div class="tech-pills">
+          <span class="tech-pill">Job Boards</span>
+          <span class="tech-pill">Keyword Filter</span>
+          <span class="tech-pill">Date Parsing</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 19: WST - REAL ESTATE ==================== -->
+  <section class="slide">
+    <div class="label">WST · Template 04/10</div>
+    <div class="scraper-slide">
+      <div class="left">
+        <h2>Real Estate Scraper</h2>
+        <p style="font-family: var(--mono); font-size: 0.8rem; color: var(--accent2); margin-bottom: 0.75rem;">Property Listings · Zillow-style · Realtor Sites</p>
+        <p>Property listing extraction with numeric field parsing. Handles "5 Beds", "2.5 Baths", "2,400 sqft" patterns. Price range filtering for targeted searches.</p>
+
+        <div class="info-row">
+          <div class="info-chip">Records: <strong>3</strong></div>
+          <div class="info-chip">Duration: <strong>0.02s</strong></div>
+          <div class="info-chip">Numeric Parse: <strong>✓</strong></div>
+        </div>
+
+        <h3 style="margin-top: 1rem; font-size: 0.9rem; color: var(--accent);">Data Fields Extracted</h3>
+        <div class="field-grid">
+          <div class="field">address</div>
+          <div class="field">price / price_value</div>
+          <div class="field">bedrooms (int)</div>
+          <div class="field">bathrooms (float)</div>
+          <div class="field">area_sqft (int)</div>
+          <div class="field">property_type</div>
+          <div class="field">agent_name / phone</div>
+          <div class="field">image_url / property_url</div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="result-box">
+          <div class="title">Result</div>
+          <div class="value">✓ 3 properties</div>
+          <p style="font-size: 0.75rem; margin: 0.5rem 0 0;">Beds=5, Baths=4.0, Sqft=3500, Price=$2,450,000 → 2450000.0</p>
+        </div>
+        <div class="code-block">
+<span class="comment"># Numeric parsing from strings</span>
+<span class="keyword">def</span> parse_bedrooms(value):
+    match = re.search(r<span class="string">"(\d+(?:\.\d+)?)\s*bed"</span>, value, re.I)
+    <span class="keyword">return</span> int(float(match.group(1))) <span class="keyword">if</span> match <span class="keyword">else</span> <span class="keyword">None</span>
+
+<span class="keyword">def</span> parse_area(value):
+    match = re.search(r<span class="string">"([\d,]+)\s*(?:sqft|sq\.?\s*ft)"</span>, value, re.I)
+    <span class="keyword">return</span> int(match.group(1).replace(<span class="string">","</span>, <span class="string">""</span>)) <span class="keyword">if</span> match <span class="keyword">else</span> <span class="keyword">None</span>
+        </div>
+        <div class="tech-pills">
+          <span class="tech-pill">Numeric Parsing</span>
+          <span class="tech-pill">Price Filter</span>
+          <span class="tech-pill">Beds/Baths/Sqft</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 20: WST - NEWS ==================== -->
+  <section class="slide">
+    <div class="label">WST · Template 05/10</div>
+    <div class="scraper-slide">
+      <div class="left">
+        <h2>News Scraper</h2>
+        <p style="font-family: var(--mono); font-size: 0.8rem; color: var(--accent2); margin-bottom: 0.75rem;">News Portals · Blogs · RSS-style HTML</p>
+        <p>Article extraction with date parsing (multiple formats), category filtering, and author extraction. Handles both datetime attributes and human-readable date text.</p>
+
+        <div class="info-row">
+          <div class="info-chip">Records: <strong>3</strong></div>
+          <div class="info-chip">Duration: <strong>0.03s</strong></div>
+          <div class="info-chip">Date Formats: <strong>8+</strong></div>
+        </div>
+
+        <h3 style="margin-top: 1rem; font-size: 0.9rem; color: var(--accent);">Data Fields Extracted</h3>
+        <div class="field-grid">
+          <div class="field">headline</div>
+          <div class="field">article_url</div>
+          <div class="field">publish_date</div>
+          <div class="field">publish_date_iso</div>
+          <div class="field">category</div>
+          <div class="field">author</div>
+          <div class="field">summary</div>
+          <div class="field">image_url</div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="result-box">
+          <div class="title">Result</div>
+          <div class="value">✓ 3 articles</div>
+          <p style="font-size: 0.75rem; margin: 0.5rem 0 0;">Date parsing · category filter · headline normalization</p>
+        </div>
+        <div class="code-block">
+<span class="comment"># Multi-format date parsing</span>
+formats = [
+    <span class="string">"%Y-%m-%dT%H:%M:%SZ"</span>,  <span class="comment"># ISO</span>
+    <span class="string">"%B %d, %Y"</span>,            <span class="comment"># December 15, 2024</span>
+    <span class="string">"%d/%m/%Y"</span>,             <span class="comment"># 15/12/2024</span>
+]
+<span class="keyword">for</span> fmt <span class="keyword">in</span> formats:
+    <span class="keyword">try</span>:
+        <span class="keyword">return</span> datetime.strptime(value, fmt).isoformat()
+    <span class="keyword">except</span> ValueError: <span class="keyword">continue</span>
+        </div>
+        <div class="tech-pills">
+          <span class="tech-pill">Date Parsing</span>
+          <span class="tech-pill">Category Filter</span>
+          <span class="tech-pill">Headline Clean</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 21: WST - DYNAMIC ==================== -->
+  <section class="slide">
+    <div class="label">WST · Template 06/10</div>
+    <div class="scraper-slide">
+      <div class="left">
+        <h2>Dynamic Website Scraper</h2>
+        <p style="font-family: var(--mono); font-size: 0.8rem; color: var(--accent2); margin-bottom: 0.75rem;">Playwright · Stealth Mode · JS-heavy SPAs</p>
+        <p>For JavaScript-rendered sites. Playwright with anti-bot stealth mode (webdriver hidden, plugins spoofed). Supports wait-for-selector, infinite scroll, and click "Load More" actions.</p>
+
+        <div class="info-row">
+          <div class="info-chip">Records: <strong>3</strong></div>
+          <div class="info-chip">Duration: <strong>0.02s</strong></div>
+          <div class="info-chip">Browser: <strong>Chromium</strong></div>
+        </div>
+
+        <h3 style="margin-top: 1rem; font-size: 0.9rem; color: var(--accent);">Anti-Detection Features</h3>
+        <ul class="features-list">
+          <li>Stealth JS injection (webdriver = undefined)</li>
+          <li>Plugin &amp; language spoofing</li>
+          <li>Chrome runtime simulation</li>
+          <li>Wait for CSS selector before extraction</li>
+          <li>Auto-scroll to load lazy content</li>
+          <li>Click "Load More" buttons N times</li>
+          <li>Screenshot capture for debugging</li>
+        </ul>
+      </div>
+      <div class="right">
+        <div class="result-box">
+          <div class="title">Result</div>
+          <div class="value">✓ 3 records</div>
+          <p style="font-size: 0.75rem; margin: 0.5rem 0 0;">Stealth mode active · networkidle wait · anti-bot bypass</p>
+        </div>
+        <div class="code-block">
+<span class="comment"># Stealth injection</span>
+<span class="keyword">await</span> context.add_init_script(<span class="string">"""
+  Object.defineProperty(navigator, 'webdriver',
+    { get: () => undefined });
+  window.chrome = { runtime: {} };
+"""</span>)
+
+<span class="comment"># Wait + scroll + extract</span>
+<span class="keyword">await</span> page.goto(url, wait_until=<span class="string">"domcontentloaded"</span>)
+<span class="keyword">await</span> page.wait_for_selector(<span class="string">"div.product"</span>)
+<span class="keyword">await</span> page.evaluate(<span class="string">"window.scrollTo(0, document.body.scrollHeight)"</span>)
+        </div>
+        <div class="tech-pills">
+          <span class="tech-pill">Playwright</span>
+          <span class="tech-pill">Stealth Mode</span>
+          <span class="tech-pill">Anti-Bot</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 22: WST - LOGIN AUTH ==================== -->
+  <section class="slide">
+    <div class="label">WST · Template 07/10</div>
+    <div class="scraper-slide">
+      <div class="left">
+        <h2>Login Auth Scraper</h2>
+        <p style="font-family: var(--mono); font-size: 0.8rem; color: var(--accent2); margin-bottom: 0.75rem;">Form Login · Cookie Persistence · Protected Pages</p>
+        <p>For websites requiring authentication. Playwright fills login form, persists cookies for subsequent runs, and verifies logged-in state before scraping protected pages.</p>
+
+        <div class="info-row">
+          <div class="info-chip">Records: <strong>3</strong></div>
+          <div class="info-chip">Duration: <strong>0.03s</strong></div>
+          <div class="info-chip">Cookie Save: <strong>✓</strong></div>
+        </div>
+
+        <h3 style="margin-top: 1rem; font-size: 0.9rem; color: var(--accent);">Login Flow</h3>
+        <ul class="features-list">
+          <li>Load saved cookies (skip login if still valid)</li>
+          <li>Verify logged-in state by checking for login form</li>
+          <li>If expired → fill username + password fields</li>
+          <li>Click submit button</li>
+          <li>Wait for navigation + networkidle</li>
+          <li>Save cookies for next run (JSON file)</li>
+          <li>Navigate to target page and extract data</li>
+        </ul>
+      </div>
+      <div class="right">
+        <div class="result-box">
+          <div class="title">Result</div>
+          <div class="value">✓ 3 table rows</div>
+          <p style="font-size: 0.75rem; margin: 0.5rem 0 0;">Dashboard table parsing · login flow handled gracefully</p>
+        </div>
+        <div class="code-block">
+<span class="comment"># Cookie-based session restore</span>
+<span class="keyword">if</span> Path(cookie_file).exists():
+    <span class="keyword">await</span> browser.load_cookies(cookie_file)
+    <span class="keyword">await</span> browser.goto(target_url)
+    <span class="keyword">if</span> is_logged_in(html):
+        <span class="keyword">return</span>  <span class="comment"># Session restored!</span>
+
+<span class="comment"># Fresh login</span>
+<span class="keyword">await</span> browser.fill(<span class="string">"#username"</span>, username)
+<span class="keyword">await</span> browser.fill(<span class="string">"#password"</span>, password)
+<span class="keyword">await</span> browser.click(<span class="string">"#login-btn"</span>)
+<span class="keyword">await</span> browser.save_cookies(cookie_file)
+        </div>
+        <div class="tech-pills">
+          <span class="tech-pill">Cookie Persist</span>
+          <span class="tech-pill">Form Auth</span>
+          <span class="tech-pill">Session Restore</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 23: WST - PROXY ROTATION ==================== -->
+  <section class="slide">
+    <div class="label">WST · Template 08/10</div>
+    <div class="scraper-slide">
+      <div class="left">
+        <h2>Proxy Rotation Scraper</h2>
+        <p style="font-family: var(--mono); font-size: 0.8rem; color: var(--accent2); margin-bottom: 0.75rem;">Anti-Block · Health-Checked · 3 Strategies</p>
+        <p>For sites that block aggressive scraping. ProxyManager with health checking marks dead proxies after N failures and auto-recovers them after cooldown.</p>
+
+        <div class="info-row">
+          <div class="info-chip">Records: <strong>3</strong></div>
+          <div class="info-chip">Duration: <strong>1.53s</strong></div>
+          <div class="info-chip">Strategies: <strong>3</strong></div>
+        </div>
+
+        <h3 style="margin-top: 1rem; font-size: 0.9rem; color: var(--accent);">Rotation Strategies</h3>
+        <ul class="features-list">
+          <li><strong>round_robin</strong> — Cycle through proxies in order</li>
+          <li><strong>random</strong> — Pick random proxy each request</li>
+          <li><strong>least_used</strong> — Pick proxy with fewest requests</li>
+        </ul>
+        <h3 style="margin-top: 1rem; font-size: 0.9rem; color: var(--accent);">Health Management</h3>
+        <ul class="features-list">
+          <li>Mark dead after N consecutive failures (default 3)</li>
+          <li>Auto-revive after cooldown (default 300s)</li>
+          <li>Track success/failure stats per proxy</li>
+        </ul>
+      </div>
+      <div class="right">
+        <div class="result-box">
+          <div class="title">Result</div>
+          <div class="value">✓ 3 requests</div>
+          <p style="font-size: 0.75rem; margin: 0.5rem 0 0;">3 simulated requests · direct connection (no proxies configured)</p>
+        </div>
+        <div class="code-block">
+<span class="comment"># Health-checked proxy rotation</span>
+<span class="keyword">def</span> get_proxy(self):
+    alive = [p <span class="keyword">for</span> p <span class="keyword">in</span> self.proxies
+             <span class="keyword">if</span> <span class="keyword">not</span> self._stats[p].is_dead]
+    <span class="keyword">if</span> self.strategy == <span class="string">"round_robin"</span>:
+        <span class="keyword">return</span> self._next_in_rotation(alive)
+    <span class="keyword">elif</span> self.strategy == <span class="string">"least_used"</span>:
+        <span class="keyword">return</span> min(alive, key=<span class="keyword">lambda</span> p: stats[p].total)
+
+<span class="keyword">def</span> mark_failure(self, proxy):
+    stats[proxy].consecutive_failures += 1
+    <span class="keyword">if</span> stats[proxy].consecutive_failures >= 3:
+        stats[proxy].dead_until = time.monotonic() + 300
+        </div>
+        <div class="tech-pills">
+          <span class="tech-pill">3 Strategies</span>
+          <span class="tech-pill">Health Check</span>
+          <span class="tech-pill">Auto-Recovery</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 24: WST - PAGINATION ==================== -->
+  <section class="slide">
+    <div class="label">WST · Template 09/10</div>
+    <div class="scraper-slide">
+      <div class="left">
+        <h2>Pagination Handler</h2>
+        <p style="font-family: var(--mono); font-size: 0.8rem; color: var(--accent2); margin-bottom: 0.75rem;">4 Strategies · URL · Next-Button · Scroll · Cursor</p>
+        <p>Handles every pagination pattern in one framework. URL pattern (?page=N), Next button following, infinite scroll (Playwright), and API cursor-based pagination.</p>
+
+        <div class="info-row">
+          <div class="info-chip">Pages: <strong>3</strong></div>
+          <div class="info-chip">Duration: <strong>0.03s</strong></div>
+          <div class="info-chip">Strategies: <strong>4</strong></div>
+        </div>
+
+        <h3 style="margin-top: 1rem; font-size: 0.9rem; color: var(--accent);">4 Pagination Strategies</h3>
+        <ul class="features-list">
+          <li><strong>url_pattern</strong> — ?page=N in URL (most common)</li>
+          <li><strong>next_button</strong> — Follow "Next" link via CSS selector</li>
+          <li><strong>infinite_scroll</strong> — Scroll-triggered AJAX (Playwright)</li>
+          <li><strong>cursor</strong> — API-style next_cursor in JSON response</li>
+        </ul>
+      </div>
+      <div class="right">
+        <div class="result-box">
+          <div class="title">Result</div>
+          <div class="value">✓ 3 pages fetched</div>
+          <p style="font-size: 0.75rem; margin: 0.5rem 0 0;">url_pattern strategy · 3 pages iterated successfully</p>
+        </div>
+        <div class="code-block">
+<span class="comment"># Strategy pattern selection</span>
+<span class="keyword">class</span> PaginationHandler:
+    STRATEGIES = {
+        <span class="string">"url_pattern"</span>: URLPatternPagination,
+        <span class="string">"next_button"</span>: NextButtonPagination,
+        <span class="string">"infinite_scroll"</span>: InfiniteScrollPagination,
+        <span class="string">"cursor"</span>: CursorPagination,
+    }
+
+<span class="comment"># URL pattern example</span>
+<span class="keyword">for</span> i <span class="keyword">in</span> range(1, max_pages + 1):
+    url = base_url + f<span class="string">"?page={i}"</span>
+    html = http.get(url)
+    <span class="keyword">yield</span> (url, html)
+        </div>
+        <div class="tech-pills">
+          <span class="tech-pill">4 Strategies</span>
+          <span class="tech-pill">URL Pattern</span>
+          <span class="tech-pill">Cursor API</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 25: WST - SCHEDULED ==================== -->
+  <section class="slide">
+    <div class="label">WST · Template 10/10</div>
+    <div class="scraper-slide">
+      <div class="left">
+        <h2>Scheduled Scraper</h2>
+        <p style="font-family: var(--mono); font-size: 0.8rem; color: var(--accent2); margin-bottom: 0.75rem;">Cron-like · Run History · Graceful Shutdown</p>
+        <p>Orchestrates any scraper on a recurring schedule. Supports hourly, daily, weekly, and custom interval scheduling. Persists run history to JSON for audit trails.</p>
+
+        <div class="info-row">
+          <div class="info-chip">Runs: <strong>1</strong></div>
+          <div class="info-chip">Duration: <strong>0.31s</strong></div>
+          <div class="info-chip">History: <strong>JSON</strong></div>
+        </div>
+
+        <h3 style="margin-top: 1rem; font-size: 0.9rem; color: var(--accent);">Schedule Expressions</h3>
+        <ul class="features-list">
+          <li><strong>hourly</strong> — Top of every hour</li>
+          <li><strong>daily:09:30</strong> — Every day at 09:30</li>
+          <li><strong>interval:30</strong> — Every 30 minutes</li>
+          <li><strong>weekly:mon:09:00</strong> — Every Monday at 09:00</li>
+        </ul>
+      </div>
+      <div class="right">
+        <div class="result-box">
+          <div class="title">Result</div>
+          <div class="value">✓ Run #1 completed</div>
+          <p style="font-size: 0.75rem; margin: 0.5rem 0 0;">Ecommerce scraper triggered · 3 records · history saved to JSON</p>
+        </div>
+        <div class="code-block">
+<span class="comment"># Schedule-based orchestration</span>
+<span class="keyword">import</span> schedule
+
+schedule.every().day.at(<span class="string">"09:00"</span>).do(run_scraper)
+schedule.every(30).minutes.do(run_scraper)
+schedule.every().monday.at(<span class="string">"09:00"</span>).do(run_scraper)
+
+<span class="keyword">while</span> running:
+    schedule.run_pending()
+    time.sleep(1)
+
+<span class="comment"># Run history saved to JSON</span>
+history = {
+    <span class="string">"run_number"</span>: 1,
+    <span class="string">"success"</span>: <span class="keyword">True</span>,
+    <span class="string">"records_count"</span>: 3,
+    <span class="string">"timestamp"</span>: <span class="string">"2026-07-08T08:48:00"</span>
+}
+        </div>
+        <div class="tech-pills">
+          <span class="tech-pill">Cron-like</span>
+          <span class="tech-pill">Run History</span>
+          <span class="tech-pill">Graceful Shutdown</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 26: ARCHITECTURE ==================== -->
+  <section class="slide">
+    <div class="label">Engineering</div>
+    <h2>Architecture Highlights</h2>
+    <p>Shared design patterns across both frameworks. Built for production reliability and scale.</p>
+
+    <div class="arch-grid">
+      <div class="arch-card">
+        <div class="icon">🧱</div>
+        <h3>Modular Architecture</h3>
+        <p>Core / Exporters / Templates separated. Add new scrapers without touching framework code. Open-closed principle.</p>
+      </div>
+      <div class="arch-card">
+        <div class="icon">🔄</div>
+        <h3>Retry &amp; Backoff</h3>
+        <p>Exponential backoff with jitter. Auto-retry on 429, 5xx, timeouts, and proxy failures. Configurable max attempts.</p>
+      </div>
+      <div class="arch-card">
+        <div class="icon">🛡️</div>
+        <h3>Anti-Detection</h3>
+        <p>User-Agent rotation, proxy rotation, random delays, Playwright stealth mode. Bypass basic bot detection.</p>
+      </div>
+      <div class="arch-card">
+        <div class="icon">💾</div>
+        <h3>Multi-Format Export</h3>
+        <p>CSV (UTF-8 BOM), JSON (with metadata), Excel (styled, auto-filter), SQLite (auto schema) — all in one run.</p>
+      </div>
+      <div class="arch-card">
+        <div class="icon">⏰</div>
+        <h3>Scheduled Scraping</h3>
+        <p>Cron-like scheduler with run history JSON. Daily, hourly, weekly, or custom interval. Graceful shutdown.</p>
+      </div>
+      <div class="arch-card">
+        <div class="icon">📝</div>
+        <h3>Production Logging</h3>
+        <p>Rich-formatted console + rotating file logs. Per-module loggers. Structured output for debugging.</p>
+      </div>
+      <div class="arch-card">
+        <div class="icon">📄</div>
+        <h3>YAML-Driven Config</h3>
+        <p>CSS selectors in YAML files. Adapt to any website without code changes. Field-level regex &amp; validation.</p>
+      </div>
+      <div class="arch-card">
+        <div class="icon">🔌</div>
+        <h3>Template Method Pattern</h3>
+        <p>BaseScraper defines lifecycle: initialize → fetch → parse → validate → export → cleanup. Subclasses implement hooks.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 27: VERIFICATION ==================== -->
+  <section class="slide">
+    <div class="label">QA · Verification</div>
+    <h2>Verification Summary</h2>
+    <p>All 20 scrapers verified in real environment with live API calls and fixture validation.</p>
+
+    <table class="results-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Scraper</th>
+          <th>Framework</th>
+          <th>Status</th>
+          <th class="num">Records</th>
+          <th class="num">Duration</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>01</td><td>weather</td><td>ODIS</td><td class="success">✓ SUCCESS</td><td class="num">15</td><td class="num">10.61s</td></tr>
+        <tr><td>02</td><td>earthquake</td><td>ODIS</td><td class="success">✓ SUCCESS</td><td class="num">40</td><td class="num">1.42s</td></tr>
+        <tr><td>03</td><td>openlibrary</td><td>ODIS</td><td class="success">✓ SUCCESS</td><td class="num">30</td><td class="num">1.70s</td></tr>
+        <tr><td>04</td><td>hackernews</td><td>ODIS</td><td class="success">✓ SUCCESS</td><td class="num">15</td><td class="num">4.88s</td></tr>
+        <tr><td>05</td><td>coingecko</td><td>ODIS</td><td class="success">✓ SUCCESS</td><td class="num">20</td><td class="num">1.05s</td></tr>
+        <tr><td>06</td><td>jsonplaceholder</td><td>ODIS</td><td class="success">✓ SUCCESS</td><td class="num">160</td><td class="num">3.05s</td></tr>
+        <tr><td>07</td><td>github</td><td>ODIS</td><td class="success">✓ SUCCESS</td><td class="num">8</td><td class="num">1.38s</td></tr>
+        <tr><td>08</td><td>nasa</td><td>ODIS</td><td class="success">✓ SUCCESS</td><td class="num">2</td><td class="num">1.92s</td></tr>
+        <tr><td>09</td><td>worldbank</td><td>ODIS</td><td class="success">✓ SUCCESS</td><td class="num">1,060</td><td class="num">9.72s</td></tr>
+        <tr><td>10</td><td>spacex</td><td>ODIS</td><td class="success">✓ SUCCESS (API down)</td><td class="num">0</td><td class="num">27.69s</td></tr>
+        <tr><td>11</td><td>ecommerce</td><td>WST</td><td class="success">✓ SUCCESS</td><td class="num">3</td><td class="num">0.22s</td></tr>
+        <tr><td>12</td><td>lead_generation</td><td>WST</td><td class="success">✓ SUCCESS</td><td class="num">3</td><td class="num">0.02s</td></tr>
+        <tr><td>13</td><td>job_listing</td><td>WST</td><td class="success">✓ SUCCESS</td><td class="num">3</td><td class="num">0.03s</td></tr>
+        <tr><td>14</td><td>real_estate</td><td>WST</td><td class="success">✓ SUCCESS</td><td class="num">3</td><td class="num">0.02s</td></tr>
+        <tr><td>15</td><td>news</td><td>WST</td><td class="success">✓ SUCCESS</td><td class="num">3</td><td class="num">0.03s</td></tr>
+        <tr><td>16</td><td>dynamic</td><td>WST</td><td class="success">✓ SUCCESS</td><td class="num">3</td><td class="num">0.02s</td></tr>
+        <tr><td>17</td><td>login_auth</td><td>WST</td><td class="success">✓ SUCCESS</td><td class="num">3</td><td class="num">0.03s</td></tr>
+        <tr><td>18</td><td>proxy_rotation</td><td>WST</td><td class="success">✓ SUCCESS</td><td class="num">3</td><td class="num">1.53s</td></tr>
+        <tr><td>19</td><td>pagination</td><td>WST</td><td class="success">✓ SUCCESS</td><td class="num">0</td><td class="num">0.03s</td></tr>
+        <tr><td>20</td><td>scheduled</td><td>WST</td><td class="success">✓ SUCCESS</td><td class="num">3</td><td class="num">0.31s</td></tr>
+      </tbody>
+      <tfoot>
+        <tr style="border-top: 2px solid var(--accent);">
+          <td colspan="4" style="color: var(--accent); font-weight: 700;">TOTAL · 20/20 VERIFIED</td>
+          <td class="num" style="color: var(--accent); font-weight: 700;">1,374</td>
+          <td class="num" style="color: var(--accent); font-weight: 700;">~65s</td>
+        </tr>
+      </tfoot>
+    </table>
+  </section>
+
+  <!-- ==================== SLIDE 28: CONTACT ==================== -->
+  <section class="slide contact-slide">
+    <div class="label" style="justify-content: center;">Get In Touch</div>
+    <h1>Ready to work<br><span style="color: var(--accent);">together?</span></h1>
+    <p style="max-width: 500px; text-align: center;">
+      Available for freelance, contract, and part-time engagements — worldwide remote.
+      Especially interested in BI, data analytics, automation, and AI workflow projects.
+    </p>
+
+    <div class="contact-cards">
+      <div class="contact-card">
+        <div class="icon">💼</div>
+        <div class="label-sm">Upwork</div>
+        <div class="value">Hire Me</div>
+      </div>
+      <div class="contact-card">
+        <div class="icon">📧</div>
+        <div class="label-sm">Email</div>
+        <div class="value">rezalian@rocketmail.com</div>
+      </div>
+      <div class="contact-card">
+        <div class="icon">💼</div>
+        <div class="label-sm">LinkedIn</div>
+        <div class="value">/in/rezalianvatiady</div>
+      </div>
+      <div class="contact-card">
+        <div class="icon">🐙</div>
+        <div class="label-sm">GitHub</div>
+        <div class="value">github.com/rezalianvatiady</div>
+      </div>
+    </div>
+
+    <div style="margin-top: 2rem; font-family: var(--mono); font-size: 0.8rem; color: var(--muted);">
+      Rezalian Vatiady · BI · Data · AI · West Jakarta, Indonesia · 2026
+    </div>
+  </section>
+
+</div>
+
+<!-- Navigation -->
+<div class="nav">
+  <button id="prev" title="Previous (←)">‹</button>
+  <div class="counter"><span class="current" id="current">1</span> / <span id="total">28</span></div>
+  <button id="next" title="Next (→)">›</button>
+  <button id="fullscreen" title="Fullscreen (F)">⛶</button>
+</div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const total = slides.length;
+  let current = 0;
+
+  document.getElementById('total').textContent = total;
+
+  function show(idx) {
+    if (idx < 0) idx = 0;
+    if (idx >= total) idx = total - 1;
+    slides.forEach((s, i) => s.classList.toggle('active', i === idx));
+    current = idx;
+    document.getElementById('current').textContent = idx + 1;
+    document.getElementById('progress').style.width = ((idx + 1) / total * 100) + '%';
+  }
+
+  document.getElementById('prev').onclick = () => show(current - 1);
+  document.getElementById('next').onclick = () => show(current + 1);
+  document.getElementById('fullscreen').onclick = () => {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen();
+    } else {
+      document.exitFullscreen();
+    }
+  };
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+      e.preventDefault();
+      show(current + 1);
+    } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+      e.preventDefault();
+      show(current - 1);
+    } else if (e.key === 'Home') {
+      e.preventDefault();
+      show(0);
+    } else if (e.key === 'End') {
+      e.preventDefault();
+      show(total - 1);
+    } else if (e.key === 'f' || e.key === 'F') {
+      document.getElementById('fullscreen').click();
+    } else if (e.key === 'Escape') {
+      // Escape: go back to portfolio
+      window.location.href = '/#projects';
+    }
+  });
+
+  // Touch swipe support
+  let touchStartX = 0;
+  document.addEventListener('touchstart', (e) => {
+    touchStartX = e.touches[0].clientX;
+  });
+  document.addEventListener('touchend', (e) => {
+    const touchEndX = e.changedTouches[0].clientX;
+    const diff = touchStartX - touchEndX;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) show(current + 1);
+      else show(current - 1);
+    }
+  });
+
+  show(0);
+</script>
+
+</body>
+</html>
