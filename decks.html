@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Slide Decks &amp; Presentations — Rezalian Vatiady</title>
+<meta name="description" content="Presentation decks by Rezalian Vatiady on AI agents, ZalinOS, data engineering, BI case studies, and local-first AI - viewable in the browser." />
+<link rel="icon" type="image/svg+xml" href="logo.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --bg:#0a0c12; --card:#151b26; --card2:#1a2235; --border:rgba(148,163,184,.12);
+  --blue:#3b82f6; --cyan:#06b6d4; --text:#e2e8f0; --muted:#94a3b8; --dim:#64748b;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;line-height:1.6;min-height:100vh;display:flex;flex-direction:column}
+.font-display{font-family:'Space Grotesk','Inter',sans-serif}
+.font-mono{font-family:'JetBrains Mono',monospace}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1200px;max-width:1200px;margin:0 auto;padding:0 20px;width:100%}
+header{position:sticky;top:0;z-index:50;background:rgba(10,12,18,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.hd-in{height:64px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:8px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px}
+.logo{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--blue),var(--cyan));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;color:#fff}
+.brand .dot{color:var(--blue)}
+.hd-right{display:flex;align-items:center;gap:16px}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:8px;border:1px solid var(--border);font-size:13px;font-weight:500;color:var(--muted);transition:all .2s}
+.btn-ghost:hover{color:#fff;border-color:var(--blue)}
+.hero{padding:72px 0 40px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;top:-120px;right:15%;width:380px;height:380px;border-radius:50%;background:rgba(59,130,246,.08);filter:blur(90px);pointer-events:none}
+.hero::after{content:"";position:absolute;bottom:-140px;left:10%;width:320px;height:320px;border-radius:50%;background:rgba(6,182,212,.07);filter:blur(90px);pointer-events:none}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.2);font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--cyan);letter-spacing:1px}
+.pulse{width:6px;height:6px;border-radius:50%;background:var(--cyan);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+h1.hero-t{font-family:'Space Grotesk',sans-serif;font-size:clamp(30px,5vw,52px);font-weight:700;letter-spacing:-.5px;line-height:1.08;margin:20px 0 16px}
+h1.hero-t .acc{color:var(--blue)}
+.hero-sub{color:var(--muted);font-size:16px;max-width:640px}
+.strip{display:flex;gap:24px;flex-wrap:wrap;margin-top:28px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--dim)}
+.strip b{color:var(--text);font-weight:500}
+main{flex:1}
+.section{padding:40px 0 72px}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:28px;flex-wrap:wrap}
+.sec-label{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--cyan);letter-spacing:2px;text-transform:uppercase}
+.sec-title{font-family:'Space Grotesk',sans-serif;font-size:clamp(22px,3vw,32px);font-weight:700;margin-top:8px}
+.hint{font-size:11.5px;color:var(--dim);font-family:'JetBrains Mono',monospace}
+/* DECK GRID */
+.deck-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+.deck-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;display:flex;flex-direction:column;transition:border-color .2s, transform .2s;cursor:pointer}
+.deck-card:hover{border-color:rgba(59,130,246,.4);transform:translateY(-2px)}
+.dc-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:16px}
+.dc-icon{width:42px;height:42px;border-radius:10px;background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.2);display:flex;align-items:center;justify-content:center;font-size:20px}
+.dc-badge{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--dim);letter-spacing:1px}
+.dc-title{font-family:'Space Grotesk',sans-serif;font-size:17.5px;font-weight:600;line-height:1.35;margin-bottom:8px}
+.dc-sub{color:var(--muted);font-size:13.5px;margin-bottom:14px;flex:1}
+.dc-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.tag{padding:2px 10px;border-radius:999px;border:1px solid var(--border);color:var(--muted);background:var(--card2);font-size:11px}
+.dc-meta{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--dim);margin-bottom:14px}
+.dc-actions{display:flex;gap:10px;flex-wrap:wrap;border-top:1px solid var(--border);padding-top:14px}
+.act{display:inline-flex;align-items:center;gap:7px;padding:7px 14px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--muted);font-size:13px;font-weight:500;cursor:pointer;transition:all .2s;font-family:'Inter',sans-serif}
+.act:hover{color:#fff;border-color:var(--blue)}
+.act.primary{color:var(--cyan);border-color:rgba(6,182,204,.3)}
+.act.primary:hover{border-color:var(--cyan)}
+.act svg{width:14px;height:14px}
+.c-empty{color:var(--dim);font-size:14px;padding:20px 0}
+/* VIEWER */
+.viewer{display:none;position:fixed;inset:0;z-index:100;background:rgba(4,6,10,.92);backdrop-filter:blur(8px);flex-direction:column}
+.viewer.open{display:flex}
+.vw-top{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 20px;max-width:1200px;margin:0 auto;width:100%}
+.vw-title{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:14px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.vw-close{flex-shrink:0;display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--muted);font-size:13px;cursor:pointer;transition:all .2s;font-family:'Inter',sans-serif}
+.vw-close:hover{color:#fff;border-color:#f43f5e}
+.vw-stage{flex:1;display:flex;align-items:center;justify-content:center;padding:10px 20px;min-height:0}
+.vw-frame{width:min(100%, 1040px);aspect-ratio:16/9;max-height:100%;background:linear-gradient(145deg,#0e1320 0%,#0a0c12 60%,#0c1424 100%);border:1px solid rgba(59,130,246,.25);border-radius:16px;padding:clamp(18px,4.5%,54px);display:flex;flex-direction:column;position:relative;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,.5)}
+.vw-frame::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--cyan))}
+.sl-kicker{font-family:'JetBrains Mono',monospace;font-size:clamp(9px,1.3vw,13px);color:var(--cyan);letter-spacing:2.5px;margin-bottom:clamp(8px,2%,18px)}
+.sl-title{font-family:'Space Grotesk',sans-serif;font-size:clamp(17px,3.4vw,36px);font-weight:700;line-height:1.15;color:#fff;margin-bottom:clamp(10px,2.5%,20px)}
+.sl-bullets{list-style:none;display:flex;flex-direction:column;gap:clamp(6px,1.4%,12px);overflow:hidden}
+.sl-bullets li{display:flex;gap:12px;font-size:clamp(11.5px,1.75vw,17.5px);color:#cbd5e1;line-height:1.5}
+.sl-bullets li .m{color:var(--blue);flex-shrink:0;font-weight:700}
+.sl-note{margin-top:auto;padding-top:clamp(8px,2%,16px);color:var(--dim);font-size:clamp(10.5px,1.5vw,14.5px);border-top:1px solid var(--border)}
+.vw-frame.title-slide{justify-content:center;text-align:left}
+.vw-frame.title-slide .sl-title{font-size:clamp(22px,4.6vw,48px)}
+.sl-count{position:absolute;bottom:12px;right:18px;font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--dim)}
+.vw-bottom{display:flex;align-items:center;justify-content:center;gap:14px;padding:12px 20px 18px}
+.vw-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:10px;border:1px solid var(--border);background:var(--card);color:var(--muted);font-size:13.5px;font-weight:500;cursor:pointer;transition:all .2s;font-family:'Inter',sans-serif}
+.vw-btn:hover{color:#fff;border-color:var(--blue)}
+.vw-btn:disabled{opacity:.35;cursor:not-allowed}
+.vw-num{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--dim);min-width:64px;text-align:center}
+.vw-progress{height:3px;background:var(--card2);border-radius:99px;overflow:hidden;max-width:320px;margin:0 auto;width:100%}
+.vw-progress div{height:100%;background:linear-gradient(90deg,var(--blue),var(--cyan));transition:width .25s}
+footer{border-top:1px solid var(--border);padding:28px 0;margin-top:auto}
+.ft-in{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.ft-links{display:flex;gap:20px;font-size:12px;color:var(--muted)}
+.ft-links a:hover{color:#fff}
+.ft-copy{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--dim)}
+@media(max-width:640px){.hero{padding:52px 0 28px}.deck-card{padding:18px}.vw-top{padding:10px 14px}.vw-stage{padding:8px 10px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap hd-in">
+    <a class="brand" href="index.html"><div class="logo">RV</div><span>rezalian<span class="dot">.</span>vatiady</span></a>
+    <div class="hd-right">
+      <span class="font-mono" style="font-size:12px;color:var(--dim)" id="today"></span>
+      <a class="btn-ghost" href="index.html">&#8592; Back to Portfolio</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <span class="badge"><span class="pulse"></span>PRESENTATIONS</span>
+      <h1 class="hero-t">Slide Decks &amp; <span class="acc">Presentations</span></h1>
+      <p class="hero-sub">Case studies, architecture deep-dives, and playbooks from building ZalinOS, Zalin Labs, and shipping data &amp; BI work — presented as in-browser slide decks. Use arrow keys or swipe.</p>
+      <div class="strip">
+        <span><b id="stat-decks">0</b> DECKS</span>
+        <span><b id="stat-slides">0</b> SLIDES</span>
+        <span>AI &amp; AGENTS</span>
+        <span>DATA &amp; BI</span>
+        <span>OPEN SOURCE</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <div class="sec-label">Library</div>
+          <h2 class="sec-title">All Decks</h2>
+        </div>
+        <span class="hint">Click a deck to present it right here</span>
+      </div>
+      <div id="deck-list" class="deck-grid"><div class="c-empty">Loading decks…</div></div>
+    </div>
+  </section>
+</main>
+
+<div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-label="Slide viewer">
+  <div class="vw-top">
+    <div class="vw-title" id="vw-title"></div>
+    <button class="vw-close" id="vw-close" aria-label="Close viewer">✕ Close</button>
+  </div>
+  <div class="vw-stage" id="vw-stage">
+    <div class="vw-frame" id="vw-frame">
+      <div class="sl-kicker" id="sl-kicker"></div>
+      <div class="sl-title" id="sl-title"></div>
+      <ul class="sl-bullets" id="sl-bullets"></ul>
+      <div class="sl-note" id="sl-note"></div>
+      <div class="sl-count" id="sl-count"></div>
+    </div>
+  </div>
+  <div class="vw-bottom">
+    <button class="vw-btn" id="vw-prev" aria-label="Previous slide">&#8592; Prev</button>
+    <div style="display:flex;flex-direction:column;gap:6px;align-items:center">
+      <span class="vw-num" id="vw-num">1 / 1</span>
+      <div class="vw-progress"><div id="vw-bar" style="width:10%"></div></div>
+    </div>
+    <button class="vw-btn" id="vw-next" aria-label="Next slide">Next &#8594;</button>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap ft-in">
+    <div class="ft-links">
+      <a href="index.html">Portfolio</a>
+      <a href="articles.html">Articles</a>
+      <a href="index.html#projects">Projects</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="https://www.linkedin.com/in/rezalianvatiady" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    <div class="ft-copy">© <span id="yr"></span> Rezalian Vatiady · Built with static HTML</div>
+  </div>
+</footer>
+
+<script>
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmtDate = d => { try { return new Date(d+'T00:00:00').toLocaleDateString('en-US',{year:'numeric',month:'short',day:'numeric'}); } catch { return d; } };
+
+let DECKS = [];
+let cur = null, curSlide = 0;
+let loadAttempts = 0;
+
+async function loadDecks(){
+  const box = document.getElementById('deck-list');
+  loadAttempts++;
+  try {
+    const ctrl = new AbortController();
+    const tmr = setTimeout(() => ctrl.abort(), 6000);
+    const r = await fetch('decks.json', {cache:'no-store', signal: ctrl.signal});
+    clearTimeout(tmr);
+    if (r.ok) {
+      const j = await r.json();
+      if (j && Array.isArray(j.decks) && j.decks.length) { DECKS = j.decks; renderList(); return; }
+    }
+  } catch {}
+  if (loadAttempts < 3) { setTimeout(loadDecks, 1200); return; }
+  box.innerHTML = '<div class="c-empty">Decks are not available right now — please refresh the page.</div>';
+}
+
+function renderList(){
+  document.getElementById('stat-decks').textContent = DECKS.length;
+  document.getElementById('stat-slides').textContent = DECKS.reduce((a,d)=>a+d.slides.length,0);
+  const box = document.getElementById('deck-list');
+  box.innerHTML = DECKS.map(d => `
+  <article class="deck-card" data-id="${esc(d.id)}" tabindex="0" role="button" aria-label="Open deck: ${esc(d.title)}">
+    <div class="dc-top"><div class="dc-icon">${esc(d.icon||'\u{1F4CA}')}</div><span class="dc-badge">${esc(d.badge||'DECK')}</span></div>
+    <h3 class="dc-title">${esc(d.title)}</h3>
+    <p class="dc-sub">${esc(d.desc)}</p>
+    <div class="dc-tags">${(d.tags||[]).slice(0,3).map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div>
+    <div class="dc-meta">${d.slides.length} SLIDES \u00B7 ${esc(fmtDate(d.date))}</div>
+    <div class="dc-actions">
+      <button class="act primary" data-open="${esc(d.id)}" aria-label="View slides of ${esc(d.title)}">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        View slides
+      </button>
+      ${d.pptx ? `<a class="act" href="${esc(d.pptx)}" download aria-label="Download PPTX of ${esc(d.title)}">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+        .pptx</a>` : ''}
+    </div>
+  </article>`).join('');
+  box.querySelectorAll('.deck-card').forEach(card => {
+    card.addEventListener('click', e => {
+      if (e.target.closest('a')) return;
+      openDeck(card.dataset.id);
+    });
+    card.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openDeck(card.dataset.id); }
+    });
+  });
+}
+
+function openDeck(id){
+  const d = DECKS.find(x => x.id === id);
+  if (!d) return;
+  cur = d; curSlide = 0;
+  document.getElementById('vw-title').textContent = d.title;
+  document.getElementById('viewer').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  showSlide(0);
+}
+
+function closeDeck(){
+  document.getElementById('viewer').classList.remove('open');
+  document.body.style.overflow = '';
+  cur = null;
+}
+
+function showSlide(n){
+  if (!cur) return;
+  const s = cur.slides[n];
+  curSlide = n;
+  const frame = document.getElementById('vw-frame');
+  frame.classList.toggle('title-slide', !(s.bullets && s.bullets.length));
+  document.getElementById('sl-kicker').textContent = s.kicker || '';
+  document.getElementById('sl-title').textContent = s.title || '';
+  document.getElementById('sl-bullets').innerHTML = (s.bullets||[]).map(b=>`<li><span class="m">\u25B9</span><span>${esc(b)}</span></li>`).join('');
+  document.getElementById('sl-note').textContent = s.note || '';
+  document.getElementById('sl-note').style.display = s.note ? '' : 'none';
+  document.getElementById('sl-count').textContent = (n+1) + ' / ' + cur.slides.length;
+  document.getElementById('vw-num').textContent = (n+1) + ' / ' + cur.slides.length;
+  document.getElementById('vw-bar').style.width = Math.round(((n+1)/cur.slides.length)*100) + '%';
+  document.getElementById('vw-prev').disabled = n === 0;
+  document.getElementById('vw-next').disabled = n === cur.slides.length - 1;
+}
+
+document.getElementById('vw-prev').addEventListener('click', () => cur && curSlide > 0 && showSlide(curSlide-1));
+document.getElementById('vw-next').addEventListener('click', () => cur && curSlide < cur.slides.length-1 && showSlide(curSlide+1));
+document.getElementById('vw-close').addEventListener('click', closeDeck);
+document.getElementById('viewer').addEventListener('click', e => { if (e.target.id === 'viewer') closeDeck(); });
+document.addEventListener('keydown', e => {
+  if (!cur) return;
+  if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') { e.preventDefault(); curSlide < cur.slides.length-1 && showSlide(curSlide+1); }
+  else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); curSlide > 0 && showSlide(curSlide-1); }
+  else if (e.key === 'Home') { e.preventDefault(); showSlide(0); }
+  else if (e.key === 'End') { e.preventDefault(); showSlide(cur.slides.length-1); }
+  else if (e.key === 'Escape') closeDeck();
+});
+let touchX = null;
+document.getElementById('vw-stage').addEventListener('touchstart', e => { touchX = e.changedTouches[0].clientX; }, {passive:true});
+document.getElementById('vw-stage').addEventListener('touchend', e => {
+  if (touchX === null || !cur) return;
+  const dx = e.changedTouches[0].clientX - touchX;
+  if (Math.abs(dx) > 50) { if (dx < 0) curSlide < cur.slides.length-1 && showSlide(curSlide+1); else curSlide > 0 && showSlide(curSlide-1); }
+  touchX = null;
+}, {passive:true});
+
+try { document.getElementById('today').textContent = new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}); } catch {}
+try { document.getElementById('yr').textContent = new Date().getFullYear(); } catch {}
+loadDecks();
+setTimeout(() => { if (!DECKS.length && loadAttempts >= 3) return; if (!DECKS.length && loadAttempts < 3 && !document.querySelector('.deck-card')) loadDecks(); }, 3000);
+window.addEventListener('load', () => {
+  const p = new URLSearchParams(location.search).get('d');
+  if (p) {
+    const tryOpen = (n) => { if (DECKS.length) openDeck(p); else if (n > 0) setTimeout(() => tryOpen(n-1), 800); };
+    tryOpen(10);
+  }
+});
+</script>
+</body>
+</html>

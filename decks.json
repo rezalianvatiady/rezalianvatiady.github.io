@@ -1,3 +1,1140 @@
 {
-  "decks": []
+  "decks": [
+    {
+      "id": "zalinos-architecture",
+      "url": "decks.html?d=zalinos-architecture",
+      "icon": "🧠",
+      "badge": "AI OS",
+      "title": "ZalinOS: A Local-First AI Agent Operating System",
+      "desc": "Architecture deep-dive: kernel, intent router, 9 specialist agents, structured memory, and quality gates - all running 100% locally.",
+      "subtitle": "A modular AI agent operating system that runs 100% locally",
+      "date": "2026-09-24",
+      "tags": [
+        "ZalinOS",
+        "Multi-Agent",
+        "Local-First"
+      ],
+      "slides": [
+        {
+          "kicker": "ZALIN PLATFORM · R&D",
+          "title": "ZalinOS",
+          "bullets": [],
+          "note": "A modular AI agent operating system running 100% locally · Rezalian Vatiady"
+        },
+        {
+          "kicker": "THE PROBLEM",
+          "title": "One person cannot scale execution",
+          "bullets": [
+            "Every task you do yourself is a task you cannot parallelize",
+            "Cloud APIs meter every thought - iteration becomes expensive",
+            "Business data deserves to stay on your machine",
+            "The answer is not another chatbot. It is an operating system for agents"
+          ]
+        },
+        {
+          "kicker": "ARCHITECTURE",
+          "title": "Five layers, one machine",
+          "bullets": [
+            "Kernel - intent routing, policy, agent lifecycle",
+            "Agent modules - GIS, OSINT, Data, Coding, Builder, PM, QA, Docs",
+            "Structured memory - rules, status, lessons in strict formats",
+            "Quality gate layer - nothing ships without evidence",
+            "Local model runtime - Ollama with Qwen 2.5:7b"
+          ]
+        },
+        {
+          "kicker": "THE FRONT DOOR",
+          "title": "Intent router: 100% on the validation set",
+          "bullets": [
+            "30 real daily queries as the validation set",
+            "51/52 checks passing in production",
+            "One written boundary definition per agent category",
+            "Deterministic output - failures are debuggable, not mysterious"
+          ]
+        },
+        {
+          "kicker": "THE WORKFORCE",
+          "title": "9+ specialist agents, scoped and reliable",
+          "bullets": [
+            "Engineering agents build and maintain apps end-to-end",
+            "QA, PM, and Docs agents enforce, track, and remember",
+            "Specialists: GIS, OSINT, Data, system watching",
+            "Every agent: scoped mandate, own queue, shared memory"
+          ]
+        },
+        {
+          "kicker": "MEMORY",
+          "title": "Structured memory, not a text dump",
+          "bullets": [
+            "Rules - true until changed, append-only, versioned",
+            "Status - what is happening now, always overwritten",
+            "Lessons - what broke and the fix, attached to evidence",
+            "Every agent reads all three before starting work"
+          ]
+        },
+        {
+          "kicker": "RESULTS",
+          "title": "What the system ships",
+          "bullets": [
+            "30+ production Android apps under quality-gated releases",
+            "Two open-source frameworks: 8.7K+ lines combined",
+            "100% router accuracy, measurable and maintained",
+            "Flat zero API cost - iteration is free"
+          ]
+        },
+        {
+          "kicker": "TAKEAWAY",
+          "title": "Local models + good orchestration = production AI",
+          "bullets": [],
+          "note": "The intelligence ceiling matters less than the system design around it · rezalianvatiady.github.io"
+        }
+      ],
+      "pptx": "decks/zalinos-architecture.pptx"
+    },
+    {
+      "id": "zalin-labs-platform",
+      "url": "decks.html?d=zalin-labs-platform",
+      "icon": "🚀",
+      "badge": "COMPANY",
+      "title": "Zalin Labs: One Founder, Nine AI Agents, 30+ Apps",
+      "desc": "How a software company runs from one laptop: the platform, the release pipeline, and the operating protocols behind 30+ production Android apps.",
+      "subtitle": "Shipping a software company from one laptop",
+      "date": "2026-09-24",
+      "tags": [
+        "Zalin Labs",
+        "Android",
+        "Operations"
+      ],
+      "slides": [
+        {
+          "kicker": "ZALIN LABS",
+          "title": "One founder. Nine agents. Thirty-plus apps.",
+          "bullets": [],
+          "note": "A portfolio of production Android apps plus a full company platform · Rezalian Vatiady"
+        },
+        {
+          "kicker": "THE PREMISE",
+          "title": "AI changed the economics of software",
+          "bullets": [
+            "A disciplined founder with reliable agents outships a distracted team",
+            "Speed is cheap - so quality gates become the differentiator",
+            "Every release must be provably good, not hopefully good",
+            "Leverage is now programmable"
+          ]
+        },
+        {
+          "kicker": "THE SUITE",
+          "title": "30+ production Android apps",
+          "bullets": [
+            "Productivity, data, and utility apps - all live, all maintained",
+            "A full platform backend behind them",
+            "One promote folder: the newest APK of every app, always findable",
+            "A status file per app: features, versions, decisions"
+          ]
+        },
+        {
+          "kicker": "THE PIPELINE",
+          "title": "From brief to shipped, gated at every step",
+          "bullets": [
+            "Build - engineering agents produce versioned APKs",
+            "Gate - golden path, zero dead buttons, offline behavior",
+            "Promote - version bump plus archived previous version",
+            "Record - evidence written down or it did not happen"
+          ]
+        },
+        {
+          "kicker": "OPERATIONS",
+          "title": "Protocol-driven, human-approved",
+          "bullets": [
+            "Shared rooms instead of private whispers",
+            "Per-agent queues so parallel work never collides",
+            "Approval queue: agents never approve their own releases",
+            "Watchdog recovery when machines misbehave"
+          ]
+        },
+        {
+          "kicker": "DAY TO DAY",
+          "title": "What it actually looks like",
+          "bullets": [
+            "Briefs go in, status comes out - in the same format, every time",
+            "Multiple agents work in parallel across apps",
+            "Every surprise becomes a written lesson before the day ends",
+            "The founder is the bottleneck for judgment, not execution"
+          ]
+        },
+        {
+          "kicker": "NUMBERS",
+          "title": "The scoreboard",
+          "bullets": [
+            "30+ production Android apps",
+            "9 AI agents under quality-gated releases",
+            "2 open-source frameworks, 8.7K+ LOC combined",
+            "100% intent router accuracy on validation"
+          ]
+        },
+        {
+          "kicker": "TAKEAWAY",
+          "title": "Build the company around the protocol, not the hero",
+          "bullets": [],
+          "note": "The agents are the workforce. The protocols are the company. · rezalianvatiady.github.io"
+        }
+      ],
+      "pptx": "decks/zalin-labs-platform.pptx"
+    },
+    {
+      "id": "agent-operating-model",
+      "url": "decks.html?d=agent-operating-model",
+      "icon": "🤖",
+      "badge": "AI OPS",
+      "title": "The 9-Agent Operating Model",
+      "desc": "Roles, protocols, and failure handling for a production AI workforce - shared memory, honest evidence, rooms over DMs, and queues over interrupts.",
+      "subtitle": "Four protocols that make an AI workforce reliable",
+      "date": "2026-09-24",
+      "tags": [
+        "AI Agents",
+        "Protocols",
+        "Operations"
+      ],
+      "slides": [
+        {
+          "kicker": "OPERATING MODEL",
+          "title": "Roles, not vibes",
+          "bullets": [],
+          "note": "How nine AI agents run a real company without colliding · Rezalian Vatiady"
+        },
+        {
+          "kicker": "ROLES",
+          "title": "Nine agents, nine mandates",
+          "bullets": [
+            "Builder and engineering agents - ships the product",
+            "QA - owns the release gate, can stop the line",
+            "PM - tracks status, priorities, pending decisions",
+            "Docs - the company never forgets",
+            "Secretary - portfolio, presentations, content",
+            "Specialists - data, GIS, OSINT, system watchdog"
+          ]
+        },
+        {
+          "kicker": "PROTOCOL 1",
+          "title": "Shared memory beats private memory",
+          "bullets": [
+            "One structured knowledge base: rules, status, lessons",
+            "Every agent reads it before starting work",
+            "Contradictions are visible, not buried in chat history",
+            "New agents onboard by reading, not by asking"
+          ]
+        },
+        {
+          "kicker": "PROTOCOL 2",
+          "title": "Evidence or it did not happen",
+          "bullets": [
+            "Claims require logs, files, or markers",
+            "A status field is not evidence",
+            "Failure reports are mandatory - no silent requeues",
+            "Fake green checkmarks are treated as bugs"
+          ]
+        },
+        {
+          "kicker": "PROTOCOL 3",
+          "title": "Rooms, not whispers",
+          "bullets": [
+            "Coordination happens in a shared workspace",
+            "Decisions needing the human enter an approval queue",
+            "Every verdict is visible and auditable",
+            "Impersonation is structurally impossible"
+          ]
+        },
+        {
+          "kicker": "PROTOCOL 4",
+          "title": "Queues, not interrupts",
+          "bullets": [
+            "Each agent owns its work queue",
+            "Pause, resume, and skip are explicit operations",
+            "Parallel work never collides or blocks",
+            "Idle gates prevent fake busyness"
+          ]
+        },
+        {
+          "kicker": "FAILURE",
+          "title": "When things break - and they will",
+          "bullets": [
+            "Watchdog detects dead agents and recovers automatically",
+            "Honest red status beats fake green status, every time",
+            "Incidents end as written lessons, not war stories",
+            "Protocols get amended, and everyone gets smarter"
+          ]
+        },
+        {
+          "kicker": "TAKEAWAY",
+          "title": "Constraints beat cleverness",
+          "bullets": [],
+          "note": "Design the protocols first. The agents will thank you by being boring and reliable. · rezalianvatiady.github.io"
+        }
+      ],
+      "pptx": "decks/agent-operating-model.pptx"
+    },
+    {
+      "id": "odis",
+      "url": "decks.html?d=odis",
+      "icon": "📊",
+      "badge": "OPEN SOURCE",
+      "title": "Open Data Intelligence Suite (ODIS)",
+      "desc": "Case study: a production-ready open-source data framework - ingestion, cleaning, enrichment, reporting - 4,305 lines of local-first glue you never have to write again.",
+      "subtitle": "The boring 70% of data work, standardized and open-sourced",
+      "date": "2026-09-24",
+      "tags": [
+        "ODIS",
+        "Open Source",
+        "Data Engineering"
+      ],
+      "slides": [
+        {
+          "kicker": "OPEN SOURCE · 4,305 LOC",
+          "title": "Open Data Intelligence Suite",
+          "bullets": [],
+          "note": "Ingest, clean, enrich, report - without rewriting the glue · Rezalian Vatiady"
+        },
+        {
+          "kicker": "THE PROBLEM",
+          "title": "Data work repeats itself",
+          "bullets": [
+            "Every project starts by rebuilding the same skeleton",
+            "Collect, clean, transform, export - always the same shape",
+            "Glue code is where quality quietly dies",
+            "ODIS standardizes the skeleton so judgment gets the attention"
+          ]
+        },
+        {
+          "kicker": "MODULES",
+          "title": "The pipeline, as first-class citizens",
+          "bullets": [
+            "Ingestion - files, APIs, and scrapes into a common shape",
+            "Cleaning - schema checks, dedup, normalization",
+            "Enrichment - joins and derived features without spaghetti",
+            "Export and reporting - outputs analysts actually want"
+          ]
+        },
+        {
+          "kicker": "DESIGN",
+          "title": "Principles that survived production",
+          "bullets": [
+            "Composable pipelines over monolithic scripts",
+            "Schema-first: validate at every seam",
+            "Local-first: your data never has to leave the machine",
+            "Readable output: logs a human can audit"
+          ]
+        },
+        {
+          "kicker": "IN PRODUCTION",
+          "title": "Where ODIS earns its keep",
+          "bullets": [
+            "Powers data apps across the Zalin Labs suite",
+            "Feeds BI and analytics client workflows",
+            "4,305 lines maintained by an agent team under quality gates",
+            "Open source: the stranger who reads it makes it better"
+          ]
+        },
+        {
+          "kicker": "WHY OPEN",
+          "title": "What releasing it changed",
+          "bullets": [
+            "Public code cannot survive vague assumptions - schemas got stricter",
+            "Errors became clearer because strangers read them",
+            "Documentation got honest because strangers rely on it",
+            "The internal pipeline improved the same week it went public"
+          ]
+        },
+        {
+          "kicker": "ROADMAP",
+          "title": "Where it is heading",
+          "bullets": [
+            "More connectors for common sources",
+            "Lightweight visualization exports",
+            "Deeper agent integration - pipelines as agent tools"
+          ]
+        },
+        {
+          "kicker": "TAKEAWAY",
+          "title": "Own the boring 70%, spend on the brilliant 30%",
+          "bullets": [],
+          "note": "ODIS is open source and production-ready. · rezalianvatiady.github.io"
+        }
+      ],
+      "pptx": "decks/odis.pptx"
+    },
+    {
+      "id": "web-scraping-toolkit",
+      "url": "decks.html?d=web-scraping-toolkit",
+      "icon": "🕸️",
+      "badge": "OPEN SOURCE",
+      "title": "Web Scraping Toolkit: Pipelines That Survive the Real Web",
+      "desc": "Case study: 4,398 lines of open-source scraping infrastructure - tolerant extraction, validation every run, polite crawling, and logs a human can read.",
+      "subtitle": "Scraping is not a script. It is a small system you operate.",
+      "date": "2026-09-24",
+      "tags": [
+        "Web Scraping",
+        "Open Source",
+        "Data"
+      ],
+      "slides": [
+        {
+          "kicker": "OPEN SOURCE · 4,398 LOC",
+          "title": "Web Scraping Toolkit",
+          "bullets": [],
+          "note": "Collection pipelines that survive contact with the real web · Rezalian Vatiady"
+        },
+        {
+          "kicker": "REALITY",
+          "title": "The real web is hostile",
+          "bullets": [
+            "Markup drifts and selectors rot silently",
+            "Bot walls evolve weekly",
+            "Pages render differently by region, device, and language",
+            "A script that worked last month is not a system"
+          ]
+        },
+        {
+          "kicker": "ARCHITECTURE",
+          "title": "Five stages, all instrumented",
+          "bullets": [
+            "Crawl - polite, rate-limited, resumable",
+            "Extract - structural anchors with multiple fallbacks",
+            "Clean - schema validation and sanity ranges",
+            "Store and export - shapes downstream tools want",
+            "Schedule - freshness alarms, not silent deaths"
+          ]
+        },
+        {
+          "kicker": "RESILIENCE",
+          "title": "Patterns that keep pipelines alive",
+          "bullets": [
+            "Validate every run: row counts, schema, sanity checks",
+            "Tolerant extraction - partial data with a warning beats zero data",
+            "Retries with backoff and honest failure reports",
+            "Structured run logs: fetched, skipped, doubted"
+          ]
+        },
+        {
+          "kicker": "ETHICS",
+          "title": "Be a polite guest",
+          "bullets": [
+            "Respect robots directives and terms of service",
+            "Rate-limit yourself before sites rate-limit you",
+            "Public data only - no credentials, no pretending",
+            "Sustainable scraping is slow, boring, and ethical"
+          ]
+        },
+        {
+          "kicker": "DELIVERED",
+          "title": "Use cases in production",
+          "bullets": [
+            "Market and price monitoring for clients",
+            "Research collection pipelines",
+            "OSINT support with full provenance",
+            "Freelance projects delivered worldwide via Upwork"
+          ]
+        },
+        {
+          "kicker": "TAKEAWAY",
+          "title": "Build systems, not scripts",
+          "bullets": [],
+          "note": "Validation, tolerance, politeness, and logs - the four pillars of scraping that lasts. · rezalianvatiady.github.io"
+        }
+      ],
+      "pptx": "decks/web-scraping-toolkit.pptx"
+    },
+    {
+      "id": "career-journey",
+      "url": "decks.html?d=career-journey",
+      "icon": "🧭",
+      "badge": "STORY",
+      "title": "From BI Analyst to AI Company Builder",
+      "desc": "Career deck: Tokopedia analytics, BRI AML analysis, IKEA regional BI - and the leap to founding Zalin Labs. What transferred, what did not, and why.",
+      "subtitle": "The skills that compounded - and the ones I had to unlearn",
+      "date": "2026-09-24",
+      "tags": [
+        "Career",
+        "BI",
+        "AI"
+      ],
+      "slides": [
+        {
+          "kicker": "CAREER",
+          "title": "From BI analyst to AI company builder",
+          "bullets": [],
+          "note": "A transition map for analysts who cannot stop automating their own job · Rezalian Vatiady"
+        },
+        {
+          "kicker": "TIMELINE",
+          "title": "Four chapters, one direction",
+          "bullets": [
+            "2022 - Customer analytics at RevoU × Tokopedia: segmentation, churn, KPI dashboards",
+            "2023 - IT Business Analyst, BRI AML project: graph databases and compliance",
+            "2023-2024 - Regional BI Specialist, IKEA Indonesia: four countries, one datalake",
+            "2024-now - Founder, Zalin Platform and Zalin Labs: agents, apps, frameworks"
+          ]
+        },
+        {
+          "kicker": "WHAT BI TAUGHT ME",
+          "title": "Skills that transferred perfectly",
+          "bullets": [
+            "Requirements are 80% of success - unclear questions, useless answers",
+            "Data quality is a product, not a chore",
+            "Stakeholder trust is earned row by row",
+            "The best part of every job was building the machine that does the job"
+          ]
+        },
+        {
+          "kicker": "WHY THE LEAP",
+          "title": "The automation itch became undeniable",
+          "bullets": [
+            "AI agents turned leverage from a management skill into a technology",
+            "One disciplined person with reliable agents ships like a team",
+            "Founders decide; agents execute; quality gates keep both honest",
+            "The cost of building software collapsed - the cost of judgment did not"
+          ]
+        },
+        {
+          "kicker": "THE BUILD",
+          "title": "What came out of the leap",
+          "bullets": [
+            "ZalinOS - a local-first AI agent operating system",
+            "Zalin Labs - 30+ production Android apps",
+            "ODIS and the Web Scraping Toolkit - 8.7K+ lines open source",
+            "A nine-agent workforce under quality-gated releases"
+          ]
+        },
+        {
+          "kicker": "WHAT DID NOT TRANSFER",
+          "title": "The unlearning list",
+          "bullets": [
+            "Waiting for permission - change is a process there, a Tuesday here",
+            "Scope defense - founders win by crossing boundaries",
+            "Perfectionism before shipping - gates replace gold-plating"
+          ]
+        },
+        {
+          "kicker": "FOR RECRUITERS",
+          "title": "The combination that is rare",
+          "bullets": [
+            "BI foundations: requirements, quality, stakeholder trust",
+            "AI engineering: agents, routing, local-first systems",
+            "Proof of shipping: 30+ apps, open-source frameworks, live portfolio",
+            "Available for freelance data scraping, BI, and AI automation via Upwork"
+          ]
+        },
+        {
+          "kicker": "TAKEAWAY",
+          "title": "Compound who you already were",
+          "bullets": [],
+          "note": "Career transitions are transfers, not restarts. · rezalianvatiady.github.io"
+        }
+      ],
+      "pptx": "decks/career-journey.pptx"
+    },
+    {
+      "id": "aml-graph-bri",
+      "url": "decks.html?d=aml-graph-bri",
+      "icon": "🛡️",
+      "badge": "CASE STUDY",
+      "title": "AML Analytics with Graph Databases",
+      "desc": "Case study from Bank Rakyat Indonesia: why anti-money laundering is a network problem, how graph thinking reveals suspicious rings, and what analysis discipline it demands.",
+      "subtitle": "Fraud is a network problem - network problems need graphs",
+      "date": "2026-09-24",
+      "tags": [
+        "AML",
+        "Graph Database",
+        "Banking"
+      ],
+      "slides": [
+        {
+          "kicker": "CASE STUDY · BANKING",
+          "title": "AML analytics with graph databases",
+          "bullets": [],
+          "note": "Analysis work with Bank Rakyat Indonesia (BRI) · IT Business Analyst · Rezalian Vatiady"
+        },
+        {
+          "kicker": "CONTEXT",
+          "title": "The project",
+          "bullets": [
+            "Anti-money laundering analysis with Bank Rakyat Indonesia",
+            "Role: IT Business Analyst, Feb 2023 - Sep 2023 (PT Prima Integrasi Network)",
+            "Toolkit: Graph Database Toolkit",
+            "Deliverables: analysis, documentation, stakeholder reporting"
+          ]
+        },
+        {
+          "kicker": "WHY GRAPHS",
+          "title": "Tables hide what graphs reveal",
+          "bullets": [
+            "Money laundering is relational: layered transfers, circular flows, mule networks",
+            "Relational joins strain to express what a graph shows as a shape",
+            "A suspicious ring becomes visible - not a 40-line query",
+            "The schema forces the conversation: what does connected actually mean?"
+          ]
+        },
+        {
+          "kicker": "MY ROLE",
+          "title": "Analysis discipline",
+          "bullets": [
+            "Requirements gathering with compliance stakeholders",
+            "Pattern definition with the graph toolkit",
+            "Documentation auditors and non-technical reviewers could follow",
+            "Operational optimization opportunities across the workflow"
+          ]
+        },
+        {
+          "kicker": "APPROACH",
+          "title": "Constraints first, technology second",
+          "bullets": [
+            "AML has hard rules and thresholds - learn them before choosing tools",
+            "Define entity relationships with the business, not for them",
+            "Iterate patterns against real reviewer feedback",
+            "Explainability is a feature: unexplainable detection is unusable detection"
+          ]
+        },
+        {
+          "kicker": "OUTCOMES",
+          "title": "What the project delivered",
+          "bullets": [
+            "Graph-based analysis patterns for AML review",
+            "Clear documentation for audit and stakeholders",
+            "Identified operational optimization opportunities",
+            "A team that thinks in networks now"
+          ]
+        },
+        {
+          "kicker": "LESSONS",
+          "title": "What outlived the project",
+          "bullets": [
+            "Domain constraints before technology choices",
+            "The schema is the analysis",
+            "When data is about relationships, model relationships"
+          ]
+        },
+        {
+          "kicker": "TAKEAWAY",
+          "title": "Model the relationships, not the tables",
+          "bullets": [],
+          "note": "Sounds obvious - almost nobody does it. · rezalianvatiady.github.io"
+        }
+      ],
+      "pptx": "decks/aml-graph-bri.pptx"
+    },
+    {
+      "id": "ikea-retail-bi",
+      "url": "decks.html?d=ikea-retail-bi",
+      "icon": "🛒",
+      "badge": "CASE STUDY",
+      "title": "Retail BI at Scale: Four Countries, One Datalake",
+      "desc": "Case study from IKEA Indonesia: managing BI operations across Indonesia, Taiwan, Hong Kong, and Macau with Qlik, Alteryx, and SQL - where scale breaks definitions first.",
+      "subtitle": "Regional BI operations across Indonesia, Taiwan, Hong Kong, Macau",
+      "date": "2026-09-24",
+      "tags": [
+        "IKEA",
+        "Retail BI",
+        "Qlik",
+        "Alteryx"
+      ],
+      "slides": [
+        {
+          "kicker": "CASE STUDY · RETAIL",
+          "title": "Four countries, one datalake",
+          "bullets": [],
+          "note": "Regional BI Specialist - IKEA Indonesia (PT Rumah Mebel Nusantara) · Rezalian Vatiady"
+        },
+        {
+          "kicker": "SCOPE",
+          "title": "The operation",
+          "bullets": [
+            "BI operations across Indonesia, Taiwan, Hong Kong, and Macau",
+            "Role: Regional Business Intelligence Specialist, Oct 2023 - Mar 2024",
+            "Business: PT Rumah Mebel Nusantara (IKEA Indonesia)",
+            "Audience: regional leadership, country teams, operations"
+          ]
+        },
+        {
+          "kicker": "THE STACK",
+          "title": "Enterprise BI, operated in anger",
+          "bullets": [
+            "Qlik Sense - regional dashboards and Management Console",
+            "Alteryx - scheduling pipelines feeding the datalake",
+            "MS SQL Server - the foundation",
+            "Datalake - the single source every market argues with"
+          ]
+        },
+        {
+          "kicker": "RESPONSIBILITIES",
+          "title": "What I owned",
+          "bullets": [
+            "Alteryx scheduling pipelines and their health",
+            "Qlik Management Console administration",
+            "Data quality assurance between datalake and store systems",
+            "Collaboration with BI, Regional IT, and business teams"
+          ]
+        },
+        {
+          "kicker": "QUALITY",
+          "title": "Reconciliation as a way of life",
+          "bullets": [
+            "Row counts, sum checks, sampled comparisons at every seam",
+            "Discrepancy hunting between datalake and regional systems",
+            "Freshness alarms - silent schedule deaths are the default state",
+            "Every mismatch got a named owner, not just a ticket"
+          ]
+        },
+        {
+          "kicker": "SCALE",
+          "title": "What four countries taught me",
+          "bullets": [
+            "One number, one definition - the definition registry was my most-used document",
+            "Most disagreements were definitions, not data",
+            "Local context matters per market; standardize definitions, not cultures",
+            "Trust in numbers is earned row by row"
+          ]
+        },
+        {
+          "kicker": "TAKEAWAY",
+          "title": "Scale breaks definitions before pipelines",
+          "bullets": [],
+          "note": "Multi-market BI is an agreement problem wearing a technology costume. · rezalianvatiady.github.io"
+        }
+      ],
+      "pptx": "decks/ikea-retail-bi.pptx"
+    },
+    {
+      "id": "tokopedia-analytics",
+      "url": "decks.html?d=tokopedia-analytics",
+      "icon": "📈",
+      "badge": "CASE STUDY",
+      "title": "Customer Analytics: Segmentation and Churn",
+      "desc": "Case study from the RevoU final project evaluated by the Tokopedia Analytics team: customer segmentation, churn analysis, and KPI dashboards on real e-commerce data.",
+      "subtitle": "Real e-commerce data, real reviewers, real decisions",
+      "date": "2026-09-24",
+      "tags": [
+        "Tokopedia",
+        "Analytics",
+        "Churn"
+      ],
+      "slides": [
+        {
+          "kicker": "CASE STUDY · E-COMMERCE",
+          "title": "Segmentation, churn, and dashboards",
+          "bullets": [],
+          "note": "RevoU × Tokopedia freelance data analytics project · positive evaluation from Tokopedia Analytics reviewers · Rezalian Vatiady"
+        },
+        {
+          "kicker": "CONTEXT",
+          "title": "The project",
+          "bullets": [
+            "Freelance data analytics: Aug 2022 - Sep 2022",
+            "Final project on real business data, reviewed by Tokopedia Analytics Team",
+            "Toolkit: Python, SQL, Tableau",
+            "Focus: segmentation, churn, feature adoption, KPI dashboards"
+          ]
+        },
+        {
+          "kicker": "SEGMENTATION",
+          "title": "A hypothesis, not a clustering job",
+          "bullets": [
+            "Every segment must suggest a different action",
+            "k-means proposed; the narrative disposed",
+            "Behavior stories beat demographic labels",
+            "If two segments get the same treatment, one is decoration"
+          ]
+        },
+        {
+          "kicker": "CHURN",
+          "title": "Churn has a memory",
+          "bullets": [
+            "Strongest signals were behavioral drift, not demographics",
+            "Declining order frequency, narrowing category usage, longer session gaps",
+            "By formal churn, the story ended weeks earlier",
+            "Dashboards must show the drift, not the funeral"
+          ]
+        },
+        {
+          "kicker": "DASHBOARDS",
+          "title": "Views that mirror the org",
+          "bullets": [
+            "Executive: a handful of KPIs, thresholds, trends",
+            "Middle: the same metrics sliced for diagnosis",
+            "Operational: daily granularity for the fixers",
+            "Positive evaluation from Tokopedia Analytics Team reviewers"
+          ]
+        },
+        {
+          "kicker": "LESSONS",
+          "title": "What the data taught me",
+          "bullets": [
+            "Feature launch is not feature adoption - track the curves",
+            "Analysis without a recommended action is trivia",
+            "The user of analytics is a decision, not a dataset"
+          ]
+        },
+        {
+          "kicker": "TAKEAWAY",
+          "title": "Analytics is a product",
+          "bullets": [],
+          "note": "Ship decisions, not dashboards. · rezalianvatiady.github.io"
+        }
+      ],
+      "pptx": "decks/tokopedia-analytics.pptx"
+    },
+    {
+      "id": "local-first-ai",
+      "url": "decks.html?d=local-first-ai",
+      "icon": "🔒",
+      "badge": "ARCHITECTURE",
+      "title": "Local-First AI: Cost, Privacy, Reliability",
+      "desc": "The business and engineering case for running AI agents 100% locally: flat costs, full privacy, no rate limits - and the honest trade-offs nobody advertises.",
+      "subtitle": "Flat cost, full privacy, zero outages - the honest trade-offs included",
+      "date": "2026-09-24",
+      "tags": [
+        "Local-First",
+        "AI",
+        "Ollama"
+      ],
+      "slides": [
+        {
+          "kicker": "ARCHITECTURE",
+          "title": "The case for local-first AI",
+          "bullets": [],
+          "note": "Six months of running a company on local models · Rezalian Vatiady"
+        },
+        {
+          "kicker": "THE DEFAULT",
+          "title": "Rented intelligence has a meter",
+          "bullets": [
+            "Cloud APIs charge per thought - iteration gets taxed",
+            "Outages break production at the worst time",
+            "Sensitive data leaves the building on every call",
+            "Vendor changes become your emergency"
+          ]
+        },
+        {
+          "kicker": "THE BET",
+          "title": "Three wins nobody argues with",
+          "bullets": [
+            "Cost: flat hardware bill instead of a metered one",
+            "Privacy: business data, credentials, client material stay local",
+            "Reliability: no rate limits, no 2 a.m. deprecations"
+          ]
+        },
+        {
+          "kicker": "THE CATCH",
+          "title": "Small models are enough - if",
+          "bullets": [
+            "Routing is excellent: sharp categories, deterministic output",
+            "Memory is structured: rules, status, lessons",
+            "Validation is constant: accuracy is a number, not a vibe",
+            "ZalinOS: Qwen 2.5:7b via Ollama, 100% on one machine"
+          ]
+        },
+        {
+          "kicker": "PROOF",
+          "title": "Six months in production",
+          "bullets": [
+            "An entire agent company runs locally - routing, docs, QA, builds",
+            "100% intent router accuracy on the validation set",
+            "Agents iterate freely because iteration is free",
+            "Zero data-egress incidents, zero API surprises"
+          ]
+        },
+        {
+          "kicker": "TRADE-OFFS",
+          "title": "What you give up",
+          "bullets": [
+            "Frontier-model ceiling on the hardest reasoning tasks",
+            "Hardware planning becomes your responsibility",
+            "Some vendor conveniences you now build yourself",
+            "And the verdict: for operations, still worth it"
+          ]
+        },
+        {
+          "kicker": "WHEN NOT",
+          "title": "Local-first is not a religion",
+          "bullets": [
+            "Frontier intelligence genuinely required",
+            "Spiky workloads you cannot provision for",
+            "Rapid prototyping of vendor-specific features"
+          ]
+        },
+        {
+          "kicker": "TAKEAWAY",
+          "title": "Your AI budget can be a machine, not a meter",
+          "bullets": [],
+          "note": "Local does not mean limited - if the system design is good. · rezalianvatiady.github.io"
+        }
+      ],
+      "pptx": "decks/local-first-ai.pptx"
+    },
+    {
+      "id": "quality-gates",
+      "url": "decks.html?d=quality-gates",
+      "icon": "✅",
+      "badge": "QA",
+      "title": "Quality Gates for AI-Generated Software",
+      "desc": "The four-gate release discipline behind 30+ shipped apps: golden path, zero dead buttons, version-and-backup, and physical evidence - with one rule: a blocker stops the line.",
+      "subtitle": "Speed without gates is debt at machine pace",
+      "date": "2026-09-24",
+      "tags": [
+        "QA",
+        "Quality Gates",
+        "AI"
+      ],
+      "slides": [
+        {
+          "kicker": "QA",
+          "title": "Quality gates for AI-generated software",
+          "bullets": [],
+          "note": "The release discipline behind 30+ production apps · Rezalian Vatiady"
+        },
+        {
+          "kicker": "THE RISK",
+          "title": "AI writes code at machine speed",
+          "bullets": [
+            "Unreviewed speed is technical debt at machine pace",
+            "The failure mode is subtle: a button that does nothing",
+            "Silent skips, unbumped versions, flows that lie",
+            "Gates turn speed from a liability into an asset"
+          ]
+        },
+        {
+          "kicker": "GATE 1",
+          "title": "The golden path must work",
+          "bullets": [
+            "One most-important user journey per app",
+            "Walked end-to-end every release, no exceptions",
+            "If it breaks, nothing else matters - the build stops",
+            "Boring, repeatable, non-negotiable"
+          ]
+        },
+        {
+          "kicker": "GATE 2",
+          "title": "Zero dead buttons",
+          "bullets": [
+            "Every interactive element does what it claims or gets removed",
+            "Agents sweep every screen systematically",
+            "An element that lies is a bug, full stop",
+            "Offline behavior gets checked too"
+          ]
+        },
+        {
+          "kicker": "GATE 3",
+          "title": "Version bump plus backup",
+          "bullets": [
+            "No release without a version increment",
+            "The previous version is archived before the new one ships",
+            "Rollback is a normal procedure, not an emergency",
+            "This rule has saved more projects than any architecture"
+          ]
+        },
+        {
+          "kicker": "GATE 4",
+          "title": "Physical evidence",
+          "bullets": [
+            "Passing means a log, file, screenshot, or marker",
+            "Something a stranger could audit",
+            "A status field is not evidence",
+            "Agents behave differently when proof is mandatory"
+          ]
+        },
+        {
+          "kicker": "ENFORCEMENT",
+          "title": "A gate that cannot stop traffic is not a gate",
+          "bullets": [
+            "One blocked item = no deploy",
+            "No 'just this once' - that is how gates die",
+            "Evidence recorded where reviewers can find it"
+          ]
+        },
+        {
+          "kicker": "TAKEAWAY",
+          "title": "Make honesty cheaper than lying",
+          "bullets": [],
+          "note": "Design the system so the easy path and the correct path are the same path. · rezalianvatiady.github.io"
+        }
+      ],
+      "pptx": "decks/quality-gates.pptx"
+    },
+    {
+      "id": "etl-playbook",
+      "url": "decks.html?d=etl-playbook",
+      "icon": "🔄",
+      "badge": "DATA",
+      "title": "The ETL Playbook: Data Quality at Scale",
+      "desc": "Five principles for pipelines that stay trustworthy: profile sources, reconcile at the seams, instrument the schedule, give discrepancies owners, and document where the work happens.",
+      "subtitle": "ETL fails quietly - unless you design against it",
+      "date": "2026-09-24",
+      "tags": [
+        "ETL",
+        "Data Quality",
+        "BI"
+      ],
+      "slides": [
+        {
+          "kicker": "DATA ENGINEERING",
+          "title": "The ETL playbook",
+          "bullets": [],
+          "note": "Lessons from retail BI across four countries and the frameworks that followed · Rezalian Vatiady"
+        },
+        {
+          "kicker": "REALITY",
+          "title": "ETL fails quietly",
+          "bullets": [
+            "Silent truncation, schema drift, stale schedules",
+            "Nobody notices for weeks - then leadership quotes the wrong number",
+            "The pipeline that 'works' is the most dangerous one",
+            "Design against quiet failure, not loud failure"
+          ]
+        },
+        {
+          "kicker": "PRINCIPLE 1",
+          "title": "Profile sources before you trust them",
+          "bullets": [
+            "Expected row counts, key uniqueness, update cadence",
+            "Known quirks documented per source",
+            "Restated numbers, skipped weekends - every source has a personality",
+            "Half of quality issues are undocumented source behavior"
+          ]
+        },
+        {
+          "kicker": "PRINCIPLE 2",
+          "title": "Reconcile at the seams",
+          "bullets": [
+            "Every boundary crossing gets reconciliation checks",
+            "Row counts, sum checks, sampled row-level comparisons",
+            "Every load - not quarterly, not on request",
+            "Reconciliation is a property of the pipeline, not a project"
+          ]
+        },
+        {
+          "kicker": "PRINCIPLE 3",
+          "title": "Instrument the schedule itself",
+          "bullets": [
+            "Freshness alarms on every source",
+            "If data is late, someone hears before the CEO does",
+            "Schedule deaths caused more incidents than logic bugs",
+            "Silent is the default state - fight it on purpose"
+          ]
+        },
+        {
+          "kicker": "PRINCIPLE 4",
+          "title": "Discrepancies get owners",
+          "bullets": [
+            "A mismatch between systems is an organizational fact",
+            "Named owners on both sides, not just a ticket",
+            "Data quality is a relationship between teams"
+          ]
+        },
+        {
+          "kicker": "PRINCIPLE 5",
+          "title": "Document where the work happens",
+          "bullets": [
+            "Runbooks next to the pipelines, not in a forgotten wiki",
+            "Pipeline maps, ownership, decisions logged",
+            "The quirk you document today is the incident you prevent next month"
+          ]
+        },
+        {
+          "kicker": "TAKEAWAY",
+          "title": "Trust is built one reconciliation at a time",
+          "bullets": [],
+          "note": "And destroyed by one unexplained number. · rezalianvatiady.github.io"
+        }
+      ],
+      "pptx": "decks/etl-playbook.pptx"
+    },
+    {
+      "id": "freelance-playbook",
+      "url": "decks.html?d=freelance-playbook",
+      "icon": "💼",
+      "badge": "SERVICES",
+      "title": "The Freelance Delivery Playbook: Data and AI Projects Worldwide",
+      "desc": "How I deliver scraping, BI, and AI automation projects through Upwork: scoping, validation-first builds, communication cadence, and handover that removes my dependency.",
+      "subtitle": "Delivery discipline for scraping, BI, and AI automation clients",
+      "date": "2026-09-24",
+      "tags": [
+        "Freelance",
+        "Upwork",
+        "Delivery"
+      ],
+      "slides": [
+        {
+          "kicker": "SERVICES",
+          "title": "The freelance delivery playbook",
+          "bullets": [],
+          "note": "Data scraping, BI, and AI automation - delivered worldwide via Upwork · Rezalian Vatiady"
+        },
+        {
+          "kicker": "SERVICES",
+          "title": "What I take on",
+          "bullets": [
+            "Web scraping and data collection pipelines",
+            "BI and analytics: dashboards, reconciliation, reporting",
+            "AI automation: agents, document workflows, local-first LLM systems",
+            "Frameworks behind it: ODIS (4,305 LOC) and Web Scraping Toolkit (4,398 LOC), open source"
+          ]
+        },
+        {
+          "kicker": "SCOPING",
+          "title": "Week one decides the project",
+          "bullets": [
+            "The decision the client will make with the data - written down first",
+            "Success criteria as measurable checks, not vibes",
+            "Sources profiled: quirks, cadence, edge cases",
+            "If scope is fuzzy, the first deliverable is clarity"
+          ]
+        },
+        {
+          "kicker": "DELIVERY",
+          "title": "Validation-first builds",
+          "bullets": [
+            "Every run validates row counts, schema, and sanity ranges",
+            "Structured logs: fetched, skipped, doubted",
+            "Failures reported loudly - never silently retried into fiction",
+            "Partial delivery with honest warnings beats silent perfectionism"
+          ]
+        },
+        {
+          "kicker": "COMMUNICATION",
+          "title": "A cadence clients can set clocks by",
+          "bullets": [
+            "Short written updates on a fixed rhythm",
+            "Evidence attached to every claim - links, files, screenshots",
+            "Bad news travels first and fast",
+            "One place where every deliverable lives"
+          ]
+        },
+        {
+          "kicker": "HANDOVER",
+          "title": "The best ending is not needing me",
+          "bullets": [
+            "Documentation a new hire can follow",
+            "Runbooks next to the pipelines",
+            "Data stays where the client decides it should",
+            "Maintenance offered, never forced"
+          ]
+        },
+        {
+          "kicker": "WHY IT WORKS",
+          "title": "The same discipline as my own company",
+          "bullets": [
+            "Quality gates: golden path, zero dead flows, evidence required",
+            "The stack that ships 30+ apps also ships client work",
+            "Enterprise BI background: four countries, one datalake",
+            "Available worldwide via Upwork"
+          ]
+        },
+        {
+          "kicker": "TAKEAWAY",
+          "title": "Hire discipline, not tools",
+          "bullets": [],
+          "note": "Tools expire. Validation, honesty, and handover compound. · rezalianvatiady.github.io"
+        }
+      ],
+      "pptx": "decks/freelance-playbook.pptx"
+    }
+  ]
 }

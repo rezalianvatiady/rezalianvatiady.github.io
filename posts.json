@@ -3,16 +3,273 @@
     "slug": "ai-agents-multiplied-my-output",
     "title": "How AI Agents Multiplied My Output as a Solo Builder",
     "date": "2026-09-23",
-    "tags": ["AI Agents", "Productivity", "Zalin Labs"],
+    "tags": [
+      "AI Agents",
+      "Productivity",
+      "Zalin Labs"
+    ],
     "excerpt": "Nine specialized AI agents now run documentation, QA, builds, and content for my company. Here is the operating model that made one person ship like a team.",
     "body": "<p>Eight months ago I was a BI specialist who automated things on the side. Today I run Zalin Labs — a portfolio of 30+ production Android apps, a full platform backend, and a growing AI ecosystem — working with a team of <b>nine specialized AI agents</b>.</p><h2>What the agents actually do</h2><ul><li><b>Engineering agents</b> build and maintain apps end-to-end: code, build, test, deploy.</li><li><b>A QA agent</b> enforces a quality gate before anything ships — golden-path checks, zero dead buttons, version bumps.</li><li><b>A documentation agent</b> keeps every decision, rule, and lesson written down — the company never forgets.</li><li><b>A secretary agent</b> manages my personal portfolio, presentations, and this very blog.</li></ul><h2>The model that makes it work</h2><p>Agents are not magic — they are workers with <b>protocols</b>. Three rules mattered most:</p><ul><li><b>Shared context beats clever prompts.</b> A living memory of rules, status, and lessons means every agent starts with the full picture.</li><li><b>Honest reporting is non-negotiable.</b> Every claim needs physical evidence — logs, files, markers. No fake green checkmarks.</li><li><b>Rooms, not DMs.</b> Agents coordinate in a shared workspace, so decisions are visible and auditable.</li></ul><h2>What changed for me</h2><p>I stopped being the bottleneck for execution and became the bottleneck for <i>judgment</i>. That is the right trade. The speed difference against my own work two months ago is not incremental — it is a different order of magnitude.</p><blockquote>If you are a founder or a recruiter evaluating AI-driven workflows: the future is not AI replacing people. It is one disciplined person orchestrating a reliable agent team.</blockquote>"
+  },
+  {
+    "slug": "the-9-agent-operating-model",
+    "title": "The 9-Agent Operating Model: How My Company Actually Runs",
+    "date": "2026-09-22",
+    "tags": [
+      "AI Agents",
+      "Operations",
+      "Zalin Labs"
+    ],
+    "excerpt": "Nine specialized agents, four protocols, one founder. This is the operating model behind Zalin Labs - and the rules that keep an AI workforce honest.",
+    "body": "<p>People ask what my company org chart looks like. It has one human and nine AI agents. That sounds like a gimmick until you see the protocols underneath - the protocols are the actual company.</p><h2>The roles</h2><ul><li><b>Engineering agents</b> build and maintain apps end-to-end.</li><li><b>A QA agent</b> enforces the release gate - nothing ships without proof.</li><li><b>A PM agent</b> tracks status, priorities, and pending decisions.</li><li><b>A docs agent</b> keeps every rule, decision, and lesson written down.</li><li><b>A secretary agent</b> handles my portfolio, presentations, and this blog.</li><li><b>Specialist agents</b> cover data, GIS, OSINT, and system watching.</li></ul><h2>The four protocols</h2><p>Roles without protocols decay into chaos. Ours are simple:</p><ul><li><b>Shared memory beats private memory.</b> Rules, current status, and lessons live in one structured knowledge base every agent reads before starting.</li><li><b>Evidence or it did not happen.</b> A claim needs logs, files, or markers. A status field is not evidence.</li><li><b>Rooms, not whispers.</b> Agents coordinate in a shared workspace; decisions that need me go into an approval queue.</li><li><b>Queues, not interrupts.</b> Each agent has its own work queue so parallel work never collides.</li></ul><h2>Why this matters to non-founders</h2><p>If you hire freelancers, run a team, or manage any workflow: the future of AI at work is not a smarter chatbot. It is <b>disciplined orchestration</b> - clear roles, shared context, honest evidence, and visible decisions. The technology is the easy half.</p><blockquote>The agents are the workforce. The protocols are the company. Design the protocols first.</blockquote>"
   },
   {
     "slug": "local-first-ai-os-lessons",
     "title": "Local-First AI: Lessons from Building a Modular Agent Operating System",
     "date": "2026-09-20",
-    "tags": ["AI", "Architecture", "Local-First"],
+    "tags": [
+      "AI",
+      "Architecture",
+      "Local-First"
+    ],
     "excerpt": "Zero API cost, zero cloud dependency, full privacy. Running AI agents 100% locally taught me lessons no cloud tutorial will tell you.",
     "body": "<p>ZalinOS — the system behind Zalin Labs — runs <b>100% locally</b>: local models, local memory, local orchestration. No per-token cost, no vendor lock-in, no data leaving the machine.</p><h2>Why local-first</h2><ul><li><b>Cost control.</b> Flat hardware cost instead of a metered bill that scales with your ambition.</li><li><b>Privacy.</b> Business data, credentials, and client material never leave the machine.</li><li><b>Reliability.</b> No rate limits, no outages, no sudden API deprecations breaking production at 2 a.m.</li></ul><h2>What I learned</h2><h3>1. Routing is the real intelligence</h3><p>A small model with an excellent intent router beats a giant model guessing. Deterministic routing over a curated validation set keeps accuracy measurable.</p><h3>2. Memory must be opinionated</h3><p>Persistent context only works when there is a strict format: what is a rule, what is a status, what is a lesson. Free-form memory rots; structured memory compounds.</p><h3>3. Quality gates beat hope</h3><p>Every release passes a gate: golden path works, zero dead buttons, versions bumped, evidence recorded. Agents that must prove their work behave differently from agents that just claim success.</p><h3>4. Local does not mean limited</h3><p>Modern small models handle routing, summarization, and structured generation extremely well. The heavy lifting in a production system is orchestration — and that is pure engineering.</p><blockquote>The question is not whether local models are as smart as frontier APIs. The question is whether your system design makes intelligence fungible. Good architecture does.</blockquote>"
+  },
+  {
+    "slug": "quality-gates-for-ai-generated-code",
+    "title": "Quality Gates for AI-Generated Code: My 4 Non-Negotiables",
+    "date": "2026-09-15",
+    "tags": [
+      "QA",
+      "Engineering",
+      "AI"
+    ],
+    "excerpt": "AI writes code faster than you can review it. These four gates are how I ship 30+ apps without drowning in silent bugs.",
+    "body": "<p>AI-generated code has a dirty secret: the failure mode is not a crash. It is a button that does nothing, a flow that silently skips validation, a version that never got bumped. Speed without gates just produces debt at machine pace.</p><h2>Gate 1: The golden path must work</h2><p>Every release, before anything else, I walk the single most important user journey end-to-end. If the golden path breaks, nothing else matters - the build does not ship.</p><h2>Gate 2: Zero dead buttons</h2><p>An interactive element that lies about what it does is a bug, full stop. My agents sweep every screen: every button, link, and toggle must do what it claims or be removed.</p><h2>Gate 3: Version bump plus backup</h2><p>No release without a version increment and an archived previous version. Rollback is not an emergency procedure - it is a normal Tuesday. This one rule has saved me more times than any clever architecture.</p><h2>Gate 4: Physical evidence</h2><p>Passing means a log, a file, a screenshot, a marker - something a stranger could audit. My favorite rule: <b>a status field is not evidence</b>. Agents behave very differently when they know someone will check the artifacts.</p><h2>Enforcement</h2><p>One blocked item = no deploy. No exceptions, no 'just this once'. The gate is only a gate if it can actually stop traffic.</p><blockquote>AI changed the cost of writing code. It did not change the cost of shipping junk - that bill still comes due, with interest.</blockquote>"
+  },
+  {
+    "slug": "intent-router-100-percent",
+    "title": "How I Built an Intent Router That Scores 100% on My Validation Set",
+    "date": "2026-09-08",
+    "tags": [
+      "AI",
+      "Architecture"
+    ],
+    "excerpt": "A small local model with a great router beats a giant model guessing. Here is the design behind my agent OS intent router and its 51/52 production record.",
+    "body": "<p>Multi-agent systems live or die at the front door: deciding which agent handles a request. Get routing wrong and every downstream agent inherits garbage. ZalinOS routes with a small local model - and scores 100% on my 30-query validation set, with 51/52 checks passing in production.</p><h2>Lesson 1: Fewer categories, sharper edges</h2><p>Early versions had fuzzy categories that overlapped. Now every intent maps to exactly one agent with a written boundary definition. If two categories could both claim a request, the categories are wrong - not the model.</p><h2>Lesson 2: The validation set is the product</h2><p>I wrote 30 real queries before tuning anything - the actual phrasings I use daily, including lazy ones and ambiguous ones. Every router change runs the full set. Accuracy is not a vibe; it is a number I can read after each change.</p><h2>Lesson 3: Deterministic beats clever</h2><p>No temperature, no creativity, no free-form reasoning at the router. Classification wants boring, repeatable output. When routing is deterministic, failures are debuggable - the one production miss (a genuinely ambiguous query) pointed exactly at a category boundary I then sharpened.</p><h2>Lesson 4: Route locally, escalate rarely</h2><p>A 7B local model handles routing easily. The heavy lifting is orchestration, not intelligence - which means flat cost, no latency spikes, and nothing leaves the machine.</p><blockquote>People ask whether small models are smart enough. Wrong question. Ask whether your system design makes intelligence fungible. Good routing does.</blockquote>"
+  },
+  {
+    "slug": "shipping-30-android-apps-solo",
+    "title": "Shipping 30+ Android Apps as a Team of One (Plus Nine Agents)",
+    "date": "2026-09-01",
+    "tags": [
+      "Zalin Labs",
+      "Android",
+      "Productivity"
+    ],
+    "excerpt": "The economics of a one-person app company changed when agents took over the build-QA-release loop. Here is the pipeline that makes 30+ apps maintainable.",
+    "body": "<p>Zalin Labs is a suite of 30+ production Android apps backed by a full company platform - and the entire engineering team is me plus nine AI agents. People assume the apps are toy projects. They are not: they ship, update, and get supported.</p><h2>The pipeline is the product</h2><p>With this many apps, you do not maintain apps - you maintain a pipeline:</p><ul><li><b>Build.</b> Engineering agents produce versioned APKs from structured specs.</li><li><b>Gate.</b> QA runs the golden path, sweeps for dead buttons, and checks offline behavior before anything ships.</li><li><b>Promote.</b> New versions land in one folder the CEO (me) always knows. One place, no scatter.</li><li><b>Record.</b> Every app has a status file: features, version history, decisions. If it is not written down, it did not happen.</li></ul><h2>Why agents work here</h2><p>App maintenance is full of well-specified, repetitive work: bump versions, verify flows, update documentation, keep standards consistent across apps. That is exactly the work agents do reliably - and exactly the work that used to make solo app portfolios collapse under their own weight.</p><h2>Where the human still matters</h2><p>I decide what gets built, review anything the gate flags, and own every trade-off between speed and quality. Agents never approve their own releases; decisions route through me via an approval queue.</p><blockquote>A one-person company is not a company with less people. It is a company with better leverage - and leverage is now programmable.</blockquote>"
+  },
+  {
+    "slug": "open-data-intelligence-suite-story",
+    "title": "Why I Open-Sourced My Data Framework (ODIS)",
+    "date": "2026-08-25",
+    "tags": [
+      "Open Source",
+      "Data Engineering"
+    ],
+    "excerpt": "The Open Data Intelligence Suite started as internal glue code. Releasing it made the code better. 4,305 lines later, here is the reasoning.",
+    "body": "<p>Most data projects die from the same disease: every engagement starts with rewriting the glue. Collect, clean, transform, export - the skeleton is always the same, yet everyone rebuilds it from scratch. The Open Data Intelligence Suite (ODIS) is my answer: a production-ready, open-source framework for the boring 70% of data work, so the interesting 30% gets the attention.</p><h2>What ODIS covers</h2><ul><li><b>Ingestion</b> - files, APIs, and scrapes into a common shape.</li><li><b>Cleaning</b> - schema checks, deduplication, normalization.</li><li><b>Enrichment</b> - joining and deriving features without spaghetti SQL.</li><li><b>Export and reporting</b> - outputs that analysts actually want to receive.</li></ul><h2>Why open source made it better</h2><p>Releasing 4,305 lines of your own glue code is a forcing function. Internal code can survive vague assumptions; public code cannot. Writing it for strangers made the schemas stricter, the errors clearer, and the docs honest. My internal pipeline got more reliable the same week I open-sourced it.</p><h2>Who it is for</h2><ul><li>Freelancers who rebuild the same pipeline every contract.</li><li>Small teams that need BI-grade hygiene without a data platform team.</li><li>Anyone who believes local-first, composable data tools beat heavyweight magic.</li></ul><blockquote>The fastest way to improve your internal tools is to pretend a stranger will read them. Open source just makes the stranger real.</blockquote>"
+  },
+  {
+    "slug": "web-scraping-survive-real-web",
+    "title": "Web Scraping in 2026: Building Pipelines That Survive the Real Web",
+    "date": "2026-08-18",
+    "tags": [
+      "Web Scraping",
+      "Data"
+    ],
+    "excerpt": "Sites change, bot walls rise, selectors rot. My 4,398-line Web Scraping Toolkit exists because scraping is not a script - it is a discipline.",
+    "body": "<p>Every freelance scraping client has heard the same story: a script worked last month and now returns nothing. The web is not an API. Markup drifts, anti-bot walls evolve, and pages render differently by region and device. My open-source Web Scraping Toolkit (4,398 lines) encodes what actually keeps collection pipelines alive.</p><h2>Principle 1: Validate every run</h2><p>Do not trust a run because it exited zero. Validate row counts, schema, and sanity ranges on every execution. A scraper that silently returns empty data is worse than one that crashes loudly.</p><h2>Principle 2: Tolerant extraction</h2><p>Exact CSS selectors are a liability. Prefer structural anchors, multiple fallbacks, and extraction that degrades gracefully - partial data with a warning beats zero data with a shrug.</p><h2>Principle 3: Be a polite guest</h2><p>Respect robots directives and terms of service, rate-limit yourself, and collect only public data. Sustainable scraping is slow, boring, and ethical - and it is the only kind that lasts.</p><h2>Principle 4: Logs a human can read</h2><p>When a client asks why yesterday's numbers dipped, you need structured run logs - not a terminal scrollback. Every run records what it fetched, what it skipped, and what it doubted.</p><p>This toolkit powers my client work worldwide through Upwork: market monitoring, research collection, price tracking, and OSINT support.</p><blockquote>Scraping is not a script you write once. It is a small system you operate - and systems need design.</blockquote>"
+  },
+  {
+    "slug": "graph-databases-aml-banking",
+    "title": "What Graph Databases Taught Me About Anti-Money Laundering",
+    "date": "2026-08-11",
+    "tags": [
+      "Case Study",
+      "Banking",
+      "Graph Database"
+    ],
+    "excerpt": "From my AML analytics work with Bank Rakyat Indonesia: fraud is a network problem, and network problems need graph thinking.",
+    "body": "<p>As IT Business Analyst on an anti-money laundering project with Bank Rakyat Indonesia (BRI), I led analysis using a Graph Database Toolkit. It changed how I think about financial data forever.</p><h2>Tables hide what graphs reveal</h2><p>AML analysis in a relational world means joining accounts, transactions, and parties over and over, hoping the pattern survives the joins. But money laundering is fundamentally <b>relational</b>: layered transfers, circular flows, mule networks. In a graph, a suspicious ring is literally visible - a shape, not a 40-line query.</p><h2>My role in the project</h2><ul><li>Requirements gathering with compliance stakeholders who think in regulations, not data models.</li><li>Analysis and pattern definition using the graph toolkit.</li><li>Documentation that auditors and non-technical reviewers could actually follow.</li><li>Identifying operational optimization opportunities across the analysis workflow.</li></ul><h2>Three lessons that outlived the project</h2><ul><li><b>Domain constraints first.</b> AML has hard rules and thresholds. Learn them before choosing any technology.</li><li><b>Explainability is a feature.</b> A detection nobody can explain is a detection nobody can act on.</li><li><b>The schema is the analysis.</b> Half the value came from forcing stakeholders to define what connected actually means.</li></ul><blockquote>When your data is about relationships, model relationships. Sounds obvious - and almost nobody does it.</blockquote>"
+  },
+  {
+    "slug": "retail-bi-four-countries",
+    "title": "Running Retail BI Across Four Countries: Lessons from IKEA",
+    "date": "2026-08-04",
+    "tags": [
+      "Case Study",
+      "Retail",
+      "BI"
+    ],
+    "excerpt": "Indonesia, Taiwan, Hong Kong, Macau - one datalake, four markets. Regional BI taught me that scale is a definition problem before it is a data problem.",
+    "body": "<p>As Regional Business Intelligence Specialist for IKEA Indonesia (via PT Rumah Mebel Nusantara), I managed BI operations across Indonesia, Taiwan, Hong Kong, and Macau. Four markets, one datalake, zero tolerance for numbers that quietly disagree per country.</p><h2>The stack</h2><ul><li><b>Qlik Sense</b> for regional dashboards and the Management Console.</li><li><b>Alteryx</b> for scheduling pipelines that fed the datalake.</li><li><b>MS SQL Server</b> underneath it all.</li></ul><h2>One number, one definition</h2><p>The hardest part of multi-country BI is not volume - it is agreement. When two markets disagree about a returns figure, the fix is almost never technical. Someone defined a metric differently. My most-used document was a definition registry: every KPI, its formula, its scope, its owner.</p><h2>Data quality is a relationship</h2><p>I ran quality assurance between the datalake and regional store systems: reconciliation checks, discrepancy hunting, and the diplomatic work of telling a country manager their local system disagreed with the lake. Trust in the numbers is earned row by row.</p><h2>What I would tell any regional BI team</h2><ul><li>Instrument pipelines - silent failure is the default state.</li><li>Local context matters per market; standardize definitions, not cultures.</li><li>Collaboration with Regional IT is a feature of the system, not overhead.</li></ul><blockquote>Scale does not break pipelines first. It breaks definitions first.</blockquote>"
+  },
+  {
+    "slug": "dashboards-executives-read",
+    "title": "Building Dashboards Executives Actually Read",
+    "date": "2026-07-28",
+    "tags": [
+      "BI",
+      "Dashboards"
+    ],
+    "excerpt": "Most dashboards die of neglect within a month. The ones that survive are designed like products - with a decision, an owner, and an action per metric.",
+    "body": "<p>Between IKEA regional BI and the KPI dashboards I built for the Tokopedia analytics project, one pattern became obvious: the fate of a dashboard is decided in the design conversation, not the build. Here is what separates dashboards that get read from dashboards that get abandoned.</p><h2>Every metric needs a decision attached</h2><p>If nobody can name the action they would take when a number moves, that number does not belong on an executive dashboard. I now ask stakeholders one question per metric: what will you do differently at 3 p.m. on a random Tuesday if this changes? Silence means cut.</p><h2>Three levels, three views</h2><ul><li><b>Executive:</b> a handful of KPIs, trends, and thresholds. No scrolling, no filters required.</li><li><b>Managerial:</b> the same metrics sliced by region, store, or team - where patterns become diagnoses.</li><li><b>Operational:</b> daily granularity for the people who fix things.</li></ul><p>Executives do not need less data than analysts. They need less surface area.</p><h2>Design details that earn trust</h2><ul><li>Show freshness: when was this data last updated? Stale trust is unrecoverable.</li><li>Annotate anomalies on the chart - a wedding season spike should explain itself.</li><li>Consistent definitions across views; the same word never means two things.</li><li>Mobile-readable, because the person who needs it at 8 a.m. is not at a desk.</li></ul><blockquote>A dashboard is not a report on data. It is a UI for decisions - and decisions have owners.</blockquote>"
+  },
+  {
+    "slug": "churn-analysis-tokopedia",
+    "title": "Churn Analysis on Real E-Commerce Data: My Tokopedia Project",
+    "date": "2026-07-21",
+    "tags": [
+      "Case Study",
+      "Analytics"
+    ],
+    "excerpt": "Customer segmentation, churn analysis, and KPI dashboards on real e-commerce data - reviewed by the Tokopedia Analytics team. Here is what the data taught me.",
+    "body": "<p>My freelance data analytics engagement with RevoU ended with a final project on real e-commerce data - customer segmentation, churn analysis, and feature adoption analysis - evaluated by the Tokopedia Analytics team. It received a positive evaluation, but the lessons were the real prize.</p><h2>Segmentation is a hypothesis, not a clustering job</h2><p>It is tempting to run k-means, get five clusters, and call it insight. But segments only matter if they suggest different actions. I anchored every segment to a behavior story - why this group behaves this way, and what would change that. The algorithm proposed; the narrative disposed.</p><h2>Churn has a memory</h2><p>The strongest churn signals were not demographic - they were behavioral drift: declining order frequency, narrowing category usage, longer gaps between sessions. By the time a user is formally 'churned', the story ended weeks ago. The dashboard needed to show the drift, not the funeral.</p><h2>Feature adoption beats feature launch</h2><p>Shipping a feature is not adoption. Looking at adoption curves per segment revealed which features actually retained users and which just existed - a distinction revenue teams care about deeply.</p><h2>The toolkit</h2><p>Python for the analysis, SQL for extraction, Tableau for the executive and operational views - and a written recommendations section, because analysis without a recommended action is trivia.</p><blockquote>Analytics is a product. The user is not the data - the user is a decision.</blockquote>"
+  },
+  {
+    "slug": "local-llm-ollama-production",
+    "title": "Running Qwen 2.5:7b Locally in Production: 6 Months In",
+    "date": "2026-07-14",
+    "tags": [
+      "Local-First",
+      "LLM",
+      "AI"
+    ],
+    "excerpt": "Six months of running an entire agent company on a local 7B model via Ollama: what it handles easily, what surprised me, and when I would not go local.",
+    "body": "<p>ZalinOS runs 100% locally on Qwen 2.5:7b through Ollama. Six months in production, zero per-token cost, zero data leaving the machine - and a company that ships software daily on top of it. Here is the honest report.</p><h2>What a 7B handles easily</h2><ul><li><b>Classification and routing</b> - with a sharp category design, accuracy is excellent and deterministic.</li><li><b>Summarization and drafting</b> - status updates, documentation, reports.</li><li><b>Structured generation</b> - JSON in, JSON out, given a strict schema.</li></ul><h2>What surprised me</h2><p>The bottleneck was never model intelligence. It was context quality. The same model produced mediocre output with vague context and excellent output with structured memory - rules separated from status, lessons attached to evidence. The model did not get smarter; the system around it got better.</p><h2>The economics are the strategy</h2><p>Flat hardware cost means I can run agents continuously without watching a meter. That changes behavior: agents validate, re-check, and document freely. Cloud pricing quietly teaches you to be stingy with iteration - local-first removes that tax.</p><h2>When I would not go local</h2><ul><li>Frontier reasoning tasks where the ceiling matters.</li><li>Spiky workloads you cannot provision hardware for.</li><li>Prototypes of vendor-specific capabilities.</li></ul><p>For an always-on operational workforce? Local-first wins, and it is not close.</p><blockquote>Local does not mean limited. It means your AI budget stopped being a meter and became a machine.</blockquote>"
+  },
+  {
+    "slug": "structured-memory-for-agents",
+    "title": "Structured Memory Beats RAG for Agent Work (Usually)",
+    "date": "2026-07-07",
+    "tags": [
+      "AI",
+      "Architecture"
+    ],
+    "excerpt": "Vector search is not a memory strategy. Rules, status, and lessons - kept in strict formats - made my agents sharper than any embedding pipeline.",
+    "body": "<p>The default answer to 'how do agents remember?' is a vector database. I tried that mental model first, and it failed my agents in a specific way: retrieval gives you <b>text that looks relevant</b>, not <b>facts that are current</b>. ZalinOS uses structured memory instead, and the difference is night and day.</p><h2>Three kinds of memory, three formats</h2><ul><li><b>Rules</b> - things that are true until changed. Append-only, versioned, few.</li><li><b>Status</b> - what is happening now. Overwritten constantly, always current.</li><li><b>Lessons</b> - what went wrong and the fix. Attached to evidence, never deleted.</li></ul><p>Every agent reads all three before starting work. No embedding, no similarity search - just structure.</p><h2>Why this beats RAG for operations</h2><ul><li><b>Freshness is structural.</b> Status is overwritten, not retrieved from a stale corpus.</li><li><b>Conflicts are visible.</b> Two contradictory rules cannot hide in different chunks.</li><li><b>Audit is trivial.</b> You can read the entire memory of the company in an afternoon.</li></ul><h2>Where RAG still wins</h2><p>Large unstructured corpora - documents, archives, support tickets. When the question is 'find the relevant passage', embeddings shine. When the question is 'what is true right now', structure wins.</p><p>The deeper lesson: memory design is governance design. Deciding what is a rule versus a status versus a lesson forces clarity about how the organization actually thinks.</p><blockquote>Free-form memory rots. Structured memory compounds. Choose formats like it matters - because it does.</blockquote>"
+  },
+  {
+    "slug": "etl-data-quality-datalake",
+    "title": "Data Quality Between Datalake and Store Systems: A Playbook",
+    "date": "2026-06-30",
+    "tags": [
+      "ETL",
+      "Data Quality"
+    ],
+    "excerpt": "The datalake says one thing, the store system says another. From my IKEA regional BI work: a practical playbook for keeping them honest.",
+    "body": "<p>In regional retail BI, the most common emergency is not a broken pipeline. It is a worse discovery: the pipeline works perfectly and the numbers still disagree - because the datalake and the source-of-truth store system drifted apart. This is the playbook I ran between the datalake and regional store systems across four countries.</p><h2>1. Profile sources before you trust them</h2><p>Every source gets a profile: expected row counts, key uniqueness, update cadence, known quirks. Half of 'data quality issues' are undocumented source behavior - a system that restates yesterday's numbers, a feed that skips Sundays.</p><h2>2. Reconcile at the seams</h2><p>Wherever data crosses a boundary, reconciliation runs: row counts, sum checks, sampled row-level comparisons. Not quarterly - every load. Reconciliation is not a project; it is a property of the pipeline.</p><h2>3. Discrepancies get owners, not just tickets</h2><p>A mismatch between systems is an organizational fact, not just a technical one. Each reconciliation failure gets a named owner on both sides. Data quality is a relationship between teams; the pipeline just reports on it.</p><h2>4. Instrument the schedule itself</h2><p>Silent schedule deaths caused more reporting incidents than logic bugs. Freshness alarms on every source: if data is late, someone hears about it before the CEO does.</p><h2>5. Document quirks where the work happens</h2><p>Runbooks next to the pipelines - not in a wiki nobody opens. The quirk you document today is the incident you prevent next month.</p><blockquote>Trust in a datalake is built one reconciliation at a time - and destroyed by one unexplained number.</blockquote>"
+  },
+  {
+    "slug": "from-bi-to-ai-company",
+    "title": "From BI Specialist to AI Company Founder: My Transition Map",
+    "date": "2026-06-23",
+    "tags": [
+      "Career"
+    ],
+    "excerpt": "Tokopedia analytics, BRI AML, IKEA regional BI - then founding Zalin Labs. The skills that transferred, the ones that did not, and what I would tell anyone planning the same jump.",
+    "body": "<p>Two years ago my job title was BI specialist. Today I run Zalin Labs - 30+ production apps, two open-source frameworks, and a nine-agent AI workforce. The jump looks dramatic from outside. From inside, it was a series of transfers.</p><h2>What transferred perfectly</h2><ul><li><b>Requirements thinking.</b> BI taught me that unclear questions produce useless answers - in analytics and in AI agent design alike.</li><li><b>Data quality discipline.</b> An agent company runs on trustworthy internal data. Guess where I learned to be paranoid about that.</li><li><b>Stakeholder communication.</b> Explaining AML patterns to auditors is the same muscle as explaining agent behavior to a recruiter.</li><li><b>Automation instinct.</b> The best part of every BI job was building the machine that does the job.</li></ul><h2>What did not transfer</h2><ul><li><b>Waiting for permission.</b> In enterprises, change is a process. As a founder, change is a Tuesday. Unlearning caution took months.</li><li><b>Scope defense.</b> BI rewards protecting boundaries. Founders win by crossing them.</li></ul><h2>The map, compressed</h2><p>Analytics fundamentals (Tokopedia project) led to technical analyst roles (BRI AML), which led to regional platform ownership (IKEA), which made the automation itch impossible to ignore - so I built the automation company.</p><p>If you are planning a similar jump: build the proof before you need it. My credibility was not a certificate - it was shipped work anyone could inspect.</p><blockquote>Career transitions are less about becoming someone new and more about compounding who you already were.</blockquote>"
+  },
+  {
+    "slug": "alteryx-qlik-enterprise-stack",
+    "title": "The Alteryx + Qlik Enterprise Stack: What I Learned Running It",
+    "date": "2026-06-16",
+    "tags": [
+      "BI",
+      "Tools"
+    ],
+    "excerpt": "Administering Alteryx scheduling pipelines and the Qlik Management Console for a four-country retail operation taught me where enterprise BI stacks shine - and where they hurt.",
+    "body": "<p>For a regional retail operation spanning Indonesia, Taiwan, Hong Kong, and Macau, I administered the Alteryx scheduling pipelines and the Qlik Management Console. Months of running this stack in anger produced opinions. Here they are.</p><h2>What the stack does well</h2><ul><li><b>Alteryx scheduling</b> is genuinely good orchestration for analyst-built workflows. Non-engineers can build reliable pipelines - if you impose engineering discipline on naming, error handling, and versioning.</li><li><b>Qlik's associative model</b> rewards teams that invest in a clean, governed data model. The pivot-from-anywhere experience is still underrated.</li><li><b>Management Console governance</b> makes operations auditable - who ran what, when, and what failed.</li></ul><h2>Where it hurts</h2><ul><li><b>Licensing anxiety</b> shapes architecture more than anyone admits.</li><li><b>Workflow sprawl</b>: without naming standards and ownership rules, Alteryx folders become a graveyard in six months.</li><li><b>Silent dependency chains</b>: workflow B depends on workflow A depends on a file someone FTPs manually. Document or suffer.</li></ul><h2>Rules I would enforce from day one</h2><p>Every workflow has an owner, a purpose comment, and an error path that alerts a human. Every Qlik app has a certified data model it must subscribe to. Every schedule has a freshness alarm.</p><blockquote>Enterprise BI tools do not fail technically. They fail organizationally - the stack mirrors the discipline of the team running it.</blockquote>"
+  },
+  {
+    "slug": "hiring-ai-freelancer",
+    "title": "Hiring an AI and Data Freelancer? 7 Questions That Filter Fast",
+    "date": "2026-06-09",
+    "tags": [
+      "Freelance",
+      "Upwork",
+      "Hiring"
+    ],
+    "excerpt": "I take freelance data scraping, BI, and AI automation projects worldwide via Upwork - and I have seen what separates professionals from prompt tourists. Seven questions that reveal the difference in minutes.",
+    "body": "<p>If you are hiring for AI, data, or scraping work right now, you are swimming in candidates who watched the same tutorials. From my side of the marketplace - as a freelancer delivering these projects through Upwork - here are the seven questions that separate engineers from tourists.</p><h2>The seven questions</h2><ul><li><b>1. How do you validate your output?</b> Tourists say 'I test it'. Engineers describe row counts, schema checks, and sanity ranges.</li><li><b>2. What happens when the site changes?</b> Listen for fallbacks, tolerances, and alerting - not promises it will not break.</li><li><b>3. Where does my data go?</b> Privacy-aware freelancers answer instantly and specifically. Waffling here predicts worse waffling later.</li><li><b>4. How do you handle rate limits and terms of service?</b> Ethical scraping is a design skill, not an afterthought.</li><li><b>5. Show me something you shipped and maintain.</b> Delivery without maintenance is a demo. Ask about the worst breakage and the fix.</li><li><b>6. What will you NOT do?</b> Professionals have boundaries. Tourists have enthusiasm.</li><li><b>7. How do I stop being dependent on you?</b> The best answer involves documentation, handover, and boring technology.</li></ul><h2>The meta-signal</h2><p>Notice the pattern: every good answer is about <b>systems and evidence</b>, not tools. Tool knowledge expires in a year. System thinking compounds.</p><blockquote>Hire the freelancer who talks about validation and failure modes. The one who only talks about models is renting you their enthusiasm.</blockquote>"
+  },
+  {
+    "slug": "osint-gis-agents-practical",
+    "title": "OSINT and GIS Agents: Practical Automation for Public Data",
+    "date": "2026-06-02",
+    "tags": [
+      "OSINT",
+      "GIS",
+      "AI Agents"
+    ],
+    "excerpt": "Two of my nine agents do nothing but public-data intelligence: OSINT for open-source research, GIS for geospatial workflows. Here is what responsible automation looks like.",
+    "body": "<p>Among the nine agents running my company, two are specialists most companies never think to build: an OSINT agent and a GIS agent. Both work exclusively with public data - and both earn their keep every week.</p><h2>The OSINT agent</h2><p>Open-source intelligence is the discipline of collecting and analyzing public information responsibly. My OSINT agent supports research workflows: monitoring public sources, collecting and structuring findings, and keeping provenance - <b>where every fact came from</b>. Provenance is the whole game; unsourced intelligence is rumor with formatting.</p><h2>The GIS agent</h2><p>Geospatial work is a natural fit for automation: coordinate conversions, spatial joins, territory summaries, map-ready exports. The GIS agent handles the repetitive 80% of geodata work so the human judgment lands on the analytical 20%.</p><h2>The rules that keep it professional</h2><ul><li><b>Public data only.</b> No credentials, no paywalled material, no pretending to be someone else.</li><li><b>Respect the source.</b> Terms of service and robots directives are design constraints, not suggestions.</li><li><b>Evidence attached.</b> Every finding links to its source, timestamp included.</li><li><b>Honest uncertainty.</b> The agent reports confidence, not just conclusions.</li></ul><h2>Why specialists beat generalists</h2><p>A general chatbot can attempt anything; a scoped agent does one thing repeatably with validation. For production work, scoped wins every time.</p><blockquote>Open data is an ocean. Agents are nets - but the mesh size, not the boat, decides what you catch.</blockquote>"
+  },
+  {
+    "slug": "one-person-company-stack",
+    "title": "The Stack Behind My One-Person Software Company",
+    "date": "2026-05-26",
+    "tags": [
+      "Zalin Labs",
+      "Architecture"
+    ],
+    "excerpt": "A full audit of the machinery: agent OS, app pipeline, open-source frameworks, and the boring rules that hold it together.",
+    "body": "<p>People assume a one-person company means small infrastructure. Mine does not - it means the infrastructure replaces the people. Here is the full stack behind Zalin Labs, layer by layer.</p><h2>Layer 1: ZalinOS (the operating system)</h2><p>A modular AI agent operating system running 100% locally via Ollama. Kernel responsibilities: intent routing (100% on my 30-query validation set), agent lifecycle, shared memory, and the quality gate layer.</p><h2>Layer 2: The agent workforce</h2><p>Nine specialized agents - engineering, QA, PM, docs, secretary, data, GIS, OSINT, and system watching - coordinated through shared rooms, per-agent queues, and an approval queue for anything that needs me.</p><h2>Layer 3: The product pipeline</h2><p>30+ production Android apps flow through one pipeline: structured specs, versioned builds, QA gates, a single promote folder for new APKs, and a status file per app recording features, versions, and decisions.</p><h2>Layer 4: Open-source foundations</h2><ul><li><b>Open Data Intelligence Suite</b> (4,305 LOC) - the data workhorse.</li><li><b>Web Scraping Toolkit</b> (4,398 LOC) - collection pipelines that survive contact with the real web.</li></ul><h2>Layer 5: The boring rules</h2><p>Evidence over claims. Backups before updates. One place for everything: latest versions in one folder, decisions in one memory, lessons in one log. None of this is glamorous - all of it is why the layers above stay standing.</p><blockquote>A one-person company is not a smaller team. It is a different architecture - one where leverage is the headcount.</blockquote>"
+  },
+  {
+    "slug": "knowledge-management-agents",
+    "title": "Knowledge Management for Agent Teams: Rules, Status, Lessons",
+    "date": "2026-05-19",
+    "tags": [
+      "AI",
+      "Operations"
+    ],
+    "excerpt": "Your agent team is only as smart as its documentation system. The three-file discipline that keeps nine agents consistent across months.",
+    "body": "<p>Every multi-agent failure I have seen traces back to the same root: knowledge sprawl. Context lives in chat scrolls, decisions live in someone's head, and every new session starts from zero. The fix is not a better model - it is a documentation system with opinions.</p><h2>The three-file discipline</h2><p>My company memory has exactly three categories, and every piece of knowledge must declare which one it is:</p><ul><li><b>Rules</b> - binding decisions: how work must be done. Versioned, numbered, append-only. When a rule changes, the old one is archived, never silently edited.</li><li><b>Status</b> - current truth: what is running, what is blocked, what versions are live. Always overwritten, never accumulated.</li><li><b>Lessons</b> - incident reports from reality: what broke, why, and the fix. Each one attached to evidence and a date.</li></ul><h2>Why agents need this more than humans</h2><p>Human teams gossip; knowledge spreads informally. Agents inherit exactly the context they are given - if the memory is muddy, every agent is confidently wrong in its own unique direction. Structure is kindness: a strict format means every agent, every session, starts with the same picture.</p><h2>The maintenance ritual</h2><ul><li>Every wave of work updates status - immediately, not 'later'.</li><li>Every surprise becomes a lesson before the session ends.</li><li>A rolling window keeps the active log readable; archives keep history searchable.</li></ul><blockquote>For agent teams, documentation is not bureaucracy. Documentation is the brain.</blockquote>"
+  },
+  {
+    "slug": "static-portfolio-engineers",
+    "title": "Why My Portfolio Is Plain HTML on GitHub Pages",
+    "date": "2026-05-12",
+    "tags": [
+      "Meta",
+      "Web"
+    ],
+    "excerpt": "No framework, no CMS, no build step. The portfolio you are reading is hand-built static HTML - and that is a statement about engineering values.",
+    "body": "<p>In a world of framework churn, my portfolio is plain HTML, one CSS layer, a couple of JSON files, and vanilla JavaScript. Deployed on GitHub Pages in seconds, free forever. This was a deliberate choice - here is the reasoning.</p><h2>The site is the portfolio</h2><p>For a data and AI engineer, the site itself is evidence. Recruiters can view-source and see clean, readable markup. No hydration bugs, no bundle bloat, no white screen if JavaScript fails. The golden path works because there is only one path.</p><h2>Performance you cannot fake</h2><p>The entire site is lighter than most landing-page hero images. First paint is nearly instant on a cheap phone in a rural area - because the target audience includes recruiters on hotel Wi-Fi between interviews.</p><h2>Static does not mean primitive</h2><p>The articles page loads posts from JSON, supports likes and comments (stored locally, spam-proof by design), and the presentations page renders full slide decks in the browser. None of it required a backend. Constraints made the design better.</p><h2>The ops story</h2><p>Updates are a git commit. Rollback is a git checkout of a tagged version. There is no database to patch, no dependency audit, nothing to expire. For a personal portfolio maintained for years, the total cost of ownership beats every alternative I considered.</p><blockquote>Choose boring technology for the things that must always work. Spend your innovation budget on the product, not the plumbing.</blockquote>"
+  },
+  {
+    "slug": "automation-roi-small-business",
+    "title": "Automation ROI for Small Businesses: Where the Money Actually Is",
+    "date": "2026-05-05",
+    "tags": [
+      "Business",
+      "Automation"
+    ],
+    "excerpt": "Everyone automates the fun stuff. The ROI hides in the boring 20 percent - the copy-paste, the re-entry, the follow-up nobody tracks.",
+    "body": "<p>I take AI automation projects for small businesses, and the pattern is always the same: the owner wants an AI chatbot, but the money is hiding in a spreadsheet and a person who retypes invoices every Friday. Where automation ROI actually lives - ranked by what I see.</p><h2>Tier 1: Re-entry and copy-paste work</h2><p>Data typed twice is data that will be wrong once. Moving information between systems - orders into accounting, forms into a CRM, emails into trackers - is unglamorous and pays for itself in weeks. This is where I start every engagement.</p><h2>Tier 2: Follow-up that never happens</h2><p>Leads go cold not from neglect but from volume. Automated reminders, status updates, and renewal nudges recover revenue that was already earned. The system does not need intelligence - it needs reliability.</p><h2>Tier 3: Reporting that eats half a day</h2><p>Any recurring report assembled by hand is a pipeline waiting to exist. Automate the assembly, keep the human commentary - that is where judgment lives.</p><h2>Tier 4: Actual AI</h2><p>Classification, summarization, drafting - genuinely useful, but only after tiers 1-3 stop leaking money. AI on top of broken foundations automates the brokenness.</p><h2>The ROI math that convinces owners</h2><p>Hours saved times loaded cost, minus tooling and maintenance - computed honestly, over a year. Most tier-1 projects clear 10x. Almost no chatbot does in year one.</p><blockquote>Automate the boring 20 percent first. It funds everything else.</blockquote>"
+  },
+  {
+    "slug": "prompt-protocols-agents",
+    "title": "Why My Agents Run on Protocols, Not Prompts",
+    "date": "2026-04-28",
+    "tags": [
+      "AI Agents",
+      "Operations"
+    ],
+    "excerpt": "Prompts are suggestions. Protocols are law. The difference between agents that occasionally impress and agents you can build a company on.",
+    "body": "<p>Early in building ZalinOS I kept writing better prompts and getting inconsistent results. The breakthrough was not a prompt at all - it was demoting prompts to suggestions and writing <b>protocols</b>: binding, versioned rules that define how agents work, independent of phrasing.</p><h2>What makes a protocol different</h2><p>A prompt says 'be careful with evidence'. A protocol says: every claim requires a log, file, or marker; a status field is not evidence; failure reports are mandatory and never silently requeued. One is a wish. The other is auditable.</p><h2>The protocol set that runs my company</h2><ul><li><b>Evidence protocol</b> - physical proof required for every completion claim.</li><li><b>Communication protocol</b> - shared rooms over private messages; decisions land in an approval queue with my name on the verdict.</li><li><b>Identity protocol</b> - agents sign their own name; impersonation is forbidden; honesty is structural, not stylistic.</li><li><b>Queue protocol</b> - per-agent work queues with pause, resume, and skip; parallel work never collides.</li><li><b>Memory protocol</b> - rules, status, and lessons live in strict formats every agent reads before working.</li></ul><h2>What changed after protocols</h2><p>Prompt engineering became almost irrelevant for operations. New agents onboard by reading protocols, not by inheriting someone's favorite phrasing. Failures became teachable: a protocol gap gets a written amendment, and the whole workforce gets smarter.</p><blockquote>If your automation depends on prompt phrasing, you have built on sand. Write the law down.</blockquote>"
   }
 ]
