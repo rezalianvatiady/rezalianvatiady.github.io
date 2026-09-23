@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Articles &amp; Insights — Rezalian Vatiady</title>
+<meta name="description" content="Articles and insights by Rezalian Vatiady on AI agents, automation, business intelligence, and building a one-person AI company." />
+<link rel="icon" type="image/svg+xml" href="logo.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --bg:#0a0c12; --card:#151b26; --card2:#1a2235; --border:rgba(148,163,184,.12);
+  --blue:#3b82f6; --cyan:#06b6d4; --text:#e2e8f0; --muted:#94a3b8; --dim:#64748b;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;line-height:1.6;min-height:100vh;display:flex;flex-direction:column}
+.font-display{font-family:'Space Grotesk','Inter',sans-serif}
+.font-mono{font-family:'JetBrains Mono',monospace}
+a{color:inherit;text-decoration:none}
+.wrap{max-w:1200px;max-width:1200px;margin:0 auto;padding:0 20px;width:100%}
+/* HEADER */
+header{position:sticky;top:0;z-index:50;background:rgba(10,12,18,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.hd-in{height:64px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:8px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px}
+.logo{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--blue),var(--cyan));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;color:#fff}
+.brand .dot{color:var(--blue)}
+.hd-right{display:flex;align-items:center;gap:16px}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:8px;border:1px solid var(--border);font-size:13px;font-weight:500;color:var(--muted);transition:all .2s}
+.btn-ghost:hover{color:#fff;border-color:var(--blue)}
+/* HERO */
+.hero{padding:72px 0 40px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;top:-120px;right:15%;width:380px;height:380px;border-radius:50%;background:rgba(59,130,246,.08);filter:blur(90px);pointer-events:none}
+.hero::after{content:"";position:absolute;bottom:-140px;left:10%;width:320px;height:320px;border-radius:50%;background:rgba(6,182,212,.07);filter:blur(90px);pointer-events:none}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.2);font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--cyan);letter-spacing:1px}
+.pulse{width:6px;height:6px;border-radius:50%;background:var(--cyan);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+h1.hero-t{font-family:'Space Grotesk',sans-serif;font-size:clamp(30px,5vw,52px);font-weight:700;letter-spacing:-.5px;line-height:1.08;margin:20px 0 16px}
+h1.hero-t .acc{color:var(--blue)}
+.hero-sub{color:var(--muted);font-size:16px;max-width:640px}
+/* STATS STRIP */
+.strip{display:flex;gap:24px;flex-wrap:wrap;margin-top:28px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--dim)}
+.strip b{color:var(--text);font-weight:500}
+/* LIST */
+main{flex:1}
+.section{padding:40px 0 72px}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:28px;flex-wrap:wrap}
+.sec-label{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--cyan);letter-spacing:2px;text-transform:uppercase}
+.sec-title{font-family:'Space Grotesk',sans-serif;font-size:clamp(22px,3vw,32px);font-weight:700;margin-top:8px}
+.post-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:20px;transition:border-color .2s, transform .2s}
+.post-card:hover{border-color:rgba(59,130,246,.4)}
+.post-meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--dim);margin-bottom:12px}
+.post-meta .dt{color:var(--cyan)}
+.tag{padding:2px 10px;border-radius:999px;border:1px solid var(--border);color:var(--muted);background:var(--card2)}
+.post-title{font-family:'Space Grotesk',sans-serif;font-size:21px;font-weight:600;line-height:1.3;margin-bottom:10px}
+.post-excerpt{color:var(--muted);font-size:14.5px;margin-bottom:16px}
+.post-body{display:none;color:#cbd5e1;font-size:15px;border-top:1px solid var(--border);padding-top:18px;margin-top:6px}
+.post-body.open{display:block}
+.post-body h2{font-family:'Space Grotesk',sans-serif;font-size:18px;color:#fff;margin:22px 0 8px}
+.post-body h3{font-family:'Space Grotesk',sans-serif;font-size:16px;color:#fff;margin:18px 0 6px}
+.post-body p{margin-bottom:12px}
+.post-body ul{margin:0 0 12px 20px;color:var(--muted)}
+.post-body li{margin-bottom:6px}
+.post-body blockquote{border-left:3px solid var(--blue);padding:8px 16px;margin:14px 0;color:var(--muted);background:var(--card2);border-radius:0 8px 8px 0}
+.post-actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:14px}
+.act{display:inline-flex;align-items:center;gap:7px;padding:7px 14px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--muted);font-size:13px;font-weight:500;cursor:pointer;transition:all .2s;font-family:'Inter',sans-serif}
+.act:hover{color:#fff;border-color:var(--blue)}
+.act svg{width:15px;height:15px}
+.act.liked{color:#f43f5e;border-color:rgba(244,63,94,.45);background:rgba(244,63,94,.08)}
+.act.open-post{color:var(--cyan)}
+.act.open-post:hover{border-color:var(--cyan)}
+.cnt{font-family:'JetBrains Mono',monospace;font-size:12px}
+/* COMMENTS */
+.comments{display:none;border-top:1px solid var(--border);margin-top:16px;padding-top:18px}
+.comments.open{display:block}
+.c-title{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;margin-bottom:14px}
+.c-title span{color:var(--dim);font-weight:400;font-size:13px}
+.c-form{display:flex;flex-direction:column;gap:10px;margin-bottom:18px}
+.c-row{display:flex;gap:10px;flex-wrap:wrap}
+.c-form input,.c-form textarea{background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text);padding:10px 14px;font-size:14px;font-family:'Inter',sans-serif;outline:none;transition:border-color .2s}
+.c-form input{width:220px;max-width:45%}
+.c-form textarea{width:100%;min-height:84px;resize:vertical}
+.c-form input:focus,.c-form textarea:focus{border-color:var(--blue)}
+.btn-send{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;padding:9px 20px;border-radius:8px;border:none;background:linear-gradient(135deg,var(--blue),var(--cyan));color:#fff;font-weight:600;font-size:13.5px;cursor:pointer;transition:opacity .2s}
+.btn-send:hover{opacity:.88}
+.c-empty{color:var(--dim);font-size:13.5px;padding:10px 0 4px}
+.c-item{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:12px 16px;margin-bottom:10px}
+.c-head{display:flex;align-items:center;gap:10px;margin-bottom:4px}
+.c-name{font-weight:600;font-size:13.5px;color:var(--cyan)}
+.c-time{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--dim)}
+.c-text{font-size:14px;color:#cbd5e1;word-break:break-word}
+.hint{font-size:11.5px;color:var(--dim);font-family:'JetBrains Mono',monospace}
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:28px 0;margin-top:auto}
+.ft-in{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.ft-links{display:flex;gap:20px;font-size:12px;color:var(--muted)}
+.ft-links a:hover{color:#fff}
+.ft-copy{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--dim)}
+@media(max-width:640px){.post-card{padding:18px}.hero{padding:52px 0 28px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap hd-in">
+    <a class="brand" href="index.html"><div class="logo">RV</div><span>rezalian<span class="dot">.</span>vatiady</span></a>
+    <div class="hd-right">
+      <span class="font-mono" style="font-size:12px;color:var(--dim)" id="today"></span>
+      <a class="btn-ghost" href="index.html">&#8592; Back to Portfolio</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <span class="badge"><span class="pulse"></span>WRITING &amp; INSIGHTS</span>
+      <h1 class="hero-t">Articles &amp; <span class="acc">Insights</span></h1>
+      <p class="hero-sub">My thoughts on AI agents, automation, business intelligence, and building a one-person AI company — lessons from shipping real systems, written over time.</p>
+      <div class="strip">
+        <span><b id="stat-count">0</b> ARTICLES</span>
+        <span><b>AI AGENTS</b> &amp; AUTOMATION</span>
+        <span><b>DATA</b> &amp; BI</span>
+        <span><b>ZALIN LABS</b> JOURNEY</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <div class="sec-label">Blog</div>
+          <h2 class="sec-title">Latest Articles</h2>
+        </div>
+        <span class="hint">Likes &amp; comments are stored on your device</span>
+      </div>
+      <div id="posts"><div class="c-empty">Loading articles…</div></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap ft-in">
+    <div class="ft-links">
+      <a href="index.html">Portfolio</a>
+      <a href="index.html#projects">Projects</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="https://www.linkedin.com/in/rezalianvatiady" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    <div class="ft-copy">© <span id="yr"></span> Rezalian Vatiady · Built with static HTML</div>
+  </div>
+</footer>
+
+<script>
+/* ============ CONFIG ============ */
+const FALLBACK_POSTS = [{"slug":"ai-agents-multiplied-my-output","title":"How AI Agents Multiplied My Output as a Solo Builder","date":"2026-09-23","tags":["AI Agents","Productivity","Zalin Labs"],"excerpt":"Nine specialized AI agents now run documentation, QA, builds, and content for my company. Here is the operating model that made one person ship like a team.","body":"<p>Eight months ago I was a BI specialist who automated things on the side. Today I run Zalin Labs — a portfolio of 30+ production Android apps, a full platform backend, and a growing AI ecosystem — working with a team of <b>nine specialized AI agents</b>.</p><h2>What the agents actually do</h2><ul><li><b>Engineering agents</b> build and maintain apps end-to-end: code, build, test, deploy.</li><li><b>A QA agent</b> enforces a quality gate before anything ships — golden-path checks, zero dead buttons, version bumps.</li><li><b>A documentation agent</b> keeps every decision, rule, and lesson written down — the company never forgets.</li><li><b>A secretary agent</b> manages my personal portfolio, presentations, and this very blog.</li></ul><h2>The model that makes it work</h2><p>Agents are not magic — they are workers with <b>protocols</b>. Three rules mattered most:</p><ul><li><b>Shared context beats clever prompts.</b> A living memory of rules, status, and lessons means every agent starts with the full picture.</li><li><b>Honest reporting is non-negotiable.</b> Every claim needs physical evidence — logs, files, markers. No fake green checkmarks.</li><li><b>Rooms, not DMs.</b> Agents coordinate in a shared workspace, so decisions are visible and auditable.</li></ul><h2>What changed for me</h2><p>I stopped being the bottleneck for execution and became the bottleneck for <i>judgment</i>. That is the right trade. The speed difference against my own work two months ago is not incremental — it is a different order of magnitude.</p><blockquote>If you are a founder or a recruiter evaluating AI-driven workflows: the future is not AI replacing people. It is one disciplined person orchestrating a reliable agent team.</blockquote>"},{"slug":"local-first-ai-os-lessons","title":"Local-First AI: Lessons from Building a Modular Agent Operating System","date":"2026-09-20","tags":["AI","Architecture","Local-First"],"excerpt":"Zero API cost, zero cloud dependency, full privacy. Running AI agents 100% locally taught me lessons no cloud tutorial will tell you.","body":"<p>ZalinOS — the system behind Zalin Labs — runs <b>100% locally</b>: local models, local memory, local orchestration. No per-token cost, no vendor lock-in, no data leaving the machine.</p><h2>Why local-first</h2><ul><li><b>Cost control.</b> Flat hardware cost instead of a metered bill that scales with your ambition.</li><li><b>Privacy.</b> Business data, credentials, and client material never leave the machine.</li><li><b>Reliability.</b> No rate limits, no outages, no sudden API deprecations breaking production at 2 a.m.</li></ul><h2>What I learned</h2><h3>1. Routing is the real intelligence</h3><p>A small model with an excellent intent router beats a giant model guessing. Deterministic routing over a curated validation set keeps accuracy measurable.</p><h3>2. Memory must be opinionated</h3><p>Persistent context only works when there is a strict format: what is a rule, what is a status, what is a lesson. Free-form memory rots; structured memory compounds.</p><h3>3. Quality gates beat hope</h3><p>Every release passes a gate: golden path works, zero dead buttons, versions bumped, evidence recorded. Agents that must prove their work behave differently from agents that just claim success.</p><h3>4. Local does not mean limited</h3><p>Modern small models handle routing, summarization, and structured generation extremely well. The heavy lifting in a production system is orchestration — and that is pure engineering.</p><blockquote>The question is not whether local models are as smart as frontier APIs. The question is whether your system design makes intelligence fungible. Good architecture does.</blockquote>"}];
+
+const LS_LIKES='rv_likes', LS_CNT='rv_likes_count', LS_COM='rv_comments';
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const store = k => { try { return JSON.parse(localStorage.getItem(k) || '{}'); } catch { return {}; } };
+const save = (k,v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} };
+const fmtDate = d => { try { return new Date(d+'T00:00:00').toLocaleDateString('en-US',{year:'numeric',month:'short',day:'numeric'}); } catch { return d; } };
+const fmtTime = t => { const s=(Date.now()-t)/1000; if(s<60) return 'just now'; if(s<3600) return Math.floor(s/60)+' min ago'; if(s<86400) return Math.floor(s/3600)+' h ago'; return Math.floor(s/86400)+' d ago'; };
+
+let POSTS = [];
+async function loadPosts(){
+  try {
+    const r = await fetch('posts.json', {cache:'no-store'});
+    if (r.ok) { const j = await r.json(); if (Array.isArray(j) && j.length) { POSTS = j; render(); return; } }
+  } catch {}
+  POSTS = FALLBACK_POSTS; render();
+}
+
+function render(){
+  document.getElementById('stat-count').textContent = POSTS.length;
+  const box = document.getElementById('posts');
+  if (!POSTS.length) { box.innerHTML = '<div class="c-empty">No articles yet — come back soon.</div>'; return; }
+  box.innerHTML = POSTS.map((p,i) => postCard(p,i)).join('');
+  bind();
+}
+
+function postCard(p,i){
+  const liked = store(LS_LIKES)[p.slug] || false;
+  const base = (store(LS_CNT)[p.slug] || 0) + (liked ? 1 : 0);
+  const ncom = ((store(LS_COM)[p.slug]) || []).length;
+  const tags = (p.tags||[]).map(t=>`<span class="tag">${esc(t)}</span>`).join('');
+  return `
+  <article class="post-card" id="post-${i}" data-slug="${esc(p.slug)}">
+    <div class="post-meta"><span class="dt">${esc(fmtDate(p.date))}</span>${tags}</div>
+    <h3 class="post-title">${esc(p.title)}</h3>
+    <p class="post-excerpt">${esc(p.excerpt)}</p>
+    <div class="post-body" id="body-${i}">${p.body||''}</div>
+    <div class="post-actions">
+      <button class="act like-btn ${liked?'liked':''}" data-slug="${esc(p.slug)}" aria-pressed="${liked}" aria-label="Like this article">
+        <svg viewBox="0 0 24 24" fill="${liked?'currentColor':'none'}" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+        <span class="cnt">${base}</span>
+      </button>
+      <button class="act open-post" data-i="${i}" aria-expanded="false">Read article</button>
+      <button class="act c-toggle" data-i="${i}" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Comments <span class="cnt">(${ncom})</span>
+      </button>
+    </div>
+    <div class="comments" id="com-${i}">
+      <div class="c-title">Comments <span>· be kind, this is a professional space</span></div>
+      <form class="c-form" data-slug="${esc(p.slug)}">
+        <div class="c-row"><input type="text" class="c-name-in" placeholder="Your name (optional)" maxlength="40" aria-label="Your name"/></div>
+        <textarea class="c-msg-in" placeholder="Share your thoughts…" maxlength="600" required aria-label="Your comment"></textarea>
+        <button type="submit" class="btn-send">Post comment</button>
+      </form>
+      <div class="c-list" id="clist-${i}"></div>
+    </div>
+  </article>`;
+}
+
+function renderComments(i){
+  const slug = POSTS[i].slug;
+  const list = store(LS_COM)[slug] || [];
+  const box = document.getElementById('clist-'+i);
+  box.innerHTML = list.length
+    ? list.slice().sort((a,b)=>b.t-a.t).map(c => `
+      <div class="c-item">
+        <div class="c-head"><span class="c-name">${esc(c.n||'Guest')}</span><span class="c-time">${fmtTime(c.t)}</span></div>
+        <div class="c-text">${esc(c.m)}</div>
+      </div>`).join('')
+    : '<div class="c-empty">No comments yet — be the first to share your thoughts.</div>';
+}
+
+function bind(){
+  document.querySelectorAll('.like-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const slug = btn.dataset.slug;
+      const likes = store(LS_LIKES), cnt = store(LS_CNT);
+      const nowLiked = !likes[slug];
+      if (nowLiked) likes[slug] = true; else delete likes[slug];
+      save(LS_LIKES, likes);
+      const i = POSTS.findIndex(p => p.slug === slug);
+      render();
+    });
+  });
+  document.querySelectorAll('.open-post').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const i = btn.dataset.i, body = document.getElementById('body-'+i);
+      const open = body.classList.toggle('open');
+      btn.textContent = open ? 'Close article' : 'Read article';
+      btn.setAttribute('aria-expanded', open);
+    });
+  });
+  document.querySelectorAll('.c-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const i = btn.dataset.i, box = document.getElementById('com-'+i);
+      const open = box.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open);
+      if (open) renderComments(i);
+    });
+  });
+  document.querySelectorAll('.c-form').forEach(form => {
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const slug = form.dataset.slug;
+      const name = form.querySelector('.c-name-in').value.trim();
+      const msg = form.querySelector('.c-msg-in').value.trim();
+      if (!msg) return;
+      const all = store(LS_COM);
+      if (!all[slug]) all[slug] = [];
+      all[slug].push({ n: name || 'Guest', m: msg.slice(0,600), t: Date.now() });
+      save(LS_COM, all);
+      form.reset();
+      const i = POSTS.findIndex(p => p.slug === slug);
+      renderComments(i);
+      const btn = document.querySelector('.c-toggle[data-i="'+i+'"] .cnt');
+      if (btn) btn.textContent = '(' + all[slug].length + ')';
+    });
+  });
+}
+
+document.getElementById('today').textContent = new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
+document.getElementById('yr').textContent = new Date().getFullYear();
+loadPosts();
+</script>
+</body>
+</html>
