@@ -40,7 +40,7 @@
           "kicker": "THE PROBLEM",
           "title": "One person cannot scale execution - until the architecture changes",
           "bullets": [
-            "Every task you do yourself is a task you cannot parallelize, and a company is a queue of tasks.",
+            "Every task you do yourself is a task you cannot parallelize.",
             "Cloud APIs meter every thought, so iteration gets taxed and agents learn to be stingy.",
             "Business data, credentials, and client material deserve to stay on your own machine.",
             "The answer is not a smarter chatbot; it is an operating system that routes, remembers, and enforces."
@@ -552,7 +552,7 @@
         {
           "type": "bullets",
           "kicker": "OPERATIONS",
-          "title": "Protocol-driven, human-approved",
+          "title": "Operations run on protocols, approved by humans",
           "bullets": [
             "Coordination happens in shared rooms, so decisions are visible and auditable instead of whispered.",
             "Per-agent queues keep parallel work from colliding, with explicit pause, resume, and skip.",
@@ -629,7 +629,7 @@
           "title": "Nine agents, nine mandates - no vibes",
           "bullets": [
             "Engineering agents build and maintain apps end-to-end, from spec to shipped build.",
-            "The QA agent owns the release gate and can stop the line; the PM agent tracks status, priorities, and pending decisions.",
+            "The QA agent owns the release gate and can stop the line.",
             "The docs agent keeps every rule, decision, and lesson written down, so the company never forgets.",
             "The secretary agent runs portfolio, presentations, and content; specialists cover data, GIS, OSINT, and system watching."
           ],
@@ -1353,7 +1353,7 @@
         {
           "type": "bullets",
           "kicker": "PRINCIPLE 1",
-          "title": "Validate every run",
+          "title": "Every run is validated before the data is trusted",
           "bullets": [
             "A scraper that silently returns empty data is worse than one that crashes loudly.",
             "Row counts are compared against expectations on every execution.",
@@ -2606,7 +2606,7 @@
           "title": "A hypothesis, not a clustering job",
           "bullets": [
             "Running k-means and calling five clusters insight is where most segmentation stops - this one did not",
-            "Every segment was anchored to a behavior story: why this group acts this way, and what would change it",
+            "Each segment anchored to a behavior story: why this group acts this way, and what would change it.",
             "The algorithm proposed; the narrative disposed",
             "If two segments get the same treatment, one of them is decoration"
           ]
@@ -3112,8 +3112,8 @@
           "kicker": "THE RISK",
           "title": "AI writes code at machine speed - and debt at machine pace",
           "bullets": [
-            "AI changed the cost of writing code; it did not change the cost of shipping junk - that bill still comes due, with interest.",
-            "The failure mode is not a crash: it is a button that does nothing and a flow that silently skips validation.",
+            "AI changed the cost of writing code, not the cost of shipping junk - that bill comes due.",
+            "The failure mode is not a crash: a dead button and a flow that silently skips validation.",
             "Silent skips, unbumped versions, and flows that lie are invisible to a green test suite.",
             "Gates turn speed from a liability into an asset by making honesty cheaper than lying."
           ],
@@ -3214,9 +3214,9 @@
           "kicker": "GATES 1 & 2",
           "title": "The golden path and the dead-button sweep",
           "bullets": [
-            "Gate 1: every release walks the single most important user journey end-to-end - if it breaks, the build does not ship.",
+            "Gate 1: every release walks the most important user journey end-to-end, or the build does not ship.",
             "The golden path check is boring, repeatable, and non-negotiable; that is exactly why it works.",
-            "Gate 2: agents sweep every screen so every button, link, and toggle does what it claims or gets removed.",
+            "Gate 2: agents sweep every screen so every button and link does what it claims, or gets removed.",
             "An interactive element that lies is a bug, full stop - and offline behavior gets checked too."
           ],
           "note": "One most-important journey, swept screens, zero exceptions."
@@ -3254,9 +3254,9 @@
           "kicker": "GATES 3 & 4",
           "title": "Version-and-backup and physical evidence",
           "bullets": [
-            "Gate 3: no release without a version increment, and the previous version is archived before the new one ships.",
-            "Rollback is a normal Tuesday, not an emergency - this one rule has saved more projects than any clever architecture.",
-            "Gate 4: passing means a log, a file, a screenshot, or a marker - something a stranger could audit.",
+            "Gate 3: no release without a version increment; the previous version is archived before the new one ships.",
+            "Rollback is a normal Tuesday, not an emergency - this rule has saved more projects than any architecture.",
+            "Gate 4: passing means a log, file, screenshot, or marker - something a stranger could audit.",
             "A status field is not evidence; agents behave differently when they know someone will check the artifacts."
           ],
           "note": "Archive first, promote second - the previous version is always one step away."
@@ -3412,7 +3412,7 @@
         {
           "type": "bullets",
           "kicker": "THE REALITY",
-          "title": "ETL fails quietly",
+          "title": "ETL fails quietly, and quiet is expensive",
           "bullets": [
             "Silent truncation, schema drift, and stale schedules never announce themselves.",
             "Nobody notices for weeks - then leadership quotes the wrong number in a meeting.",
@@ -3856,7 +3856,7 @@
           "kicker": "SCOPING",
           "title": "Week one decides the project",
           "bullets": [
-            "The decision the client will make with the data gets written down first - analysis without a decision is trivia.",
+            "The client's decision gets written down first - analysis without a decision is trivia.",
             "Success criteria are defined as measurable checks: row counts, schema, sanity ranges - not vibes.",
             "Every source gets profiled: quirks, cadence, edge cases, and the polite way to collect from it.",
             "If scope is fuzzy, the first deliverable is clarity - a fixed written scope, not a running bill."
@@ -3897,7 +3897,7 @@
           "title": "Validation-first builds, loud failures",
           "bullets": [
             "Every run validates row counts, schema, and sanity ranges before anything touches your dashboard.",
-            "Structured logs record what was fetched, what was skipped, and what was doubted - readable by humans, not terminal scrollback.",
+            "Structured logs record what was fetched, skipped, and doubted - readable by humans, not terminal scrollback.",
             "Failures report loudly; a scraper that silently returns empty data is worse than one that crashes.",
             "Partial delivery with honest warnings beats silent perfectionism - you always know the state of your data."
           ],

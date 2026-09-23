@@ -1,30 +1,32 @@
-# Rezalian Vatiady — Portfolio Website v2.1
+# Rezalian Vatiady — Portfolio Website v3.3
 
-## 🔧 GitHub Pages Fix (v2.1)
+Static portfolio for recruiters (Upwork / LinkedIn audience). GitHub Pages, no backend.
 
-This version fixes the CSS/JS 404 issue by renaming `_next/` to `assets/`.
-No underscore prefix = no Jekyll conflict = guaranteed to work on GitHub Pages.
+## Pages
 
-## 📦 Contents
+- `index.html` — Main portfolio (hero, career highlights, projects, ZalinOS, skills, contact)
+- `decks.html` — 13 presentation decks: in-browser viewer + native PPTX download
+- `articles.html` — 24 articles with likes and comments (localStorage)
+- `resume.html` — Printable resume
+- `404.html` — Custom not-found page
+- `decks/*.pptx` — 13 decks (183 slides total, native editable charts, speaker notes)
 
-- `index.html` — Main portfolio
-- `scraping-portfolio-deck.html` — 28-slide presentation
-- `assets/` — Compiled CSS/JS/fonts (renamed from `_next/`)
-- `reza-photo.png` — Profile photo
-- `.nojekyll` — Disables Jekyll (backup safety measure)
+## Content data
 
-## 🚀 Deploy
+- `decks.json` — Deck metadata + slide content (source for viewer and PPTX)
+- `posts.json` — Article metadata + HTML bodies
+- `assets/` — Compiled CSS/JS/fonts (renamed from `_next/`, no Jekyll conflict)
+- `.nojekyll` — Disables Jekyll processing
 
-1. Delete all files in your repo (keep `.git`)
-2. Copy these files
-3. Commit: `git add -A && git commit -m "v2.1 — fix assets path"`
-4. Push: `git push origin main`
-5. Wait 2-3 minutes
-6. Visit https://rezalianvatiady.github.io
+## Standards applied (v3.3)
 
-## ✅ What Changed from v2.0
+- WCAG 2.2 AA: skip link, focus-visible, contrast >= 4.5:1, reduced-motion support
+- SEO: unique title/description per page, canonical, Open Graph, Twitter card, JSON-LD (Person / WebSite / ProfilePage / ItemList / Blog), sitemap.xml, robots.txt
+- Performance: self-hosted WOFF2 preloaded, image dimensions fixed, lazy loading below fold
+- Quality gates: golden path, zero dead links, zero placeholder content, zero secrets
 
-- `_next/` folder → renamed to `assets/` (no underscore = no Jekyll issue)
-- All HTML/CSS/JS references updated: `/_next/` → `/assets/`
-- `.nojekyll` still included as backup
-- No `assetPrefix` config (cleaner build)
+## History
+
+- v2.1 — Assets path fix (`_next/` → `assets/`)
+- v3.2 — 13 visual decks rebuilt (183 slides, native charts), in-browser viewer
+- v3.3 — Skill-compliant rebuild: 18pt+ fonts, speaker notes, SEO schema/OG/sitemap, WCAG skip-link/focus/contrast, resume page, og-image, custom 404

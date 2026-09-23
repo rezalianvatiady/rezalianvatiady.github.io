@@ -86,7 +86,7 @@
   .sl-head .h-title{font-size:30px;line-height:1.15}
   .sl-body{position:absolute;left:36px;right:36px;top:130px;bottom:62px;display:flex;flex-direction:column}
   .note{position:absolute;left:34px;right:34px;bottom:14px;border-top:1px solid var(--border);padding-top:8px;font-size:20px;color:var(--dim);line-height:1.25}
-  .insight{position:absolute;left:34px;right:34px;bottom:14px;border-top:1px solid var(--border);padding-top:8px;font-size:21px;color:var(--cyan);font-style:italic;line-height:1.25}
+  .insight{position:absolute;left:34px;right:96px;bottom:14px;border-top:1px solid var(--border);padding-top:8px;font-size:21px;color:var(--cyan);font-style:italic;line-height:1.25}
   .note.has-insight{display:none}
   /* cover */
   .cov{position:absolute;inset:0;padding:0 64px;display:flex;flex-direction:column;justify-content:center;gap:14px}
@@ -172,7 +172,7 @@
   .cta .contact{font-family:ui-monospace,Consolas,monospace;font-size:21px;font-weight:700;color:var(--cyan)}
   @media (max-width:640px){.cards{grid-template-columns:1fr}.ag{grid-template-columns:1fr}}
 </style>
-</head>
+<style>@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}</style><style>.ft2{border-top:1px solid #1e2d45;padding:26px 20px;text-align:center;font-size:13px;color:#94a3b8;line-height:2}.ft2 a{color:#cbd5e1;text-decoration:none}.ft2 a:hover{color:#fff;text-decoration:underline}</style></head>
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
 <header class="top">
@@ -205,7 +205,7 @@
     </div>
   </section>
 </main>
-<footer class="ft">© 2026 Rezalian Vatiady · <a href="mailto:rezalian@rocketmail.com">rezalian@rocketmail.com</a> · <a href="https://www.linkedin.com/in/rezalianvatiady" target="_blank" rel="noopener">LinkedIn</a> · Built with Zalin Labs</footer>
+<footer class="ft2">© 2026 Rezalian Vatiady · <a href="index.html">Portfolio</a> · <a href="index.html#projects">Projects</a> · <a href="decks.html">Decks</a> · <a href="articles.html">Articles</a> · <a href="resume.html">Resume</a> · <a href="index.html#contact">Contact</a> · <a href="https://github.com/rezalianvatiady" target="_blank" rel="noopener">GitHub</a> · <a href="https://www.linkedin.com/in/rezalianvatiady" target="_blank" rel="noopener">LinkedIn</a> · <a href="mailto:rezalian@rocketmail.com">rezalian@rocketmail.com</a></footer>
 <script>
 (function(){
 "use strict";
@@ -272,7 +272,7 @@ function rBar(s){
 function rLine(s){
   var c = s.chart, cats = c.categories||[], series = c.series||[], W=560, H=210, pad=34;
   var max = 0; series.forEach(function(se){ se.values.forEach(function(v){ if(v>max) max=v; }); }); max = max||1;
-  var svg = '<svg class="chart" viewBox="0 0 '+W+' '+(H+34)+'" preserveAspectRatio="xMidYMid meet">';
+  var svg = '<svg class="chart" aria-hidden="true" viewBox="0 0 '+W+' '+(H+34)+'" preserveAspectRatio="xMidYMid meet">';
   for(var g=0; g<4; g++){ var gy = pad + (H-2*pad)*g/3; svg += '<line x1="'+pad+'" y1="'+gy+'" x2="'+(W-pad)+'" y2="'+gy+'" stroke="#18243D" stroke-width="1"/>'; }
   series.forEach(function(se, si){
     var pts = se.values.map(function(v,i){ var x = pad + (W-2*pad)*(cats.length===1?0.5:i/(cats.length-1)); var y = H-pad - (v/max)*(H-2*pad); return [x,y]; });
@@ -285,7 +285,7 @@ function rLine(s){
 }
 function rDonut(s){
   var c = s.chart, labels = c.labels||[], vals = c.values||[], R=70, CIRC = 2*Math.PI*R, off = 0;
-  var svg = '<svg width="240" height="240" viewBox="0 0 200 200" style="flex:0 0 auto">';
+  var svg = '<svg width="240" height="240" viewBox="0 0 200 200" style="flex:0 0 auto" aria-hidden="true">';
   svg += '<circle cx="100" cy="100" r="'+R+'" fill="none" stroke="#111A2E" stroke-width="26"/>';
   labels.forEach(function(lb,i){
     var frac = (vals[i]||0)/100, len = frac*CIRC;
