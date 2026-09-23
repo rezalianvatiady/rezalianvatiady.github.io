@@ -7,7 +7,7 @@
       "title": "ZalinOS: A Local-First AI Agent Operating System",
       "subtitle": "Kernel, intent router, nine specialist agents, structured memory, and quality gates - all running 100% locally",
       "desc": "Architecture deep-dive into the AI operating system behind Zalin Labs: a small local model with sharp routing and structured memory runs a real software company - flat cost, full privacy, zero cloud dependency.",
-      "date": "2026-09-24",
+      "date": "2026-09-23",
       "tags": [
         "ZalinOS",
         "Multi-Agent",
@@ -312,7 +312,7 @@
       "title": "Zalin Labs: One Founder, Nine AI Agents, 30+ Apps",
       "subtitle": "The platform, pipeline, and protocols behind a software company that ships from one laptop",
       "desc": "How one founder runs a software company from one laptop: nine AI agents, one gated release pipeline, and 30+ production Android apps - organized by protocols instead of heroics.",
-      "date": "2026-09-24",
+      "date": "2026-09-23",
       "tags": [
         "Zalin Labs",
         "Android",
@@ -595,7 +595,7 @@
       "title": "The 9-Agent Operating Model",
       "subtitle": "Roles, protocols, and failure handling for an AI workforce that never collides, never lies, and never forgets",
       "desc": "The roles, protocols, and failure handling behind a nine-agent AI workforce: shared memory, honest evidence, rooms over DMs, queues over interrupts - and a watchdog for when things break.",
-      "date": "2026-09-24",
+      "date": "2026-09-23",
       "tags": [
         "AI Agents",
         "Operations",
@@ -925,7 +925,7 @@
       "title": "Open Data Intelligence Suite (ODIS)",
       "subtitle": "The boring 70% of data work, standardized and open-sourced",
       "desc": "A production-ready open-source data framework covering ingestion, cleaning, enrichment, and reporting - 4,305 lines of local-first glue code you never have to write again.",
-      "date": "2026-09-24",
+      "date": "2026-09-23",
       "tags": [
         "ODIS",
         "Open Source",
@@ -1254,7 +1254,7 @@
       "title": "Web Scraping Toolkit: Pipelines That Survive the Real Web",
       "subtitle": "Scraping is not a script. It is a small system you operate.",
       "desc": "A 4,398-line open-source toolkit for collection pipelines that survive markup drift, bot walls, and regional quirks - validated on every run, polite by design, and logged so humans can audit them.",
-      "date": "2026-09-24",
+      "date": "2026-09-23",
       "tags": [
         "Web Scraping",
         "Open Source",
@@ -1581,7 +1581,7 @@
       "title": "From BI Analyst to AI Company Builder",
       "subtitle": "Tokopedia analytics, BRI AML, IKEA regional BI - then Zalin Labs: what compounded, what I unlearned",
       "desc": "Four chapters that compound into one delivery discipline: e-commerce analytics, banking AML, four-country BI operations - then 30+ production apps as a founder. Every claim is publicly verifiable.",
-      "date": "2026-09-24",
+      "date": "2026-09-23",
       "tags": [
         "Career",
         "BI",
@@ -1891,7 +1891,7 @@
       "title": "AML Analytics with Graph Databases",
       "subtitle": "Fraud is a network problem - network problems need graphs",
       "desc": "Case study with Bank Rakyat Indonesia: graph-based AML analysis that turns layered transfers, circular flows, and mule networks into shapes a reviewer can see, backed by documentation auditors can follow.",
-      "date": "2026-09-24",
+      "date": "2026-09-23",
       "tags": [
         "AML",
         "Graph Database",
@@ -2181,7 +2181,7 @@
       "title": "Retail BI at Scale: Four Countries, One Datalake",
       "subtitle": "Four markets, one datalake, zero tolerance for numbers that quietly disagree",
       "desc": "Case study from IKEA Indonesia: regional BI operations across Indonesia, Taiwan, Hong Kong, and Macau - Qlik Sense, Alteryx, and SQL Server held together by reconciliation at every seam and a definition registry nobody argues without.",
-      "date": "2026-09-24",
+      "date": "2026-09-23",
       "tags": [
         "IKEA",
         "Retail BI",
@@ -2472,7 +2472,7 @@
       "title": "Customer Analytics: Segmentation and Churn",
       "subtitle": "Real e-commerce data, real reviewers - analytics that ships decisions",
       "desc": "RevoU final project on real e-commerce data, evaluated by the Tokopedia Analytics team: behavioral segmentation, churn drift analysis, and dashboards that end in recommended actions - delivered with a positive evaluation.",
-      "date": "2026-09-24",
+      "date": "2026-09-23",
       "tags": [
         "Tokopedia",
         "Customer Analytics",
@@ -2775,7 +2775,7 @@
       "title": "Local-First AI: Cost, Privacy, Reliability",
       "subtitle": "Six months of running an AI company on local models - the honest business and engineering case, trade-offs included",
       "desc": "The business and engineering case for running AI agents 100% locally on Ollama: flat costs, full privacy, no rate limits - and the honest trade-offs, from six months of production.",
-      "date": "2026-09-24",
+      "date": "2026-09-23",
       "tags": [
         "Local-First",
         "Ollama",
@@ -3080,7 +3080,7 @@
       "title": "Quality Gates for AI-Generated Software",
       "subtitle": "Four non-negotiables that turn machine-speed code into shippable software",
       "desc": "The four-gate release discipline behind 30+ shipped apps: golden path, zero dead buttons, version-and-backup, and physical evidence. One blocked item stops the line - that is what makes speed safe.",
-      "date": "2026-09-24",
+      "date": "2026-09-23",
       "tags": [
         "QA",
         "Quality Gates",
@@ -3382,7 +3382,7 @@
       "title": "The ETL Playbook: Data Quality at Scale",
       "subtitle": "ETL fails quietly - unless you design against it",
       "desc": "The five-principle data quality playbook I ran across IKEA's four-country datalake: reconciliation at every seam, freshness alarms on every schedule, and discrepancies with named owners.",
-      "date": "2026-09-24",
+      "date": "2026-09-23",
       "tags": [
         "ETL",
         "Data Quality",
@@ -3718,7 +3718,7 @@
       "title": "The Freelance Delivery Playbook: Data and AI Projects Worldwide",
       "subtitle": "Scoping, validation-first builds, honest cadence, and handover that removes my dependency",
       "desc": "How I deliver scraping, BI, and AI automation projects worldwide: week-one scoping, validation-first pipelines, evidence-backed communication, and handover designed so the client stops needing me.",
-      "date": "2026-09-24",
+      "date": "2026-09-23",
       "tags": [
         "Freelance",
         "Upwork",
