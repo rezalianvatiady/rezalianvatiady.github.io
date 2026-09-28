@@ -1,4 +1,4 @@
-# Rezalian Vatiady — Portfolio Website v3.3
+# Rezalian Vatiady — Portfolio Website v3.4
 
 Static portfolio for recruiters (Upwork / LinkedIn audience). GitHub Pages, no backend.
 
